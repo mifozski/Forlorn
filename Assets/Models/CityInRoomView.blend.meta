@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 2b81694247c8b8a418f7b454e05d82e1
+timeCreated: 1515011269
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Center_City_Sci-Fi
+    100002: //RootNode
+    100004: Downtown_Center_City
+    100006: mesh01
+    400000: Center_City_Sci-Fi
+    400002: //RootNode
+    400004: Downtown_Center_City
+    400006: mesh01
+    2100000: default_tubes__sc1_01_01_01_jpg
+    2100002: default_tubes_city_base_2__sc1_01_01_01_jpg
+    2100004: default_tubes_city_base_2_1__sc1_01_01_01_jpg
+    2100006: default_tubes_city_base_2_2__sc1_01_01_01_jpg
+    2100008: default_glass
+    2100010: default_lamp_poles
+    2100012: default_lights
+    2100014: default_Area__Form3_texture_jpg
+    2100016: default_floor__antenna_04_01_01_01_jpg
+    2100018: default_city_base__dr2b_01_01_01_jpg
+    2100020: default_access__derf1_01_01_01_jpg
+    2100022: default_glass_city_base_2
+    2100024: default_lamp_poles_city_base_2
+    2100026: default_lights_city_base_2
+    2100028: default_Area_city_base_2__Form3_texture_jpg
+    2100030: default_floor_city_base_2__antenna_04_01_01_01_jpg
+    2100032: default_city_base_city_base_2__dr2b_01_01_01_jpg
+    2100034: default_access_city_base_2__derf1_01_01_01_jpg
+    2100036: default_city_base_city_base_2_1__dr2b_01_01_01_jpg
+    2100038: default_city_base_city_base_2_2__dr2b_01_01_01_jpg
+    2100040: default_sign_mult__b12_jpg
+    2100042: default_sign2__b10_jpg
+    2100044: default_sign3__b15b_jpg
+    2100046: default_sign4__v1_jpg
+    2100048: default_sign5__v2_jpg
+    2100050: default_sign6__d1_jpg
+    2100052: default_sign7__g3_jpg
+    2100054: default_sign8__g1_jpg
+    2100056: default_sign9__g4_jpg
+    2100058: default_sign10__b9_jpg
+    2100060: default_holders
+    2100062: default_city_bldgs_2__axcv1_jpg
+    2100064: default__aw2_jpg
+    2100066: default_water_canal__fl1_jpg
+    2100068: default_city_base_2__aw2_jpg
+    2100070: default_water_canal_city_base_2__fl1_jpg
+    2100072: default_city_base_2_1__aw2_jpg
+    2100074: default_water_canal_city_base_2_1__fl1_jpg
+    2100076: default_city_base_2_2__aw2_jpg
+    2100078: default_water_canal_city_base_2_2__fl1_jpg
+    2100080: City_Buildings__axcv1_jpg
+    2100082: City_Pavement__antenna_04_01_01_01_jpg
+    2300000: Center_City_Sci-Fi
+    2300002: Downtown_Center_City
+    2300004: mesh01
+    3300000: Center_City_Sci-Fi
+    3300002: Downtown_Center_City
+    3300004: mesh01
+    4300000: Downtown_Center_City
+    4300002: Center_City_Sci-Fi
+    4300004: mesh01
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

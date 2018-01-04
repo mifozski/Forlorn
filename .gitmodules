@@ -1,0 +1,3 @@
+[submodule "Assets/PostProcessingStack"]
+	path = Assets/PostProcessingStack
+	url = git@github.com:Unity-Technologies/PostProcessing.git

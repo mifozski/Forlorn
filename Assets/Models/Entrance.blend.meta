@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 29dde27c3308ed44abfeb7d1ee00b50e
+timeCreated: 1514568539
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Plane_001
+    100006: Icosphere
+    100008: Buttresses
+    100010: Walls
+    100012: Walls_001
+    100014: EntranceInterior
+    100016: Cube
+    400000: //RootNode
+    400002: Plane
+    400004: Plane_001
+    400006: Icosphere
+    400008: Buttresses
+    400010: Walls
+    400012: Walls_001
+    400014: EntranceInterior
+    400016: Cube
+    2100000: unnamed
+    2100002: ConcreteWall__ConcreteWall_jpg
+    2100004: None__ConcreteWall_jpg
+    2100006: Body
+    2100008: Light
+    2100010: IlluminatorBody
+    2100012: IlluminatorLight
+    2300000: //RootNode
+    2300002: Plane
+    2300004: Plane_001
+    2300006: Icosphere
+    2300008: Buttresses
+    2300010: Walls
+    2300012: Walls_001
+    2300014: EntranceInterior
+    2300016: Cube
+    3300000: //RootNode
+    3300002: Plane
+    3300004: Plane_001
+    3300006: Icosphere
+    3300008: Buttresses
+    3300010: Walls
+    3300012: Walls_001
+    3300014: EntranceInterior
+    3300016: Cube
+    4300000: Plane
+    4300002: Plane_001
+    4300004: Icosphere
+    4300006: Walls
+    4300008: Buttresses
+    4300010: Walls_001
+    4300012: EntranceInterior
+    4300014: Cube
+    6400000: Buttresses
+    6400002: Walls
+    6400004: Walls_001
+    6400006: EntranceInterior
+    6400008: Cube
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteWall__ConcreteWall_jpg
+    second: {fileID: 2100000, guid: a3c7bcf7dd9610f4cb1a97e60c742b22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IlluminatorBody
+    second: {fileID: 2100000, guid: 5faf8338d4b926c47bfee0ac27413f71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IlluminatorLight
+    second: {fileID: 2100000, guid: 994943678fae732479009f8beb166d8a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

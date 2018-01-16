@@ -293,7 +293,7 @@ Prefab:
     - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
         type: 2}
       propertyPath: MaxDistance
-      value: 20.36
+      value: 21.79
       objectReference: {fileID: 0}
     - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
         type: 2}
@@ -313,7 +313,7 @@ Prefab:
     - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.34832764
+      value: 0.17777778
       objectReference: {fileID: 0}
     - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
         type: 2}
@@ -324,6 +324,16 @@ Prefab:
         type: 2}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0.08879924
+      objectReference: {fileID: 0}
+    - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82965028972138758, guid: c261246740d53264c8de5c29cfa9c372,
+        type: 2}
+      propertyPath: rolloffMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c261246740d53264c8de5c29cfa9c372, type: 2}
@@ -580,6 +590,18 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 1a95d07fd1699c9449046f9e94f98fed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 1a95d07fd1699c9449046f9e94f98fed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 1a95d07fd1699c9449046f9e94f98fed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 1a95d07fd1699c9449046f9e94f98fed, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}

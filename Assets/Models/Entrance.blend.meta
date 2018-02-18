@@ -14,6 +14,8 @@ ModelImporter:
     100012: Walls_001
     100014: EntranceInterior
     100016: Cube
+    100018: Cylinder
+    100020: Cylinder_001
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -23,6 +25,8 @@ ModelImporter:
     400012: Walls_001
     400014: EntranceInterior
     400016: Cube
+    400018: Cylinder
+    400020: Cylinder_001
     2100000: unnamed
     2100002: ConcreteWall__ConcreteWall_jpg
     2100004: None__ConcreteWall_jpg
@@ -30,6 +34,7 @@ ModelImporter:
     2100008: Light
     2100010: IlluminatorBody
     2100012: IlluminatorLight
+    2100014: Gate
     2300000: //RootNode
     2300002: Plane
     2300004: Plane_001
@@ -39,6 +44,8 @@ ModelImporter:
     2300012: Walls_001
     2300014: EntranceInterior
     2300016: Cube
+    2300018: Cylinder
+    2300020: Cylinder_001
     3300000: //RootNode
     3300002: Plane
     3300004: Plane_001
@@ -48,6 +55,8 @@ ModelImporter:
     3300012: Walls_001
     3300014: EntranceInterior
     3300016: Cube
+    3300018: Cylinder
+    3300020: Cylinder_001
     4300000: Plane
     4300002: Plane_001
     4300004: Icosphere
@@ -56,11 +65,15 @@ ModelImporter:
     4300010: Walls_001
     4300012: EntranceInterior
     4300014: Cube
+    4300016: Cylinder_001
+    4300018: Cylinder
     6400000: Buttresses
     6400002: Walls
     6400004: Walls_001
     6400006: EntranceInterior
     6400008: Cube
+    6400010: Cylinder
+    6400012: Cylinder_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -72,6 +85,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gate
+    second: {fileID: 2100000, guid: 36ec8e933c6aae4459adb1d51421e3d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: IlluminatorBody
     second: {fileID: 2100000, guid: 5faf8338d4b926c47bfee0ac27413f71, type: 2}
   - first:
@@ -79,10 +97,15 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: IlluminatorLight
     second: {fileID: 2100000, guid: 994943678fae732479009f8beb166d8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 48135e175ca90af4cbbde232486a9ffd, type: 2}
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4

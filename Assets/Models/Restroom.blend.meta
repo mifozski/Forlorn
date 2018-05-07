@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: bddf9eecd5fca844fb43f710fa9d79a4
-timeCreated: 1515083391
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -10,34 +8,83 @@ ModelImporter:
     100004: Toilet
     100006: Cube
     100008: Window_0
+    100010: Windows
+    100012: Windows_001
+    100014: Plane
+    100016: Door
+    100018: Doorway
+    100020: Doorway_001
+    100022: _Cube
     400000: //RootNode
     400002: BasementWalls
     400004: Toilet
     400006: Cube
     400008: Window_0
+    400010: Windows
+    400012: Windows_001
+    400014: Plane
+    400016: Door
+    400018: Doorway
+    400020: Doorway_001
+    400022: _Cube
     2100000: unnamed
     2100002: RestroomWall
     2100004: ToiletCeramic
     2100006: Restroom_Window
+    2100008: Restroom_Window__ToiletCeramic_Diffuse_Color
+    2100010: None__ToiletCeramic_Diffuse_Color
+    2100012: Restroom_Wall
+    2100014: Restroom_TubeMetalic
+    2100016: Restroom_ToiletCeramic
+    2100018: Restroom_ToiletTube
+    2100020: Restroom_Floor
     2300000: //RootNode
     2300002: BasementWalls
     2300004: Toilet
     2300006: Cube
     2300008: Window_0
+    2300010: Windows
+    2300012: Windows_001
+    2300014: Plane
+    2300016: Door
+    2300018: Doorway
+    2300020: Doorway_001
+    2300022: _Cube
     3300000: //RootNode
     3300002: BasementWalls
     3300004: Toilet
     3300006: Cube
     3300008: Window_0
+    3300010: Windows
+    3300012: Windows_001
+    3300014: Plane
+    3300016: Door
+    3300018: Doorway
+    3300020: Doorway_001
+    3300022: _Cube
     4300000: BasementWalls
     4300002: Toilet
     4300004: Cube
     4300006: Window_0
+    4300008: Windows
+    4300010: Windows_001
+    4300012: Plane
+    4300014: Door
+    4300016: Doorway
+    4300018: Doorway_001
+    4300020: _Cube
     6400000: //RootNode
     6400002: BasementWalls
     6400004: Toilet
     6400006: Cube
     6400008: Window_0
+    6400010: Windows
+    6400012: Windows_001
+    6400014: Plane
+    6400016: Door
+    6400018: Doorway
+    6400020: Doorway_001
+    6400022: _Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -45,6 +92,26 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: RestroomWall
+    second: {fileID: 2100000, guid: 8b9ec55a02434264f98e052c8962cd8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_Floor
+    second: {fileID: 2100000, guid: 5b45a07172a37384281aff8e4b052f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_ToiletCeramic
+    second: {fileID: 2100000, guid: 89737ce8431353845b83a4a52ac86e66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_ToiletTube
+    second: {fileID: 2100000, guid: 684984e9d29bb3d47bec531124890b66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_Wall
     second: {fileID: 2100000, guid: 8b9ec55a02434264f98e052c8962cd8d, type: 2}
   - first:
       type: UnityEngine:Material
@@ -74,6 +141,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

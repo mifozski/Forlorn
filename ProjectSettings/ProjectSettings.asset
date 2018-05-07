@@ -646,11 +646,12 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 90e9a9c8-2d36-4a3b-a6f3-6c747750f57b
-  projectName: Forlorn (2)
+  projectName: Forlorn
   organizationId: andreyefimov2010
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

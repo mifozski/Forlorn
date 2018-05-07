@@ -8,15 +8,15 @@ using Forlorn;
 namespace Forlorn {
 public enum State
 {
-    Init,
-    AfterFirstWakeUp,
-    AfterCheckingTheDoorMonitor,
-    AfterCheckingBackAlleyPaperPiece
+	Init,
+	AfterFirstWakeUp,
+	AfterCheckingTheDoorMonitor,
+	AfterCheckingBackAlleyPaperPiece
 }
 
 public class GameStageController : MonoBehaviour
 {
-    StateMachine<State> fsm;
+	StateMachine<State> fsm;
 
 	GameStageController c = null;
 
@@ -37,7 +37,7 @@ public class GameStageController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-    }
+	}
 
 	private void Init()
 	{
@@ -48,51 +48,58 @@ public class GameStageController : MonoBehaviour
 		paperPiece = GameObject.Find("PaperPiece").transform;
 		paperPieceAnimator = paperPiece.GetComponent<Animator>();
 
-        EventManager.StartListening("OnUse_DoorMonitor", OnUse_DoorMonitor);
-        EventManager.StartListening("OnUse_PaperPiece", OnUse_PaperPiece);
+		EventManager.StartListening("OnUse_DoorMonitor", OnUse_DoorMonitor);
+		EventManager.StartListening("OnUse_PaperPiece", OnUse_PaperPiece);
+		
+		EventManager.StartListening("OnUse_EntranceDoor", OnUse_EntranceDoor);
 	}
 
-    public void SetState(State state)
-    {
+	public void SetState(State state)
+	{
 		Debug.Log("GameStageController:Init_Enter(): state=" + state);
-        fsm.ChangeState(state);
-    }
+		fsm.ChangeState(state);
+	}
 
 	public State GetState()
 	{
 		return fsm.State;
 	}
 
-    void Init_Enter()
-    {
+	void Init_Enter()
+	{
 		// TODO: Play cutscene
-        Debug.Log("GameStageController:Init_Enter()");
+		Debug.Log("GameStageController:Init_Enter()");
 
 		fsm.ChangeState(State.AfterFirstWakeUp);
-    }
+	}
 
-    void AfterFirstWakeUp_Enter()
-    {
-        Debug.Log("GameStageController:AfterFirstWakeUp_Enter()");
-    }
+	void AfterFirstWakeUp_Enter()
+	{
+		Debug.Log("GameStageController:AfterFirstWakeUp_Enter()");
+	}
 
 	private void OnUse_DoorMonitor()
 	{
 		if (GetState() == State.AfterFirstWakeUp)
-        {
-            SetState(State.AfterCheckingTheDoorMonitor);
+		{
+			SetState(State.AfterCheckingTheDoorMonitor);
 
 			// Slide paper piece under the door
 			paperPieceAnimator.Play("PaperPieceSlide");
-        }
+		}
 	}
 
 	private void OnUse_PaperPiece()
 	{
 		if (GetState() == State.AfterCheckingTheDoorMonitor)
-        {
-            SetState(State.AfterCheckingBackAlleyPaperPiece);
-        }
+		{
+			SetState(State.AfterCheckingBackAlleyPaperPiece);
+		}
+	}
+
+	private void OnUse_EntranceDoor()
+	{
+		GameController.LoadScene(Scene.Entrance);
 	}
 }
 }

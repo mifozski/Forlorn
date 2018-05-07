@@ -17,22 +17,44 @@ public enum Scene
 
 public class GameController : MonoBehaviour {
 
-	public static GameController Controller;
+	public static GameController gameController;
 
 	private GameStageController stageController;
 
+	public static GameController instance
+	{
+		get
+		{
+			if (!gameController)
+			{
+				gameController = FindObjectOfType (typeof (GameController)) as GameController;
+
+				if (!gameController)
+				{
+					Debug.LogError ("There needs to be one active GameController script on a GameObject in your scene.");
+				}
+				else
+				{
+					gameController.Init ();
+				}
+			}
+
+			return gameController;
+		}
+	}
+
 	void Awake()
 	{
-		if (Controller == null)
+		if (gameController == null)
 		{
 			DontDestroyOnLoad(gameObject);
-			Controller = this;
+			gameController = this;
 
 			stageController = new GameStageController();
 
 			Init();
 		}
-		else if (Controller != this)
+		else if (gameController != this)
 		{
 			Destroy(gameObject);
 		}
@@ -42,12 +64,12 @@ public class GameController : MonoBehaviour {
 	{
 	}
 
-	public void LoadScene(Scene scene)
+	static public void LoadScene(Scene scene)
 	{
 		SceneManager.LoadScene(GetSceneName(scene));
 	}
 
-	private string GetSceneName(Scene scene)
+	static private string GetSceneName(Scene scene)
 	{
 		switch (scene)
 		{
@@ -57,6 +79,17 @@ public class GameController : MonoBehaviour {
 		case Scene.Hallway: return "Hallway";
 		default: return "";
 		}
+	}
+
+	static public void SaveGame()
+	{
+		GameState state = new GameState();
+		state.stage = 1;
+		state.Save();
+
+		// GameStateSaver saver = new GameStateSaver();
+		// saver.Save(state);
+
 	}
 }
 }

@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Levels/Room.unity
+    guid: 062822b52d7fd9f408ad93a2780916eb
+  - enabled: 1
+    path: Assets/Levels/Entrance.unity
+    guid: 8be4d680c26eb1a49818f0b34bdcd31f
+  - enabled: 1
+    path: Assets/Levels/Restroom.unity
+    guid: 845ad0efebafd934187a180fb1ea6127
+  - enabled: 1
+    path: Assets/Levels/Hallway.unity
+    guid: f08eff0baf0438441a444795435b5bb4

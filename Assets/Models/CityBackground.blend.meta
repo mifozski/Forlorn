@@ -1,16 +1,96 @@
 fileFormatVersion: 2
 guid: e05af18868b461a45afe9783d3deec79
-timeCreated: 1515267551
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: _Buttresses
+    100004: _Cube
+    100006: _Door
+    100008: _Door_001
+    100010: _DoorMonitor
+    100012: _HallWalls
+    100014: _HallWalls_001
+    100016: _RoomWalls
+    100018: _Walls
+    100020: _Window
+    100022: _Window_001
+    100024: _WindowFrame
+    100026: _WindowFrame_001
+    100028: _WindowFrame_002
+    100030: Cube_001
     400000: //RootNode
+    400002: _Buttresses
+    400004: _Cube
+    400006: _Door
+    400008: _Door_001
+    400010: _DoorMonitor
+    400012: _HallWalls
+    400014: _HallWalls_001
+    400016: _RoomWalls
+    400018: _Walls
+    400020: _Window
+    400022: _Window_001
+    400024: _WindowFrame
+    400026: _WindowFrame_001
+    400028: _WindowFrame_002
+    400030: Cube_001
     2100000: unnamed
+    2100002: RoomWall
+    2100004: Window
+    2100006: WindowFrame
+    2100008: DoorMonitor_Body
+    2100010: DoorMonitor_Viewer
+    2100012: ConcreteWall__ConcreteWall_jpg
+    2100014: IlluminatorBody
+    2100016: IlluminatorLight
     2300000: //RootNode
+    2300002: _Buttresses
+    2300004: _Cube
+    2300006: _Door
+    2300008: _Door_001
+    2300010: _DoorMonitor
+    2300012: _HallWalls
+    2300014: _HallWalls_001
+    2300016: _RoomWalls
+    2300018: _Walls
+    2300020: _Window
+    2300022: _Window_001
+    2300024: _WindowFrame
+    2300026: _WindowFrame_001
+    2300028: _WindowFrame_002
+    2300030: Cube_001
     3300000: //RootNode
+    3300002: _Buttresses
+    3300004: _Cube
+    3300006: _Door
+    3300008: _Door_001
+    3300010: _DoorMonitor
+    3300012: _HallWalls
+    3300014: _HallWalls_001
+    3300016: _RoomWalls
+    3300018: _Walls
+    3300020: _Window
+    3300022: _Window_001
+    3300024: _WindowFrame
+    3300026: _WindowFrame_001
+    3300028: _WindowFrame_002
+    3300030: Cube_001
     4300000: Cube_001
+    4300002: _HallWalls_001
+    4300004: _Door_001
+    4300006: _Window_001
+    4300008: _WindowFrame_002
+    4300010: _WindowFrame_001
+    4300012: _HallWalls
+    4300014: _DoorMonitor
+    4300016: _Door
+    4300018: _Window
+    4300020: _WindowFrame
+    4300022: _RoomWalls
+    4300024: _Buttresses
+    4300026: _Cube
+    4300028: _Walls
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -32,6 +112,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

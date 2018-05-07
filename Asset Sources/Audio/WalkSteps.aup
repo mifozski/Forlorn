@@ -1,0 +1,97 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="WalkSteps_data" version="1.3.0" audacityversion="2.2.1" sel0="0.0000000000" sel1="0.0999773243" vpos="32" h="0.0000000000" zoom="393.2043286867" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Lavf52.64.2"/>
+	</tags>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1570176">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c3e.au" len="262144" min="-0.307196" max="0.368288" rms="0.007826"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e000055a.au" len="262144" min="-0.26222" max="0.269931" rms="0.009357"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000864.au" len="262144" min="-0.211276" max="0.287137" rms="0.007438"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000e80.au" len="262144" min="-0.299404" max="0.383497" rms="0.010039"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0000749.au" len="262144" min="-0.22691" max="0.290988" rms="0.008189"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000ff5.au" len="259456" min="-0.249079" max="0.301353" rms="0.007409"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1570176">
+				<waveblock start="0">
+					<simpleblockfile filename="e000006e.au" len="262144" min="-0.267438" max="0.294874" rms="0.007277"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e00004c1.au" len="262144" min="-0.219116" max="0.294898" rms="0.009028"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e000085d.au" len="262144" min="-0.196265" max="0.329784" rms="0.00734"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000dc7.au" len="262144" min="-0.25836" max="0.311928" rms="0.009341"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e000078e.au" len="262144" min="-0.221759" max="0.322798" rms="0.008093"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e000045d.au" len="259456" min="-0.218683" max="0.33901" rms="0.007354"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="2" linked="0" mute="0" solo="1" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="4409">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000834.au" len="4409" min="-0.088633" max="0.087962" rms="0.013792"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="10431">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000bb8.au" len="10431" min="-0.14467" max="0.135135" rms="0.010858"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8636">
+				<waveblock start="0">
+					<simpleblockfile filename="e00000e2.au" len="8636" min="-0.287075" max="0.331581" rms="0.02168"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Tile-Boots-Leather Sole-Frye-12R-Walk-Stop" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000dda.au" len="8299" min="-0.136709" max="0.253468" rms="0.017728"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

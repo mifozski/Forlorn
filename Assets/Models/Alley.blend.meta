@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 0dd4ba057293b934ebcc11e713e8a122
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Buttresses
+    100004: Cube
+    100006: Cylinder
+    100008: Cylinder_001
+    100010: EntranceInterior
+    100012: Walls
+    100014: Walls_001
+    100016: Cube_001
+    100018: BackAlleyWalls
+    100020: Text
+    400000: //RootNode
+    400002: Buttresses
+    400004: Cube
+    400006: Cylinder
+    400008: Cylinder_001
+    400010: EntranceInterior
+    400012: Walls
+    400014: Walls_001
+    400016: Cube_001
+    400018: BackAlleyWalls
+    400020: Text
+    2100000: unnamed
+    2100002: Gate
+    2100004: IlluminatorBody
+    2100006: IlluminatorLight
+    2100008: ConcreteWall__ConcreteWall_jpg
+    2100010: BackAlleyText
+    2100012: BackAlleyWalls
+    2300000: Buttresses
+    2300002: Cube
+    2300004: Cylinder
+    2300006: Cylinder_001
+    2300008: EntranceInterior
+    2300010: Walls
+    2300012: Walls_001
+    2300014: Cube_001
+    2300016: //RootNode
+    2300018: BackAlleyWalls
+    2300020: Text
+    3300000: Buttresses
+    3300002: Cube
+    3300004: Cylinder
+    3300006: Cylinder_001
+    3300008: EntranceInterior
+    3300010: Walls
+    3300012: Walls_001
+    3300014: Cube_001
+    3300016: //RootNode
+    3300018: BackAlleyWalls
+    3300020: Text
+    4300000: Cylinder_001
+    4300002: Cylinder
+    4300004: Walls_001
+    4300006: Cube
+    4300008: EntranceInterior
+    4300010: Walls
+    4300012: Buttresses
+    4300014: Cube_001
+    4300016: BackAlleyWalls
+    4300018: Text
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackAlleyText
+    second: {fileID: 2100000, guid: efc43162ccc19744ca01d9d204d20eac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackAlleyWalls
+    second: {fileID: 2100000, guid: 58b3e4ce7ad9ac94c9e2ee7a091829a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: 823e23234a4d300419c18b8983d63466, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

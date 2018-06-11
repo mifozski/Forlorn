@@ -17,17 +17,31 @@ public class PlayerController : MonoBehaviour {
 	LayerMask interactableMask;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		camera = GetComponentInChildren<Camera>().transform;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update()
 	{
+		RaycastHit hit;
+		if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
+		{
+			Interactable interactable = hit.transform.gameObject.GetComponent<Interactable>();
+			if (interactable)
+			{
+				GameController.ShowInteractableObjectIndicator(true);
+				// interactable.OnLookAt();
+			}
+		}
+		else
+		{
+			GameController.ShowInteractableObjectIndicator(false);
+		}
+
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			RaycastHit hit;
 			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 			{
 				Debug.Log("OnUse_" + hit.transform.gameObject.name);

@@ -14,6 +14,7 @@ ModelImporter:
     100016: Cube_001
     100018: BackAlleyWalls
     100020: Text
+    100022: BezierCurve
     400000: //RootNode
     400002: Buttresses
     400004: Cube
@@ -25,6 +26,7 @@ ModelImporter:
     400016: Cube_001
     400018: BackAlleyWalls
     400020: Text
+    400022: BezierCurve
     2100000: unnamed
     2100002: Gate
     2100004: IlluminatorBody
@@ -43,6 +45,7 @@ ModelImporter:
     2300016: //RootNode
     2300018: BackAlleyWalls
     2300020: Text
+    2300022: BezierCurve
     3300000: Buttresses
     3300002: Cube
     3300004: Cylinder
@@ -54,6 +57,7 @@ ModelImporter:
     3300016: //RootNode
     3300018: BackAlleyWalls
     3300020: Text
+    3300022: BezierCurve
     4300000: Cylinder_001
     4300002: Cylinder
     4300004: Walls_001
@@ -64,6 +68,7 @@ ModelImporter:
     4300014: Cube_001
     4300016: BackAlleyWalls
     4300018: Text
+    4300020: BezierCurve
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using Forlorn;
 
-namespace Forlorn {
-
+namespace Forlorn
+{
 public enum Scene
 {
 	Room,
@@ -15,33 +16,16 @@ public enum Scene
 	Hallway
 }
 
-public class GameController : MonoBehaviour {
-
+public class GameController : SingletonMonoBehavior<GameController>
+{
 	public static GameController gameController;
 
 	private GameStageController stageController;
 
-	public static GameController instance
-	{
-		get
-		{
-			if (!gameController)
-			{
-				gameController = FindObjectOfType (typeof (GameController)) as GameController;
-
-				if (!gameController)
-				{
-					Debug.LogError ("There needs to be one active GameController script on a GameObject in your scene.");
-				}
-				else
-				{
-					gameController.Init ();
-				}
-			}
-
-			return gameController;
-		}
-	}
+	[SerializeField]
+	Image interactableObjectIndicator;
+	static bool interactableObjectIndicatorIsShown = false;
+	static Coroutine interactableObjectIndicatorCoroutine = null;
 
 	void Awake()
 	{
@@ -62,6 +46,19 @@ public class GameController : MonoBehaviour {
 
 	private void Init()
 	{
+	}
+
+	public static void ShowInteractableObjectIndicator(bool draw)
+	{
+		if (draw != interactableObjectIndicatorIsShown)
+		{
+			if (interactableObjectIndicatorCoroutine != null)
+				Instance.StopCoroutine(interactableObjectIndicatorCoroutine);
+
+			interactableObjectIndicatorCoroutine = Instance.StartCoroutine(Utils.AlphaFade(draw, 1f, Instance.interactableObjectIndicator.material));
+
+			interactableObjectIndicatorIsShown = draw;
+		}
 	}
 
 	static public void LoadScene(Scene scene)

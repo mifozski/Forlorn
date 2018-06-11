@@ -5,10 +5,15 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public UnityEvent whoa;
-	
-    private void OnInteract()
-    {
-        
-    }
+	public UnityEvent whoa;
+
+	public void OnLookAt()
+	{
+		
+	}
+
+	private void OnInteract()
+	{
+		
+	}
 }

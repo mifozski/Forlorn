@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 9b029b857a1b2c1459e0a97ec9ce7083
-timeCreated: 1514057955
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -25,6 +23,9 @@ ModelImporter:
     100034: WindowFrame_002
     100036: HallWindow
     100038: WallsAndFloor
+    100040: BathroomDoor
+    100042: BathroomDoorHandle
+    100044: BathroomDoorway
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -45,6 +46,9 @@ ModelImporter:
     400034: WindowFrame_002
     400036: HallWindow
     400038: WallsAndFloor
+    400040: BathroomDoor
+    400042: BathroomDoorHandle
+    400044: BathroomDoorway
     2100000: unnamed
     2100002: Material_001
     2100004: DoorMonitor_Body
@@ -54,6 +58,9 @@ ModelImporter:
     2100012: Window
     2100014: Window_001
     2100016: WindowFrame
+    2100018: Metal
+    2100020: Room_BathroomDoorway
+    2100022: Room_BathroomDoor
     2300000: //RootNode
     2300002: Plane
     2300004: Plane_001
@@ -74,6 +81,9 @@ ModelImporter:
     2300034: WindowFrame_002
     2300036: HallWindow
     2300038: WallsAndFloor
+    2300040: BathroomDoor
+    2300042: BathroomDoorHandle
+    2300044: BathroomDoorway
     3300000: //RootNode
     3300002: Plane
     3300004: Plane_001
@@ -94,6 +104,9 @@ ModelImporter:
     3300034: WindowFrame_002
     3300036: HallWindow
     3300038: WallsAndFloor
+    3300040: BathroomDoor
+    3300042: BathroomDoorHandle
+    3300044: BathroomDoorway
     4300000: Plane
     4300002: Plane_002
     4300004: Plane_001
@@ -113,6 +126,9 @@ ModelImporter:
     4300032: RoomWalls
     4300034: HallWindow
     4300036: WallsAndFloor
+    4300038: BathroomDoorHandle
+    4300040: BathroomDoorway
+    4300042: BathroomDoor
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -126,6 +142,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: DoorMonitor_Viewer
     second: {fileID: 2100000, guid: 3f59854f8101b864d8a97ccb7b1d59ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 10f0a01c37995334b87c40aed5b830b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 48135e175ca90af4cbbde232486a9ffd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -154,6 +180,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -181,9 +208,9 @@ ModelImporter:
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 4
+    secondaryUVPackMargin: 18
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60

@@ -10,6 +10,7 @@ ModelImporter:
     100008: Doorway_001
     100010: //RootNode
     100012: Cube
+    100014: YellowWindow
     400000: _Window
     400002: BasementWalls
     400004: Door
@@ -17,34 +18,55 @@ ModelImporter:
     400008: Doorway_001
     400010: //RootNode
     400012: Cube
+    400014: YellowWindow
     2100000: unnamed
     2100002: Restroom_Wall
     2100004: Restroom_Floor
+    2100006: Lodge_YellowWindow
+    2100008: Lodge_Window
     2300000: _Window
     2300002: BasementWalls
     2300004: Door
     2300006: Doorway
     2300008: Doorway_001
     2300010: Cube
+    2300012: YellowWindow
     3300000: _Window
     3300002: BasementWalls
     3300004: Door
     3300006: Doorway
     3300008: Doorway_001
     3300010: Cube
+    3300012: YellowWindow
     4300000: _Window
     4300002: Doorway_001
     4300004: Door
     4300006: Doorway
     4300008: BasementWalls
     4300010: Cube
+    4300012: YellowWindow
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lodge_Window
+    second: {fileID: 2100000, guid: 41981f1068745cb4384f28093561e80e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_Floor
+    second: {fileID: 2100000, guid: 5b45a07172a37384281aff8e4b052f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Restroom_Wall
+    second: {fileID: 2100000, guid: 8b9ec55a02434264f98e052c8962cd8d, type: 2}
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4

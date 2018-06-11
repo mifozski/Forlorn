@@ -29,8 +29,8 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
 		if (currentPivot && currentPivot.IsPlayerInTriggerZone(player))
 		{
 			camera.transform.SetPositionAndRotation(currentPivot.GetPointTransfrom().position, currentPivot.GetPointTransfrom().rotation);

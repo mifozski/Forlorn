@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 29dde27c3308ed44abfeb7d1ee00b50e
-timeCreated: 1514568539
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -35,6 +33,7 @@ ModelImporter:
     2100010: IlluminatorBody
     2100012: IlluminatorLight
     2100014: Gate
+    2100016: ConcreteWall
     2300000: //RootNode
     2300002: Plane
     2300004: Plane_001
@@ -80,6 +79,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ConcreteWall
+    second: {fileID: 2100000, guid: a3c7bcf7dd9610f4cb1a97e60c742b22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ConcreteWall__ConcreteWall_jpg
     second: {fileID: 2100000, guid: a3c7bcf7dd9610f4cb1a97e60c742b22, type: 2}
   - first:
@@ -120,6 +124,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

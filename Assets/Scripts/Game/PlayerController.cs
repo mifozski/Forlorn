@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 using Forlorn;
 
@@ -16,6 +17,10 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	LayerMask interactableMask;
 
+	// [SerializeField] UnityEvent interactableEvent;
+
+	[SerializeField] InteractiveObjectTypeEvent interactiveEvent;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -28,11 +33,10 @@ public class PlayerController : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 		{
-			Interactable interactable = hit.transform.gameObject.GetComponent<Interactable>();
-			if (interactable)
+			Interactive interactive = hit.transform.gameObject.GetComponent<Interactive>();
+			if (interactive)
 			{
 				GameController.ShowInteractableObjectIndicator(true);
-				// interactable.OnLookAt();
 			}
 		}
 		else
@@ -44,8 +48,13 @@ public class PlayerController : MonoBehaviour {
 		{
 			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 			{
-				Debug.Log("OnUse_" + hit.transform.gameObject.name);
-				EventManager.TriggerEvent("OnUse_" + hit.transform.gameObject.name);
+				Interactive interactive = hit.transform.gameObject.GetComponentInChildren<Interactive>();
+				if (interactive)
+				{
+					Debug.Log("OnUse_" + hit.transform.gameObject.name);
+
+					interactiveEvent.Invoke(interactive.interactiveType);
+				}
 			}
 		}
 	}

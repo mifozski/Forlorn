@@ -18,8 +18,6 @@ public enum Scene
 
 public class GameController : SingletonMonoBehavior<GameController>
 {
-	public static GameController gameController;
-
 	private GameStageController stageController;
 
 	[SerializeField]
@@ -29,19 +27,7 @@ public class GameController : SingletonMonoBehavior<GameController>
 
 	void Awake()
 	{
-		if (gameController == null)
-		{
-			DontDestroyOnLoad(gameObject);
-			gameController = this;
-
-			stageController = new GameStageController();
-
-			Init();
-		}
-		else if (gameController != this)
-		{
-			Destroy(gameObject);
-		}
+		Init();
 	}
 
 	private void Init()

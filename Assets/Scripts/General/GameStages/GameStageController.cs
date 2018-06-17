@@ -14,29 +14,16 @@ public enum State
 	AfterCheckingBackAlleyPaperPiece
 }
 
-public class GameStageController : MonoBehaviour
+public class GameStageController : SingletonMonoBehavior<GameStageController>
 {
 	StateMachine<State> fsm;
-
-	GameStageController c = null;
 
 	Transform paperPiece;
 	Animator paperPieceAnimator;
 
 	void Awake()
 	{
-		if (c == null)
-		{
-			DontDestroyOnLoad(gameObject);
-
-			c = this;
-
-			Init();
-		}
-		else if (c != this)
-		{
-			Destroy(gameObject);
-		}
+		Init();
 	}
 
 	private void Init()
@@ -47,16 +34,11 @@ public class GameStageController : MonoBehaviour
 
 		paperPiece = GameObject.Find("PaperPiece").transform;
 		paperPieceAnimator = paperPiece.GetComponent<Animator>();
-
-		EventManager.StartListening("OnUse_DoorMonitor", OnUse_DoorMonitor);
-		EventManager.StartListening("OnUse_PaperPiece", OnUse_PaperPiece);
-		
-		EventManager.StartListening("OnUse_EntranceDoor", OnUse_EntranceDoor);
 	}
 
 	public void SetState(State state)
 	{
-		Debug.Log("GameStageController:Init_Enter(): state=" + state);
+		Debug.Log("GameStageController:Init_Enter(): state = " + state);
 		fsm.ChangeState(state);
 	}
 
@@ -71,6 +53,20 @@ public class GameStageController : MonoBehaviour
 		Debug.Log("GameStageController:Init_Enter()");
 
 		fsm.ChangeState(State.AfterFirstWakeUp);
+	}
+
+	public void OnInteracted(InteractiveObjectType objectType)
+	{
+		Debug.Log("Interacted with " + objectType.ToString());
+
+		switch (objectType)
+		{
+			case InteractiveObjectType.DoorMonitor: OnUse_DoorMonitor(); break;
+			case InteractiveObjectType.NoteUnderTheDoor: OnUse_PaperPiece(); break;
+			case InteractiveObjectType.RoomDoor: OnUse_EntranceDoor(); break;
+
+			default: break;
+		}
 	}
 
 	void AfterFirstWakeUp_Enter()

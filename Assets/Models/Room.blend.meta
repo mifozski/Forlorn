@@ -26,6 +26,14 @@ ModelImporter:
     100040: BathroomDoor
     100042: BathroomDoorHandle
     100044: BathroomDoorway
+    100046: _BathroomDoorCutter
+    100048: CeilingFan
+    100050: Cylinder
+    100052: Empty
+    100054: SurfPatch
+    100056: _CeilingFanBlade
+    100058: CeilingFan_001
+    100060: CeilingFanBlade
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -49,6 +57,14 @@ ModelImporter:
     400040: BathroomDoor
     400042: BathroomDoorHandle
     400044: BathroomDoorway
+    400046: _BathroomDoorCutter
+    400048: CeilingFan
+    400050: Cylinder
+    400052: Empty
+    400054: SurfPatch
+    400056: _CeilingFanBlade
+    400058: CeilingFan_001
+    400060: CeilingFanBlade
     2100000: unnamed
     2100002: Material_001
     2100004: DoorMonitor_Body
@@ -61,6 +77,8 @@ ModelImporter:
     2100018: Metal
     2100020: Room_BathroomDoorway
     2100022: Room_BathroomDoor
+    2100024: Room_CeilingFanHull
+    2100026: Room_CeilingFanLight
     2300000: //RootNode
     2300002: Plane
     2300004: Plane_001
@@ -84,6 +102,13 @@ ModelImporter:
     2300040: BathroomDoor
     2300042: BathroomDoorHandle
     2300044: BathroomDoorway
+    2300046: _BathroomDoorCutter
+    2300048: CeilingFan
+    2300050: Cylinder
+    2300052: SurfPatch
+    2300054: _CeilingFanBlade
+    2300056: CeilingFan_001
+    2300058: CeilingFanBlade
     3300000: //RootNode
     3300002: Plane
     3300004: Plane_001
@@ -107,6 +132,13 @@ ModelImporter:
     3300040: BathroomDoor
     3300042: BathroomDoorHandle
     3300044: BathroomDoorway
+    3300046: _BathroomDoorCutter
+    3300048: CeilingFan
+    3300050: Cylinder
+    3300052: SurfPatch
+    3300054: _CeilingFanBlade
+    3300056: CeilingFan_001
+    3300058: CeilingFanBlade
     4300000: Plane
     4300002: Plane_002
     4300004: Plane_001
@@ -129,8 +161,16 @@ ModelImporter:
     4300038: BathroomDoorHandle
     4300040: BathroomDoorway
     4300042: BathroomDoor
+    4300044: Cylinder
+    4300046: SurfPatch
+    4300048: CeilingFan
+    4300050: _BathroomDoorCutter
+    4300052: _CeilingFanBlade
+    4300054: CeilingFanBlade
+    4300056: CeilingFan_001
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -157,6 +197,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: RoomWall
     second: {fileID: 2100000, guid: 171a5cedaa7a9b64180d13fcd99d790f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Room_CeilingFanLight
+    second: {fileID: 2100000, guid: 2209bba224cc82c4cb4b899a2acc095f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

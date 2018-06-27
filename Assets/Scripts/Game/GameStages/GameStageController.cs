@@ -18,8 +18,7 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 {
 	StateMachine<State> fsm;
 
-	Transform paperPiece;
-	Animator paperPieceAnimator;
+	[SerializeField] Transform paperPiece;
 
 	void Awake()
 	{
@@ -31,9 +30,6 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 		fsm = StateMachine<State>.Initialize(this);
 
 		SetState(State.Init);
-
-		paperPiece = GameObject.Find("PaperPiece").transform;
-		paperPieceAnimator = paperPiece.GetComponent<Animator>();
 	}
 
 	public void SetState(State state)
@@ -57,13 +53,11 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 
 	public void OnInteracted(InteractiveObjectType objectType)
 	{
-		Debug.Log("Interacted with " + objectType.ToString());
-
 		switch (objectType)
 		{
 			case InteractiveObjectType.DoorMonitor: OnUse_DoorMonitor(); break;
-			case InteractiveObjectType.NoteUnderTheDoor: OnUse_PaperPiece(); break;
 			case InteractiveObjectType.RoomDoor: OnUse_EntranceDoor(); break;
+			case InteractiveObjectType.NoteUnderTheDoor: OnUse_PaperPiece(); break;
 
 			default: break;
 		}
@@ -80,8 +74,10 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 		{
 			SetState(State.AfterCheckingTheDoorMonitor);
 
+			paperPiece.gameObject.SetActive(true);
+
 			// Slide paper piece under the door
-			paperPieceAnimator.Play("PaperPieceSlide");
+			// paperPieceAnimator.Play("PaperPieceSlide");
 		}
 	}
 
@@ -90,12 +86,17 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 		if (GetState() == State.AfterCheckingTheDoorMonitor)
 		{
 			SetState(State.AfterCheckingBackAlleyPaperPiece);
+
+			GameController.ShowSubtitles("There's something for you in the bin in the back alley");
 		}
 	}
 
 	private void OnUse_EntranceDoor()
 	{
-		GameController.LoadScene(Scene.Entrance);
+		if (GetState() < State.AfterCheckingBackAlleyPaperPiece)
+			GameController.ShowSubtitles("I don't want to go outside at this time");
+		else
+			GameController.LoadScene(Scene.Entrance);
 	}
 }
 }

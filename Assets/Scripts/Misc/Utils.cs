@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,6 +30,15 @@ public static IEnumerator AlphaFade(bool fadeIn, float fadeSpeed, Material mater
 
 		yield return null;
 	}
+}
+
+public static IEnumerator FadeOutText(Text guiText, float timeOut, float fadeOutTime)
+{
+	yield return new WaitForSeconds(timeOut);
+
+	guiText.text = "";
+
+	yield return null;
 }
 }
 }

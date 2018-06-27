@@ -9,7 +9,7 @@ namespace Forlorn
 {
 public class PlayerController : MonoBehaviour {
 
-	Transform camera;
+	new Transform camera;
 
 	[SerializeField]
 	float ineractiveDistance = 0.3f;
@@ -51,11 +51,18 @@ public class PlayerController : MonoBehaviour {
 				Interactive interactive = hit.transform.gameObject.GetComponentInChildren<Interactive>();
 				if (interactive)
 				{
-					Debug.Log("OnUse_" + hit.transform.gameObject.name);
-
 					interactiveEvent.Invoke(interactive.interactiveType);
 				}
 			}
+		}
+	}
+
+	void OnDrawGizmos()
+	{
+		if (camera)
+		{
+			Vector3 sight = camera.position + camera.forward * ineractiveDistance;
+			Gizmos.DrawLine(camera.position, sight);
 		}
 	}
 }

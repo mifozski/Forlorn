@@ -3,12 +3,6 @@ using UnityEngine.Events;
 
 namespace Forlorn
 {
-public enum InteractiveObjectType
-{
-	DoorMonitor,
-	RoomDoor,
-	NoteUnderTheDoor
-}
 
 [System.Serializable]
 public class InteractiveObjectTypeEvent : UnityEvent<InteractiveObjectType>

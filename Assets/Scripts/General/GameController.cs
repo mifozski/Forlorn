@@ -8,7 +8,7 @@ using Forlorn;
 
 namespace Forlorn
 {
-public enum Scene
+public enum Scenes
 {
 	Room,
 	Entrance,
@@ -37,7 +37,12 @@ public class GameController : SingletonMonoBehavior<GameController>
 
 	private void Init()
 	{
-		// fadeInOutScreenAnimator = fadeInOutScreen.GetComponent<Animator>();
+		GameState.current = new GameState();
+		SaveLoadGame.Load();
+	}
+
+	void Start()
+	{
 	}
 
 	public static void ShowInteractableObjectIndicator(bool draw)
@@ -53,7 +58,7 @@ public class GameController : SingletonMonoBehavior<GameController>
 		}
 	}
 
-	static public void LoadScene(Scene scene)
+	static public void LoadScene(Scenes scene)
 	{
 		Instance.fadeInOutScreenAnimator.SetBool("FadeOut", true);
 		SceneManager.LoadScene(GetSceneName(scene));
@@ -66,14 +71,14 @@ public class GameController : SingletonMonoBehavior<GameController>
 
 	// }
 
-	static private string GetSceneName(Scene scene)
+	static private string GetSceneName(Scenes scene)
 	{
 		switch (scene)
 		{
-		case Scene.Room: return "Room";
-		case Scene.Entrance: return "Entrance";
-		case Scene.Restroom: return "Restroom";
-		case Scene.Hallway: return "Hallway";
+		case Scenes.Room: return "Room";
+		case Scenes.Entrance: return "Entrance";
+		case Scenes.Restroom: return "Restroom";
+		case Scenes.Hallway: return "Hallway";
 		default: return "";
 		}
 	}
@@ -85,13 +90,13 @@ public class GameController : SingletonMonoBehavior<GameController>
 
 		Instance.subtitles.text = text;
 
-		Instance.StartCoroutine(Utils.FadeOutText(Instance.subtitles, 6f, 0f));
+		subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(Instance.subtitles, 6f, 0f));
 	}
 
 	static public void SaveGame()
 	{
 		GameState state = new GameState();
-		state.stage = 1;
+		// state.stage = 1;
 		state.Save();
 
 		// GameStateSaver saver = new GameStateSaver();

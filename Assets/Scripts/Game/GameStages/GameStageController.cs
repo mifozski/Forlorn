@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using UnityEngine.UI;
 
 using Forlorn;
 
 namespace Forlorn {
-public enum State
+public enum GameStage
 {
 	Init,
+	AfterSchoolShootingCustcene,
 	AfterFirstWakeUp,
 	AfterCheckingTheDoorMonitor,
 	AfterCheckingBackAlleyPaperPiece
@@ -16,9 +18,13 @@ public enum State
 
 public class GameStageController : SingletonMonoBehavior<GameStageController>
 {
-	StateMachine<State> fsm;
+	StateMachine<GameStage> stateMachine;
 
 	[SerializeField] Transform paperPiece;
+
+	[SerializeField] PlayableDirector schoolShootingCutscene;
+
+	[SerializeField] GameStage initialState;
 
 	void Awake()
 	{
@@ -27,37 +33,73 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 
 	private void Init()
 	{
-		fsm = StateMachine<State>.Initialize(this);
+		stateMachine = StateMachine<GameStage>.Initialize(this);
 
-		SetState(State.Init);
+		stateMachine.ChangeState(initialState);
 	}
 
-	public void SetState(State state)
+	void Start()
 	{
-		Debug.Log("GameStageController:Init_Enter(): state = " + state);
-		fsm.ChangeState(state);
 	}
 
-	public State GetState()
+	void OnEnable()
 	{
-		return fsm.State;
+		SceneManager.sceneLoaded += this.OnLevelFinishedLoading;
+	}
+
+	void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+	}
+
+	public void SetStage(GameStage stage)
+	{
+		Debug.Log("GameStageController:SetState(): state = " + stage);
+		stateMachine.ChangeState(stage);
+
+		// currentStateDebugText.text = $"Current state: {state.ToString()}";
+
+
+		// if (stage != Stage.Init)
+		// {
+			GameState.current.stage = stage;
+			SaveLoadGame.Save();
+		// }
+	}
+
+	public GameStage GetStage()
+	{
+		return stateMachine.State;
 	}
 
 	void Init_Enter()
 	{
 		// TODO: Play cutscene
-		Debug.Log("GameStageController:Init_Enter()");
+		// Debug.Log("GameStageController:Init_Enter()");
 
-		fsm.ChangeState(State.AfterFirstWakeUp);
+		// stateMachine.ChangeState(initialState);
+	}
+
+	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	{
+		if (GetStage() == GameStage.AfterFirstWakeUp)
+		{
+			schoolShootingCutscene.Play();
+		
+			SetStage(GameStage.AfterSchoolShootingCustcene);
+		}
 	}
 
 	public void OnInteracted(InteractiveObjectType objectType)
 	{
+		Debug.Log($"Interacted with {objectType.ToString()}");
+
 		switch (objectType)
 		{
 			case InteractiveObjectType.DoorMonitor: OnUse_DoorMonitor(); break;
 			case InteractiveObjectType.RoomDoor: OnUse_EntranceDoor(); break;
 			case InteractiveObjectType.NoteUnderTheDoor: OnUse_PaperPiece(); break;
+			case InteractiveObjectType.Notebook: OnUse_Notebook(); break;
 
 			default: break;
 		}
@@ -70,22 +112,19 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 
 	private void OnUse_DoorMonitor()
 	{
-		if (GetState() == State.AfterFirstWakeUp)
+		if (GetStage() == GameStage.AfterSchoolShootingCustcene)
 		{
-			SetState(State.AfterCheckingTheDoorMonitor);
+			SetStage(GameStage.AfterCheckingTheDoorMonitor);
 
 			paperPiece.gameObject.SetActive(true);
-
-			// Slide paper piece under the door
-			// paperPieceAnimator.Play("PaperPieceSlide");
 		}
 	}
 
 	private void OnUse_PaperPiece()
 	{
-		if (GetState() == State.AfterCheckingTheDoorMonitor)
+		if (GetStage() == GameStage.AfterCheckingTheDoorMonitor)
 		{
-			SetState(State.AfterCheckingBackAlleyPaperPiece);
+			SetStage(GameStage.AfterCheckingBackAlleyPaperPiece);
 
 			GameController.ShowSubtitles("There's something for you in the bin in the back alley");
 		}
@@ -93,10 +132,21 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 
 	private void OnUse_EntranceDoor()
 	{
-		if (GetState() < State.AfterCheckingBackAlleyPaperPiece)
+		if (GetStage() < GameStage.AfterCheckingBackAlleyPaperPiece)
 			GameController.ShowSubtitles("I don't want to go outside at this time");
 		else
-			GameController.LoadScene(Scene.Entrance);
+			GameController.LoadScene(Scenes.Entrance);
+	}
+
+	private void OnUse_Notebook()
+	{
+		Debug.Log("OnUse_Notebook");
+		GameController.ShowSubtitles("The notebook contains details about my ... about my work. I'd rather not look at it at the moment.");
+	}
+
+	void OnGUI()
+	{
+		GUI.Label(new Rect(10, 10, 200, 50), $"Current state: {GetStage().ToString()}");
 	}
 }
 }

@@ -1,16 +1,20 @@
 using UnityEngine;
 using Forlorn;
 
-namespace Forlorn{
-
-
-class GameState
+namespace Forlorn
 {
-	public int stage;
+[System.Serializable]
+public class GameState
+{
+	public bool loaded = false;
+
+	public static GameState current;
+
+	public GameStage stage;
 	public int scene;
 
 	public Vector3 playerPosition;
-	public Quaternion playerOrientation;
+	public Vector3 playerOrientation;
 
 	public void Save()
 	{

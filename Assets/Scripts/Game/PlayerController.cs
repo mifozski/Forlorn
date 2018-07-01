@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Cinemachine;
 
 using Forlorn;
 
@@ -21,10 +22,30 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] InteractiveObjectTypeEvent interactiveEvent;
 
+	void Awake()
+	{
+
+	}
+
 	// Use this for initialization
 	void Start()
 	{
-		camera = GetComponentInChildren<Camera>().transform;
+		camera = GetComponentInChildren<CinemachineVirtualCamera>().transform;
+
+		Debug.Log($"Setting pos: ${GameState.current.playerPosition.ToString()}");
+		Debug.Log($"Setting rotation: ${GameState.current.playerOrientation.ToString()}");
+
+		transform.position = GameState.current.playerPosition;
+		Debug.Log("player rot: " + Mathf.Rad2Deg * GameState.current.playerOrientation.y);
+		Debug.Log("camera rot: " + Mathf.Rad2Deg * GameState.current.playerOrientation.x);
+		// transform.localRotation = Quaternion.Euler(0f, Mathf.Rad2Deg * GameState.current.playerOrientation.y, 0f);
+		// camera.localRotation = Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
+		gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot =
+			Quaternion.Euler(0f, Mathf.Rad2Deg * GameState.current.playerOrientation.y, 0f);
+		Debug.Log("m_CharacterTargetRot: " + gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot.ToString());
+		Debug.Log("y: " + Mathf.Rad2Deg *  gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot.y + "deg");
+		gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot =
+			Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
 	}
 	
 	// Update is called once per frame
@@ -46,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
+			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance + 1, interactableMask))
 			{
 				Interactive interactive = hit.transform.gameObject.GetComponentInChildren<Interactive>();
 				if (interactive)
@@ -55,6 +76,9 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+
+		GameState.current.playerPosition = transform.position;
+		GameState.current.playerOrientation = new Vector3(camera.rotation.x, transform.rotation.y, 0f);
 	}
 
 	void OnDrawGizmos()

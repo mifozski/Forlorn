@@ -105,8 +105,8 @@ public static class SaveLoadGame
 						new QuaternionSerializationSurrogate());
 		bf.SurrogateSelector = ss;
 
-		//Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
-		FileStream file = File.Create (Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
+		FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
+		Debug.Log(Application.persistentDataPath + "/savedGames.gd");
 		bf.Serialize(file, SaveLoadGame.savedGames);
 		Debug.Log("Data written to " + Application.persistentDataPath + "/savedGames.gd" + " @ " + DateTime.Now.ToShortTimeString());
 		file.Close();
@@ -116,6 +116,8 @@ public static class SaveLoadGame
 
 	public static void Load()
 	{
+		Debug.Log(Application.persistentDataPath + "/savedGames.gd");
+
 		if (!File.Exists(Application.persistentDataPath + "/savedGames.gd"))
 			return;
 

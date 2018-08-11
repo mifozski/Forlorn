@@ -30,6 +30,8 @@ public class GameController : SingletonMonoBehavior<GameController>
 	static bool interactableObjectIndicatorIsShown = false;
 	static Coroutine interactableObjectIndicatorCoroutine = null;
 
+	private SaveLoadController saveLoadController;
+
 	void Awake()
 	{
 		Init();
@@ -39,10 +41,13 @@ public class GameController : SingletonMonoBehavior<GameController>
 	{
 		GameState.current = new GameState();
 		SaveLoadGame.Load();
+
+		saveLoadController = new SaveLoadController();
 	}
 
 	void Start()
 	{
+		// saveLoadController.AddSerializableObject();
 	}
 
 	public static void ShowInteractableObjectIndicator(bool draw)
@@ -91,6 +96,11 @@ public class GameController : SingletonMonoBehavior<GameController>
 		Instance.subtitles.text = text;
 
 		subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(Instance.subtitles, 6f, 0f));
+	}
+
+	void OnApplicationQuit()
+	{
+		SaveLoadGame.Save();
 	}
 
 	static public void SaveGame()

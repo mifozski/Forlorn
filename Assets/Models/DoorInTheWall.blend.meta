@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2121e6ed18a0b894cb124fcb6c3f9fbe
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: _DoorWayCutter
     100002: BasementWalls
@@ -35,6 +35,7 @@ ModelImporter:
     4300008: BasementWalls
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -86,6 +87,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

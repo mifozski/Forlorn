@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 		gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot =
 			Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
 	}
-	
+
 	// Update is called once per frame
 	void Update()
 	{

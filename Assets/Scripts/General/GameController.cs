@@ -30,7 +30,9 @@ public class GameController : SingletonMonoBehavior<GameController>
 	static bool interactableObjectIndicatorIsShown = false;
 	static Coroutine interactableObjectIndicatorCoroutine = null;
 
-	private SaveLoadController saveLoadController;
+	// private SaveLoadController saveLoadController;
+
+	// private Redux.Store store;
 
 	void Awake()
 	{
@@ -40,9 +42,11 @@ public class GameController : SingletonMonoBehavior<GameController>
 	private void Init()
 	{
 		GameState.current = new GameState();
-		SaveLoadGame.Load();
+		// SaveLoadGame.Load();
 
-		saveLoadController = new SaveLoadController();
+		// saveLoadController = new SaveLoadController();
+
+		// store = Redux.createStore();
 	}
 
 	void Start()
@@ -100,18 +104,23 @@ public class GameController : SingletonMonoBehavior<GameController>
 
 	void OnApplicationQuit()
 	{
-		SaveLoadGame.Save();
+		// SaveLoadGame.Save();
 	}
 
 	static public void SaveGame()
 	{
 		GameState state = new GameState();
 		// state.stage = 1;
-		state.Save();
+		// state.Save();
 
 		// GameStateSaver saver = new GameStateSaver();
 		// saver.Save(state);
 
+	}
+
+	public void Exit()
+	{
+		Application.Quit();
 	}
 }
 }

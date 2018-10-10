@@ -63,7 +63,7 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 		// if (stage != Stage.Init)
 		// {
 			GameState.current.stage = stage;
-			SaveLoadGame.Save();
+			// SaveLoadGame.Save();
 		// }
 	}
 
@@ -85,7 +85,7 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 		if (GetStage() == GameStage.AfterFirstWakeUp)
 		{
 			schoolShootingCutscene.Play();
-		
+
 			SetStage(GameStage.AfterSchoolShootingCustcene);
 		}
 	}

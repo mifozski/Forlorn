@@ -25,7 +25,7 @@ class SaveLoadController
             obj => obj.Serialize()
         );
 
-        SaveLoadGame.Save();
+        // SaveLoadGame.Save();
     }
 
     void Load()
@@ -34,7 +34,7 @@ class SaveLoadController
             obj => obj.Deserialize()
         );
 
-        SaveLoadGame.Load();
+        // SaveLoadGame.Load();
     }
 }
 }

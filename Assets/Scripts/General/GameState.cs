@@ -3,33 +3,18 @@ using Forlorn;
 
 namespace Forlorn
 {
-[System.Serializable]
-public class GameState
-{
-	public bool loaded = false;
-
-	public static GameState current;
-
-	public GameStage stage;
-	public int scene;
-
-	public Vector3 playerPosition;
-	public Vector3 playerOrientation;
-
-	public void Save()
+	[System.Serializable]
+	public class GameState
 	{
-		string json = JsonUtility.ToJson(this);
-		Debug.Log(json);
+		public bool loaded = false;
+
+		public static GameState current;
+
+		public GameStage stage;
+		public int sceneId;
+
+		public Vector3 playerPosition;
+		public Vector3 playerOrientation;
 	}
-}
 
-class GameStateSaver
-{
-	public void Save(GameState state)
-	{
-		string json = JsonUtility.ToJson(state);
-
-
-	}
-}
 }

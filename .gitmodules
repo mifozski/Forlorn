@@ -1,3 +1,6 @@
 [submodule "Assets/PostProcessingStack"]
 	path = Assets/PostProcessingStack
 	url = git@github.com:Unity-Technologies/PostProcessing.git
+[submodule "Assets/Scripts/ThirdParty/Redux"]
+	path = Assets/Scripts/ThirdParty/Redux
+	url = git@github.com:gblue1223/redux-unity3d.git

@@ -86,60 +86,71 @@ namespace Forlorn
 // 	}
 // }
 
-public static class SaveLoadGame
-{
-	private static List<GameState> savedGames = new List<GameState>();
-
-	//it's static so we can call it from anywhere
-	public static void Save()
+	public class GameStateLoaderSaver
 	{
-		SaveLoadGame.savedGames.Add(GameState.current);
-		BinaryFormatter bf = new BinaryFormatter();
+		private static List<GameState> savedGames = new List<GameState>();
 
-		SurrogateSelector ss = new SurrogateSelector();
-		ss.AddSurrogate(typeof(Vector3),
-						new StreamingContext(StreamingContextStates.All),
-						new Vector3SerializationSurrogate());
-		ss.AddSurrogate(typeof(Quaternion),
-						new StreamingContext(StreamingContextStates.All),
-						new QuaternionSerializationSurrogate());
-		bf.SurrogateSelector = ss;
+		public void Save()
+		{
+			savedGames.Add(GameState.current);
+			BinaryFormatter bf = new BinaryFormatter();
 
-		FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
-		Debug.Log(Application.persistentDataPath + "/savedGames.gd");
-		bf.Serialize(file, SaveLoadGame.savedGames);
-		Debug.Log("Data written to " + Application.persistentDataPath + "/savedGames.gd" + " @ " + DateTime.Now.ToShortTimeString());
-		file.Close();
+			SurrogateSelector ss = new SurrogateSelector();
+			ss.AddSurrogate(typeof(Vector3),
+							new StreamingContext(StreamingContextStates.All),
+							new Vector3SerializationSurrogate());
+			ss.AddSurrogate(typeof(Quaternion),
+							new StreamingContext(StreamingContextStates.All),
+							new QuaternionSerializationSurrogate());
+			bf.SurrogateSelector = ss;
 
-		Debug.Log($"Saved game: {JsonUtility.ToJson(GameState.current)}");
+			FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
+			Debug.Log(Application.persistentDataPath + "/savedGames.gd");
+			bf.Serialize(file, savedGames);
+			Debug.Log("Data written to " + Application.persistentDataPath + "/savedGames.gd" + " @ " + DateTime.Now.ToShortTimeString());
+			file.Close();
+
+			Debug.Log($"Saved game: {JsonUtility.ToJson(GameState.current)}");
+		}
+
+		public bool Load()
+		{
+			savedGames.Clear();
+
+			Debug.Log(Application.persistentDataPath + "/savedGames.gd");
+
+			BinaryFormatter bf = new BinaryFormatter();
+
+			SurrogateSelector ss = new SurrogateSelector();
+			ss.AddSurrogate(typeof(Vector3),
+							new StreamingContext(StreamingContextStates.All),
+							new Vector3SerializationSurrogate());
+			ss.AddSurrogate(typeof(Quaternion),
+							new StreamingContext(StreamingContextStates.All),
+							new QuaternionSerializationSurrogate());
+			bf.SurrogateSelector = ss;
+
+			FileStream file = null;
+			try
+			{
+				file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
+				savedGames = (List<GameState>)bf.Deserialize(file);
+			}
+			catch
+			{
+				return false;
+			}
+			finally
+			{
+				file?.Close();
+			}
+
+			GameState.current = savedGames[savedGames.Count - 1];
+			GameState.current.loaded = true;
+
+			Debug.Log($"Loaded game: {JsonUtility.ToJson(GameState.current)}");
+
+			return true;
+		}
 	}
-
-	public static void Load()
-	{
-		Debug.Log(Application.persistentDataPath + "/savedGames.gd");
-
-		if (!File.Exists(Application.persistentDataPath + "/savedGames.gd"))
-			return;
-
-		BinaryFormatter bf = new BinaryFormatter();
-
-		SurrogateSelector ss = new SurrogateSelector();
-		ss.AddSurrogate(typeof(Vector3),
-						new StreamingContext(StreamingContextStates.All),
-						new Vector3SerializationSurrogate());
-		ss.AddSurrogate(typeof(Quaternion),
-						new StreamingContext(StreamingContextStates.All),
-						new QuaternionSerializationSurrogate());
-		bf.SurrogateSelector = ss;
-
-		FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
-		SaveLoadGame.savedGames = (List<GameState>)bf.Deserialize(file);
-		file.Close();
-
-		GameState.current = SaveLoadGame.savedGames[SaveLoadGame.savedGames.Count - 1];
-		GameState.current.loaded = true;
-
-		Debug.Log($"Loaded game: {JsonUtility.ToJson(GameState.current)}");
-	}
-}
 }

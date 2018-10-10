@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 using Forlorn;
 
 namespace Forlorn
 {
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
 	new Transform camera;
 
-	[SerializeField]
-	float ineractiveDistance = 0.3f;
+	[SerializeField] float ineractiveDistance = 0.3f;
 
-	[SerializeField]
-	LayerMask interactableMask;
+	[SerializeField] LayerMask interactableMask;
 
 	// [SerializeField] UnityEvent interactableEvent;
 
 	[SerializeField] InteractiveObjectTypeEvent interactiveEvent;
 
+	private FirstPersonController firstPersonController;
+
+	public bool isPaused = false;
+
 	void Awake()
 	{
-
+		firstPersonController = gameObject.GetComponent<FirstPersonController>();
 	}
 
 	// Use this for initialization
@@ -48,9 +51,15 @@ public class PlayerController : MonoBehaviour {
 			Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
+		firstPersonController.enabled = !isPaused;
+
+		if (isPaused)
+		{
+			return;
+		}
+
 		RaycastHit hit;
 		if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 		{

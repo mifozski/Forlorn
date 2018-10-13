@@ -44,12 +44,12 @@ public class GameStageController : SingletonMonoBehavior<GameStageController>
 
 	void OnEnable()
 	{
-		SceneManager.sceneLoaded += this.OnLevelFinishedLoading;
+		// SceneManager.sceneLoaded += this.OnLevelFinishedLoading;
 	}
 
 	void OnDisable()
 	{
-		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+		// SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 	}
 
 	public void SetStage(GameStage stage)

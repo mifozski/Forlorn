@@ -4,19 +4,22 @@ using UnityEngine;
 
 using Forlorn;
 
-namespace Forlorn {
-public class MainMenu : MonoBehaviour
+namespace Forlorn
 {
-	[SerializeField] Canvas mainMenuCanvas;
-	[SerializeField] PlayerController playerController;
+	public class MainMenu : MonoBehaviour
+	{
+		[SerializeField] Canvas mainMenuCanvas;
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape))
+		public Redux.Store store;
+
+		void Update ()
 		{
-			mainMenuCanvas.enabled = !mainMenuCanvas.enabled;
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				mainMenuCanvas.enabled = !mainMenuCanvas.enabled;
 
-			playerController.isPaused = mainMenuCanvas.enabled;
+				store.dispatch(GameGeneral.ActionCreators.enterMainMenu(mainMenuCanvas.enabled));
+			}
 		}
 	}
-}
 }

@@ -10,6 +10,16 @@ namespace Forlorn
                     data = sceneId
                 };
             };
+
+            public static Redux.ActionCreator<int, bool> setSceneLoaded = (sceneId, loaded) => {
+                return new Redux.Action {
+                    type = "SET_SCENE_LOADED",
+                    data = new {
+                        id = sceneId,
+                        loaded = loaded
+                    }
+                };
+            };
         }
     }
 

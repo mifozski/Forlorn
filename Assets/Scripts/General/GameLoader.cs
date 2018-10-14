@@ -13,6 +13,8 @@ namespace Forlorn
 
 		Redux.Store store;
 
+		SceneManager sceneManager = new SceneManager();
+
 		[SerializeField] int defaultSceneId;
 
 		[SerializeField] MainMenu mainMenu;
@@ -27,11 +29,14 @@ namespace Forlorn
             });
             store = Redux.createStore(finalReducer);
 
+			sceneManager.store = store;
 			mainMenu.store = store;
-			Debug.Log("SETTING THE FUNCKING STORE");
 			playerController.store = store;
 
 			loaderSaver = new GameStateLoaderSaver();
+
+			// Debug - Store scenes loaded in the editor in the store
+
 		}
 
 		void Start()
@@ -41,12 +46,16 @@ namespace Forlorn
 			if (loaded)
 			{
 				Debug.Log($"sceneId: {GameState.current.sceneId}");
-				store.dispatch(SceneManagement.ActionCreators.loadScene(GameState.current.sceneId));
+
+				sceneManager.LoadScene(GameState.current.sceneId);
+				// store.dispatch(SceneManagement.ActionCreators.loadScene(GameState.current.sceneId));
 			}
 			else
 			{
 				Debug.Log($"sceneId: NOT FOUND");
-				store.dispatch(SceneManagement.ActionCreators.loadScene(defaultSceneId));
+
+				sceneManager.LoadScene(defaultSceneId);
+				// store.dispatch(SceneManagement.ActionCreators.loadScene(defaultSceneId));
 			}
 		}
 	}

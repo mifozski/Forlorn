@@ -38,6 +38,7 @@ namespace Forlorn
 
 		// Store stuff
 		Reducers.GeneralState prevGeneralState = null;
+		Reducers.SceneState prevSceneState = null;
 
 		void Awake()
 		{
@@ -101,7 +102,7 @@ namespace Forlorn
 			}
 
 			GameState.current.playerPosition = transform.position;
-			GameState.current.playerOrientation = new Vector3(camera.rotation.x, transform.rotation.y, 0f);
+			GameState.current.playerRotation = Quaternion.Euler(camera.rotation.x, transform.rotation.y, 0f);
 		}
 
 		void OnDrawGizmos()
@@ -121,12 +122,20 @@ namespace Forlorn
 		void OnChangeState(Redux.Store store)
 		{
 			Redux.StateTree state = store.getStateTree();
-			Debug.Log(state.ToString());
+			// Debug.Log(state.ToString());
 
 			var generalState = state[Reducers.general] as Reducers.GeneralState;
 			if (prevGeneralState != generalState)
 			{
 				prevGeneralState = generalState;
+			}
+
+			var sceneState = state[Reducers.scene] as Reducers.SceneState;
+			if (prevSceneState != sceneState)
+			{
+				gameObject.SetActive(true);
+
+				prevSceneState = sceneState;
 			}
 		}
 	}

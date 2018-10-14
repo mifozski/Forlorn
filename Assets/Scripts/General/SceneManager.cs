@@ -1,22 +1,49 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 using Forlorn;
 
 namespace Forlorn
 {
-    static public class SceneManager
-    {
-        // [SerializeField] Animator fadeInOutScreenAnimator;
+	public class SceneManager
+	{
+		// [SerializeField] Animator fadeInOutScreenAnimator;
 
-        // void Awake()
-        // {
+		Redux.Store _store;
+		public Redux.Store store
+		{
+			set
+			{
+				_store = value;
+				UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+				UnityEngine.SceneManagement.SceneManager.sceneUnloaded += OnSceneUnloaded;
+			}
+			get
+			{
+				return _store;
+			}
+		}
 
-        // }
+		void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+		{
+			store.dispatch(SceneManagement.ActionCreators.setSceneLoaded(scene.buildIndex, true));
+		}
 
-        public static void LoadScene(int sceneId)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
-        }
-    }
+		void OnSceneUnloaded(Scene scene)
+		{
+			store.dispatch(SceneManagement.ActionCreators.setSceneLoaded(scene.buildIndex, false));
+		}
+
+		public void LoadScene(int sceneId)
+		{
+			if (GetLoadedScenes().Contains(sceneId) == false)
+				UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
+		}
+
+		List<int> GetLoadedScenes()
+		{
+			return (store.getStateTree()[Reducers.scene] as Reducers.SceneState).loadedScenes;
+		}
+	}
 }

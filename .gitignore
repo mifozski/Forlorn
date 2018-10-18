@@ -4,6 +4,9 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Forlorn_Data/
+/App/
+/Temp/
+/Library/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory

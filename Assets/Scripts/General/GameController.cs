@@ -107,15 +107,9 @@ namespace Forlorn
 			// SaveLoadGame.Save();
 		}
 
-		static public void SaveGame()
+		public void Save()
 		{
-			GameState state = new GameState();
-			// state.stage = 1;
-			// state.Save();
-
-			// GameStateSaver saver = new GameStateSaver();
-			// saver.Save(state);
-
+			EventController.TriggerEvent("Save");
 		}
 
 		public void Exit()

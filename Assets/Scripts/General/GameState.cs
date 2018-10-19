@@ -26,7 +26,7 @@ namespace Forlorn
 		public Vector3 playerPosition;
 		public Quaternion playerRotation;
 
-		public List<GameObjectProperties> objectPropertiesList;
+		public Dictionary<string, GameObjectProperties> objectPropertieDict;
 	}
 
 }

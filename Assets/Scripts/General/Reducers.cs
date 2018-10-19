@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections.Generic;
 
 using Forlorn;
@@ -6,6 +7,7 @@ namespace Forlorn
 {
 	static public class Reducers
 	{
+		[System.Serializable]
 		public class SceneState
 		{
 			public List<int> loadedScenes = new List<int>();
@@ -28,10 +30,15 @@ namespace Forlorn
 			{
 				int sceneId = (int)action.data?.GetType().GetProperty("id")?.GetValue(action.data, null);
 				bool loaded = (bool)action.data?.GetType().GetProperty("loaded")?.GetValue(action.data, null);
-				Utils.Log($"SCENE_LOADED: sceneId: {sceneId} loaded: {loaded}");
 				SceneState state = _state as SceneState;
 				if (loaded)
+				{
+					if (state.loadedScenes.Contains(sceneId))
+					{
+						Debug.LogError($"SCENE IS ALREADY LOADED: {sceneId}");
+					}
 					state.loadedScenes.Add(sceneId);
+				}
 				else
 					state.loadedScenes.Remove(sceneId);
 				return state;
@@ -40,6 +47,7 @@ namespace Forlorn
 			return _state;
 		};
 
+		[System.Serializable]
 		public class GeneralState
 		{
 			public bool mainMenuEntered = false;

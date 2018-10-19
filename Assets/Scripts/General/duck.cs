@@ -1,8 +1,8 @@
 namespace Forlorn
 {
-    public partial class SceneManagement
+    public partial class ActionCreators
     {
-        public static class ActionCreators
+        public static class SceneManagement
         {
             public static Redux.ActionCreator<int> loadScene = (sceneId) => {
                 return new Redux.Action {
@@ -21,11 +21,8 @@ namespace Forlorn
                 };
             };
         }
-    }
 
-    public partial class GameGeneral
-    {
-        public static class ActionCreators
+        public partial class GameGeneral
         {
             public static Redux.ActionCreator<bool> enterMainMenu = (entered) => {
                 return new Redux.Action {

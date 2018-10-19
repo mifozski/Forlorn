@@ -122,7 +122,6 @@ namespace Forlorn
 		void OnChangeState(Redux.Store store)
 		{
 			Redux.StateTree state = store.getStateTree();
-			// Debug.Log(state.ToString());
 
 			var generalState = state[Reducers.general] as Reducers.GeneralState;
 			if (prevGeneralState != generalState)

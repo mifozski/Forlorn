@@ -6,7 +6,7 @@ using Forlorn;
 
 namespace Forlorn
 {
-	public class SceneManager
+	public class SceneController
 	{
 		// [SerializeField] Animator fadeInOutScreenAnimator;
 
@@ -27,18 +27,18 @@ namespace Forlorn
 
 		void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
-			store.dispatch(SceneManagement.ActionCreators.setSceneLoaded(scene.buildIndex, true));
+			store.dispatch(ActionCreators.SceneManagement.setSceneLoaded(scene.buildIndex, true));
 		}
 
 		void OnSceneUnloaded(Scene scene)
 		{
-			store.dispatch(SceneManagement.ActionCreators.setSceneLoaded(scene.buildIndex, false));
+			store.dispatch(ActionCreators.SceneManagement.setSceneLoaded(scene.buildIndex, false));
 		}
 
 		public void LoadScene(int sceneId)
 		{
 			if (GetLoadedScenes().Contains(sceneId) == false)
-				UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
+				SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
 		}
 
 		List<int> GetLoadedScenes()

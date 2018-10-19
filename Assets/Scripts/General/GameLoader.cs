@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,16 +10,18 @@ namespace Forlorn
 {
 	public class GameLoader : MonoBehaviour
 	{
-		GameStateLoaderSaver loaderSaver;
+		GameStateLoaderSaver loader = new GameStateLoaderSaver();
 
 		Redux.Store store;
 
-		SceneManager sceneManager = new SceneManager();
+		SceneController sceneManager = new SceneController();
 
 		[SerializeField] int defaultSceneId;
 
 		[SerializeField] MainMenu mainMenu;
 		[SerializeField] PlayerController playerController;
+
+		Reducers.SceneState prevSceneState = new Reducers.SceneState();
 
 		void Awake()
 		{
@@ -29,19 +32,16 @@ namespace Forlorn
             });
             store = Redux.createStore(finalReducer);
 
+			store.subscribe(OnStateChange);
+
 			sceneManager.store = store;
 			mainMenu.store = store;
 			playerController.store = store;
-
-			loaderSaver = new GameStateLoaderSaver();
-
-			// Debug - Store scenes loaded in the editor in the store
-
 		}
 
 		void Start()
 		{
-			bool loaded = loaderSaver.Load();
+			bool loaded = loader.Load();
 
 			if (loaded)
 			{
@@ -56,6 +56,41 @@ namespace Forlorn
 
 				sceneManager.LoadScene(defaultSceneId);
 				// store.dispatch(SceneManagement.ActionCreators.loadScene(defaultSceneId));
+			}
+		}
+
+		void OnStateChange(Redux.Store store)
+		{
+			Redux.StateTree state = store.getStateTree();
+
+			var sceneState = state[Reducers.scene] as Reducers.SceneState;
+			if (prevSceneState != sceneState)
+			{
+				if (prevSceneState.loadedScenes != sceneState.loadedScenes)
+				{
+					int [] newScenes = sceneState.loadedScenes.Except(prevSceneState.loadedScenes).ToArray();
+					if (newScenes.Length > 0 && newScenes[0] != 0)
+					{
+						Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(newScenes[0]);
+						LoadSceneObjects(scene);
+					}
+				}
+
+				prevSceneState = Utils.DeepCopy<Reducers.SceneState>(sceneState);
+			}
+		}
+
+		void LoadSceneObjects(Scene scene)
+		{
+			GameObject [] sceneRootObjects = scene.GetRootGameObjects();
+
+			foreach (GameObject obj in sceneRootObjects)
+			{
+				ShouldPersistMixin objLoader = obj.GetComponent<ShouldPersistMixin>();
+				if (objLoader == null)
+					continue;
+
+				objLoader.Load();
 			}
 		}
 	}

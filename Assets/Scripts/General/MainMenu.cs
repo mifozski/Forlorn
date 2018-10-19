@@ -18,7 +18,7 @@ namespace Forlorn
 			{
 				mainMenuCanvas.enabled = !mainMenuCanvas.enabled;
 
-				store.dispatch(GameGeneral.ActionCreators.enterMainMenu(mainMenuCanvas.enabled));
+				store.dispatch(ActionCreators.GameGeneral.enterMainMenu(mainMenuCanvas.enabled));
 			}
 		}
 	}

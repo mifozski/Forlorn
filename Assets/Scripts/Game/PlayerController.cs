@@ -49,21 +49,6 @@ namespace Forlorn
 		void Start()
 		{
 			camera = GetComponentInChildren<CinemachineVirtualCamera>().transform;
-
-			// Debug.Log($"Setting pos: ${GameState.current.playerPosition.ToString()}");
-			// Debug.Log($"Setting rotation: ${GameState.current.playerOrientation.ToString()}");
-
-			// transform.position = GameState.current.playerPosition;
-			// Debug.Log("player rot: " + Mathf.Rad2Deg * GameState.current.playerOrientation.y);
-			// Debug.Log("camera rot: " + Mathf.Rad2Deg * GameState.current.playerOrientation.x);
-			// // transform.localRotation = Quaternion.Euler(0f, Mathf.Rad2Deg * GameState.current.playerOrientation.y, 0f);
-			// // camera.localRotation = Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
-			// gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot =
-			// 	Quaternion.Euler(0f, Mathf.Rad2Deg * GameState.current.playerOrientation.y, 0f);
-			// Debug.Log("m_CharacterTargetRot: " + gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot.ToString());
-			// Debug.Log("y: " + Mathf.Rad2Deg *  gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot.y + "deg");
-			// gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_CharacterTargetRot =
-			// 	Quaternion.Euler(Mathf.Rad2Deg * GameState.current.playerOrientation.x, 0f, 0f);
 		}
 
 		void Update()
@@ -100,9 +85,6 @@ namespace Forlorn
 					}
 				}
 			}
-
-			GameState.current.playerPosition = transform.position;
-			GameState.current.playerRotation = Quaternion.Euler(camera.rotation.x, transform.rotation.y, 0f);
 		}
 
 		void OnDrawGizmos()

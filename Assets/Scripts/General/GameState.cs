@@ -8,6 +8,7 @@ namespace Forlorn
 	[System.Serializable]
 	public class GameObjectProperties
 	{
+		public bool visible;
 		public Vector3 position;
 		public Quaternion rotation;
 		public bool enabled;
@@ -21,12 +22,12 @@ namespace Forlorn
 		public static GameState current;
 
 		public GameStage stage;
-		public int sceneId;
+		public int sceneId = 0;
 
 		public Vector3 playerPosition;
 		public Quaternion playerRotation;
 
-		public Dictionary<string, GameObjectProperties> objectPropertieDict;
+		public Dictionary<string, GameObjectProperties> objectPropertieDict = new Dictionary<string, GameObjectProperties>();
 	}
 
 }

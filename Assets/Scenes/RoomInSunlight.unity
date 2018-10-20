@@ -203,9 +203,15 @@ Transform:
   m_Children:
   - {fileID: 1852190870}
   - {fileID: 306618019}
+  - {fileID: 179687299}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &179687299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae,
+    type: 3}
+  m_PrefabInternal: {fileID: 1209307795}
 --- !u!1 &199630426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 164614, guid: da315a54a49029940a86ba63ed06ef51,
@@ -2250,7 +2256,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 122456060}
     m_Modifications:
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2266,15 +2272,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2282,7 +2288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 77e346446dabe5c45861de3f2aa9c0ae, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2382,15 +2388,13 @@ GameObject:
   - component: {fileID: 1245145299}
   - component: {fileID: 1245145294}
   - component: {fileID: 1245145298}
-  - component: {fileID: 1245145296}
-  - component: {fileID: 1245145295}
   m_Layer: 8
   m_Name: PaperPiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1245145294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2398,34 +2402,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245145293}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.18571399, y: 6.780602e-14, z: 1.8000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1245145295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1245145293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f00d9e3d07821449a01869db2fdadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1245145296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1245145293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2733b7b32da6aab4a9bbfeab9bbf8851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveChildren: 1
 --- !u!4 &1245145297
 Transform:
   m_ObjectHideFlags: 0
@@ -2555,7 +2536,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264802662}
-  m_LocalRotation: {x: 0.0023257718, y: 0.70169616, z: -0.0022906058, w: 0.7124689}
+  m_LocalRotation: {x: 0.0023257686, y: 0.7016961, z: -0.0022906025, w: 0.7124689}
   m_LocalPosition: {x: 2.905568, y: 1.127, z: -1.052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3351,8 +3332,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1616875431}
-  m_LocalRotation: {x: 0, y: 0.99999857, z: 0, w: 0.0017043238}
-  m_LocalPosition: {x: 1.556, y: 1.657, z: -0.667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.541, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3430,7 +3411,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 54
+  field of view: 70
   orthographic: 0
   orthographic size: 10
   m_Depth: 0

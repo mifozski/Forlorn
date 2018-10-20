@@ -12,7 +12,12 @@ namespace Forlorn
 
 		public Redux.Store store;
 
-		void Update ()
+		void Start()
+		{
+			mainMenuCanvas.enabled = false;
+		}
+
+		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{

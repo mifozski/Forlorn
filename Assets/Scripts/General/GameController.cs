@@ -18,6 +18,8 @@ namespace Forlorn
 
 	public class GameController : SingletonMonoBehavior<GameController>
 	{
+		[SerializeField] GameSaver gameSaver;
+
 		private GameStageController stageController;
 
 		[SerializeField] Animator fadeInOutScreenAnimator;
@@ -30,10 +32,6 @@ namespace Forlorn
 		static bool interactableObjectIndicatorIsShown = false;
 		static Coroutine interactableObjectIndicatorCoroutine = null;
 
-		// private SaveLoadController saveLoadController;
-
-		// private Redux.Store store;
-
 		void Awake()
 		{
 			Init();
@@ -41,17 +39,10 @@ namespace Forlorn
 
 		private void Init()
 		{
-			GameState.current = new GameState();
-			// SaveLoadGame.Load();
-
-			// saveLoadController = new SaveLoadController();
-
-			// store = Redux.createStore();
 		}
 
 		void Start()
 		{
-			// saveLoadController.AddSerializableObject();
 		}
 
 		public static void ShowInteractableObjectIndicator(bool draw)
@@ -70,15 +61,7 @@ namespace Forlorn
 		static public void LoadScene(Scenes scene)
 		{
 			Instance.fadeInOutScreenAnimator.SetBool("FadeOut", true);
-			// SceneManager.LoadScene(GetSceneName(scene));
 		}
-
-		// IEnumerator FadeOutScreen()
-		// {
-		// 	fadeInOutScreenAnimator.SetBool("Fade", true);
-		// 	// yield return new WaitUntil(() => fadeInOutScreen.color.a == 1);
-
-		// }
 
 		static private string GetSceneName(Scenes scene)
 		{
@@ -109,7 +92,7 @@ namespace Forlorn
 
 		public void Save()
 		{
-			EventController.TriggerEvent("Save");
+			gameSaver.Save();
 		}
 
 		public void Exit()

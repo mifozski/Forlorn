@@ -23,6 +23,8 @@ namespace Forlorn
 
 		Reducers.SceneState prevSceneState = new Reducers.SceneState();
 
+		private List<ShouldPersistMixin> persistentObjects = new List<ShouldPersistMixin>();
+
 		void Awake()
 		{
 			// TODO: Create store externally and pass it as an argument to GameLoader's constructor
@@ -37,25 +39,25 @@ namespace Forlorn
 			sceneManager.store = store;
 			mainMenu.store = store;
 			playerController.store = store;
+
+			bool loaded = loader.Load();
+			if (!loaded)
+				GameState.current = new GameState();
 		}
 
 		void Start()
 		{
-			bool loaded = loader.Load();
-
-			if (loaded)
+			if (GameState.current.sceneId != -1)
 			{
 				Debug.Log($"sceneId: {GameState.current.sceneId}");
 
 				sceneManager.LoadScene(GameState.current.sceneId);
-				// store.dispatch(SceneManagement.ActionCreators.loadScene(GameState.current.sceneId));
 			}
 			else
 			{
 				Debug.Log($"sceneId: NOT FOUND");
 
 				sceneManager.LoadScene(defaultSceneId);
-				// store.dispatch(SceneManagement.ActionCreators.loadScene(defaultSceneId));
 			}
 		}
 
@@ -66,32 +68,15 @@ namespace Forlorn
 			var sceneState = state[Reducers.scene] as Reducers.SceneState;
 			if (prevSceneState != sceneState)
 			{
-				if (prevSceneState.loadedScenes != sceneState.loadedScenes)
-				{
-					int [] newScenes = sceneState.loadedScenes.Except(prevSceneState.loadedScenes).ToArray();
-					if (newScenes.Length > 0 && newScenes[0] != 0)
-					{
-						Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(newScenes[0]);
-						LoadSceneObjects(scene);
-					}
-				}
-
 				prevSceneState = Utils.DeepCopy<Reducers.SceneState>(sceneState);
 			}
 		}
 
-		void LoadSceneObjects(Scene scene)
+		public void OnCreatedPersistentObject(ShouldPersistMixin persistentObject)
 		{
-			GameObject [] sceneRootObjects = scene.GetRootGameObjects();
+			Debug.Assert(persistentObjects.Contains(persistentObject) == false);
 
-			foreach (GameObject obj in sceneRootObjects)
-			{
-				ShouldPersistMixin objLoader = obj.GetComponent<ShouldPersistMixin>();
-				if (objLoader == null)
-					continue;
-
-				objLoader.Load();
-			}
+			persistentObjects.Add(persistentObject);
 		}
 	}
 }

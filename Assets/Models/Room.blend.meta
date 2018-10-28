@@ -37,6 +37,12 @@ ModelImporter:
     100062: AirGrate_Grate
     100064: AirGrate_Hull
     100066: Cube_001
+    100068: WindowFrame_000
+    100070: Cube_002
+    100072: WindowFrame_003
+    100074: _WindowFrame_003
+    100076: Ceiling
+    100078: Floor
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -71,6 +77,12 @@ ModelImporter:
     400062: AirGrate_Grate
     400064: AirGrate_Hull
     400066: Cube_001
+    400068: WindowFrame_000
+    400070: Cube_002
+    400072: WindowFrame_003
+    400074: _WindowFrame_003
+    400076: Ceiling
+    400078: Floor
     2100000: unnamed
     2100002: Material_001
     2100004: DoorMonitor_Body
@@ -118,6 +130,12 @@ ModelImporter:
     2300060: AirGrate_Grate
     2300062: AirGrate_Hull
     2300064: Cube_001
+    2300066: WindowFrame_000
+    2300068: Cube_002
+    2300070: WindowFrame_003
+    2300072: _WindowFrame_003
+    2300074: Ceiling
+    2300076: Floor
     3300000: //RootNode
     3300002: Plane
     3300004: Plane_001
@@ -151,6 +169,12 @@ ModelImporter:
     3300060: AirGrate_Grate
     3300062: AirGrate_Hull
     3300064: Cube_001
+    3300066: WindowFrame_000
+    3300068: Cube_002
+    3300070: WindowFrame_003
+    3300072: _WindowFrame_003
+    3300074: Ceiling
+    3300076: Floor
     4300000: Plane
     4300002: Plane_002
     4300004: Plane_001
@@ -183,6 +207,12 @@ ModelImporter:
     4300058: AirGrate_Grate
     4300060: AirGrate_Hull
     4300062: Cube_001
+    4300064: WindowFrame_000
+    4300066: Cube_002
+    4300068: WindowFrame_003
+    4300070: _WindowFrame_003
+    4300072: Ceiling
+    4300074: Floor
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

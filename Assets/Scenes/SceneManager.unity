@@ -185,7 +185,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 14577199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46fbdeb2750ac04eb3634433b707489, type: 3}
+  m_Script: {fileID: 11500000, guid: e1ebe52f447b7144ba7f5ee4882a743a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &69156312
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paperPiece: {fileID: 0}
   schoolShootingCutscene: {fileID: 0}
-  initialState: 2
+  initialState: 0
 --- !u!4 &705225198
 Transform:
   m_ObjectHideFlags: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSaver: {fileID: 1318082473}
-  fadeInOutScreenAnimator: {fileID: 0}
+  fadeInOutScreenAnimator: {fileID: 641039828}
   subtitles: {fileID: 1546767226}
   interactableObjectIndicator: {fileID: 1292622475}
 --- !u!114 &705225201
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 705225196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac318c51d74b934f9f9897f0a3dc95c, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &725207445
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e47b2d5e2910c43a535aa69a2c6110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSceneId: 1
+  defaultSceneId: 0
   mainMenu: {fileID: 705225201}
   playerController: {fileID: 1681677496}
 --- !u!4 &1915025328

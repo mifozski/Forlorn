@@ -255,5 +255,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        public void SetOrientation(Quaternion rot)
+        {
+            m_MouseLook.SetOrientation(rot);
+        }
+
+        public Quaternion GetOrientation()
+        {
+            return m_MouseLook.GetOrientation();
+        }
     }
 }

@@ -111,5 +111,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             return q;
         }
 
+        public void SetOrientation(Quaternion rot)
+        {
+            var euler = rot.eulerAngles;
+
+            m_CharacterTargetRot = Quaternion.Euler(0.0f, euler.y, 0.0f);
+            m_CameraTargetRot = Quaternion.Euler(euler.x, 0.0f, 0.0f);
+        }
+
+        public Quaternion GetOrientation()
+        {
+            var characterEuler = m_CharacterTargetRot.eulerAngles;
+            var cameraEuler = m_CameraTargetRot.eulerAngles;
+            return Quaternion.Euler(cameraEuler.x, characterEuler.y, 0.0f);
+        }
     }
 }

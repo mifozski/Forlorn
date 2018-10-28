@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 using Forlorn;
 
@@ -33,6 +34,16 @@ namespace Forlorn
 				enabled = gameObject.activeSelf
 			};
 
+			// Hack for the player object to save the correct orientation
+			if (gameObject.tag == "Player")
+			{
+				FirstPersonController fps = gameObject.GetComponent<FirstPersonController>();
+
+				GameState.current.objectPropertieDict[gameObject.name].rotation = fps.GetOrientation();
+
+				return;
+			}
+
 			if (saveChildren)
 			{
 				foreach (Transform child in gameObject.transform)
@@ -61,6 +72,16 @@ namespace Forlorn
 			gameObject.transform.position = properties.position;
 			gameObject.transform.rotation = properties.rotation;
 			gameObject.SetActive(properties.enabled);
+
+			// Hack for the player object to set the correct orientation
+			if (gameObject.tag == "Player")
+			{
+				FirstPersonController fps = gameObject.GetComponent<FirstPersonController>();
+
+				fps.SetOrientation(properties.rotation);
+
+				return;
+			}
 
 			if (saveChildren)
 			{

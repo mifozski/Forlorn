@@ -353,23 +353,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127636282}
   m_CullTransparentMesh: 0
---- !u!1 &179687298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1294395290153020, guid: 3e4936ed70f524847999da7863bdbaa3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1750206486}
---- !u!114 &179687299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 179687298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2733b7b32da6aab4a9bbfeab9bbf8851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveChildren: 1
 --- !u!1 &195439688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,10 +1398,6 @@ Prefab:
     - target: {fileID: 4784587315107396, guid: 3e4936ed70f524847999da7863bdbaa3, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294395290153020, guid: 3e4936ed70f524847999da7863bdbaa3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1294395290153020, guid: 3e4936ed70f524847999da7863bdbaa3, type: 2}
       propertyPath: m_Name

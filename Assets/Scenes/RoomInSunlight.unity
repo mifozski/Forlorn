@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000038, guid: 72fe34d03c558f846934ffcc395d5cc6,
+  m_LightingDataAsset: {fileID: 112000052, guid: 72fe34d03c558f846934ffcc395d5cc6,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3bfafd77cc95c4f8776fa69f789cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveType: 3
+  interactiveType: 0
 --- !u!1 &122456059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3bfafd77cc95c4f8776fa69f789cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveType: 1
+  interactiveType: 0
 --- !u!114 &639412139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,8 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   response:
-    texts:
-    - 
+    texts: []
 --- !u!65 &639412141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2645,7 +2644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3bfafd77cc95c4f8776fa69f789cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveType: 2
+  interactiveType: 0
 --- !u!23 &1245145299
 MeshRenderer:
   m_ObjectHideFlags: 0

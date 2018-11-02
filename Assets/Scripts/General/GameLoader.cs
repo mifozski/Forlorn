@@ -18,6 +18,8 @@ namespace Forlorn
 
 		[SerializeField] int defaultSceneId;
 
+		[SerializeField] CutsceneController cutsceneController;
+
 		[SerializeField] MainMenu mainMenu;
 		[SerializeField] PlayerController playerController;
 
@@ -37,6 +39,8 @@ namespace Forlorn
 			store.subscribe(OnStateChange);
 
 			sceneManager.store = store;
+			cutsceneController.store = store;
+
 			mainMenu.store = store;
 			playerController.store = store;
 

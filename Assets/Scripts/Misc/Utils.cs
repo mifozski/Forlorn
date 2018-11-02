@@ -68,7 +68,11 @@ namespace Forlorn
 			}
 
 			return result;
-
 	   }
+
+		public static T GetActionData<T>(Redux.Action action, string name)
+		{
+			return (T)action.data?.GetType().GetProperty(name)?.GetValue(action.data, null);
+		}
 	}
 }

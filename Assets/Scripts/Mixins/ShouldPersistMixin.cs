@@ -30,7 +30,6 @@ namespace Forlorn
 			GameState.current.objectPropertieDict[gameObject.name] = new GameObjectProperties {
 				visible = renderer ? renderer.enabled : true,
 				position = gameObject.transform.position,
-				rotation = gameObject.transform.rotation,
 				enabled = gameObject.activeSelf
 			};
 
@@ -43,6 +42,8 @@ namespace Forlorn
 
 				return;
 			}
+			else
+				GameState.current.objectPropertieDict[gameObject.name].rotation = gameObject.transform.rotation;
 
 			if (saveChildren)
 			{
@@ -70,7 +71,6 @@ namespace Forlorn
 				renderer.enabled = properties.visible;
 
 			gameObject.transform.position = properties.position;
-			gameObject.transform.rotation = properties.rotation;
 			gameObject.SetActive(properties.enabled);
 
 			// Hack for the player object to set the correct orientation
@@ -82,6 +82,8 @@ namespace Forlorn
 
 				return;
 			}
+			else
+				gameObject.transform.rotation = properties.rotation;
 
 			if (saveChildren)
 			{

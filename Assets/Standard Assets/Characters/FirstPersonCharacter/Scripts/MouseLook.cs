@@ -23,8 +23,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void Init(Transform character, Transform camera)
         {
-            m_CharacterTargetRot = character.localRotation;
-            m_CameraTargetRot = camera.localRotation;
+            if (m_CharacterTargetRot == null)
+                m_CharacterTargetRot = character.localRotation;
+            if (m_CameraTargetRot == null)
+                m_CameraTargetRot = camera.localRotation;
         }
 
 

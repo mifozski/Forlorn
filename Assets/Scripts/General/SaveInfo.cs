@@ -37,7 +37,7 @@ namespace Forlorn
 			Debug.Log($"Saved game: {JsonUtility.ToJson(GameState.current)}");
 		}
 
-		public bool Load()
+		public bool Load(ref GameState gameState)
 		{
 			string saveFilePath = Application.persistentDataPath + "/" + saveFilename;
 
@@ -60,10 +60,10 @@ namespace Forlorn
 				file?.Close();
 			}
 
-			GameState.current = savedGames[savedGames.Count - 1];
-			GameState.current.loaded = true;
+			gameState = savedGames[savedGames.Count - 1];
+			gameState.loaded = true;
 
-			Debug.Log($"Game loaded: {JsonUtility.ToJson(GameState.current)}");
+			Debug.Log($"Game loaded: {JsonUtility.ToJson(gameState)}");
 
 			return true;
 		}

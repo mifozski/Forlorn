@@ -23,6 +23,8 @@ namespace Forlorn
 		[SerializeField] MainMenu mainMenu;
 		[SerializeField] PlayerController playerController;
 
+		[SerializeField] GameStateInspector m_GameStateInspector;
+
 		Reducers.SceneState prevSceneState = new Reducers.SceneState();
 
 		private List<ShouldPersistMixin> persistentObjects = new List<ShouldPersistMixin>();
@@ -44,9 +46,11 @@ namespace Forlorn
 			mainMenu.store = store;
 			playerController.store = store;
 
-			bool loaded = loader.Load();
-			if (!loaded)
+			loader.Load(ref GameState.current);
+			if (GameState.current == null)
 				GameState.current = new GameState();
+
+			m_GameStateInspector.gameState = GameState.current;
 		}
 
 		void Start()

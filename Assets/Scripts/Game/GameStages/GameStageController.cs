@@ -43,16 +43,6 @@ namespace Forlorn
 		{
 		}
 
-		void OnEnable()
-		{
-			// SceneManager.sceneLoaded += this.OnLevelFinishedLoading;
-		}
-
-		void OnDisable()
-		{
-			// SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-		}
-
 		public void SetStage(GameStage stage)
 		{
 			Debug.Log("GameStageController:SetState(): state = " + stage);
@@ -79,16 +69,6 @@ namespace Forlorn
 			// Debug.Log("GameStageController:Init_Enter()");
 
 			// stateMachine.ChangeState(initialState);
-		}
-
-		void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-		{
-			if (GetStage() == GameStage.AfterFirstWakeUp)
-			{
-				// schoolShootingCutscene.Play();
-
-				SetStage(GameStage.AfterSchoolShootingCustcene);
-			}
 		}
 
 		public void OnInteracted(InteractiveObjectType objectType)

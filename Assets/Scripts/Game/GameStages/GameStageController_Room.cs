@@ -11,14 +11,12 @@ namespace Forlorn
 
 		[SerializeField] Transform paperPiece;
 
-		void Awake()
-		{
-
-		}
-
 		void Start ()
 		{
-			EventController_Cutscene.Instance.TriggerEvent("PlayCutscene", schoolShootingCutscene);
+			var we = GameState.current.cutscenesPlayed.Contains("wewe");
+			var wewe = Cutscene.SchoolShooting.ToString();
+			if (GameState.current.cutscenesPlayed.Contains(Cutscene.SchoolShooting.ToString()) == false)
+				EventController_Cutscene.Instance.TriggerEvent("PlayCutscene", schoolShootingCutscene);
 		}
 
 		void Update ()

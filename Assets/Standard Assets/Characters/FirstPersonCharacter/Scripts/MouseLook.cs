@@ -21,14 +21,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
 
+        private bool m_OrientationSetExplicitly = false;
+
         public void Init(Transform character, Transform camera)
         {
-            if (m_CharacterTargetRot == null)
+            if (m_OrientationSetExplicitly == false)
+            {
                 m_CharacterTargetRot = character.localRotation;
-            if (m_CameraTargetRot == null)
                 m_CameraTargetRot = camera.localRotation;
+            }
         }
-
 
         public void LookRotation(Transform character, Transform camera)
         {
@@ -119,6 +121,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_CharacterTargetRot = Quaternion.Euler(0.0f, euler.y, 0.0f);
             m_CameraTargetRot = Quaternion.Euler(euler.x, 0.0f, 0.0f);
+            m_OrientationSetExplicitly = true;
         }
 
         public Quaternion GetOrientation()

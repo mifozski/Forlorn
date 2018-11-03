@@ -24,10 +24,8 @@ namespace Forlorn
 		public GameStage stage;
 		public int sceneId = 0;
 
-		public Vector3 playerPosition;
-		public Quaternion playerRotation;
+		public List<string> cutscenesPlayed = new List<string>();
 
 		public Dictionary<string, GameObjectProperties> objectPropertieDict = new Dictionary<string, GameObjectProperties>();
 	}
-
 }

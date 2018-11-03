@@ -53,7 +53,11 @@ namespace Forlorn
 					Debug.LogError($"No Cutscene mixin on Director object {director.name}");
 
 				if (mixin)
+				{
 					store.dispatch(ActionCreators.Cutscenes.setCutsceneFinished(mixin.cutscene));
+					if (GameState.current.cutscenesPlayed.Contains(mixin.cutscene.ToString()) == false)
+						GameState.current.cutscenesPlayed.Add(mixin.cutscene.ToString());
+				}
 			}
 		}
 	}

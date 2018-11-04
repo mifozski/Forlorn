@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000004, guid: 72fe34d03c558f846934ffcc395d5cc6,
+  m_LightingDataAsset: {fileID: 112000002, guid: 72fe34d03c558f846934ffcc395d5cc6,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -613,7 +613,7 @@ Transform:
   m_Children:
   - {fileID: 725207446}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &641039828
 Animator:
@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 705225199}
   - component: {fileID: 705225197}
   - component: {fileID: 705225201}
+  - component: {fileID: 705225202}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -722,6 +723,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuCanvas: {fileID: 1478243411}
+--- !u!114 &705225202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705225196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9107a3a0268caa6469747a1285312510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    loaded: 0
+    stage: 0
+    sceneId: 0
+    cutscenesPlayed: []
 --- !u!1 &725207445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4784587315107396, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.000000006711959
       objectReference: {fileID: 0}
     - target: {fileID: 4784587315107396, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1486,11 +1504,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4784587315107396, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1294395290153020, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784587315107396, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e4936ed70f524847999da7863bdbaa3, type: 3}
@@ -1590,6 +1612,7 @@ MonoBehaviour:
   cutsceneController: {fileID: 705225199}
   mainMenu: {fileID: 705225201}
   playerController: {fileID: 1681677496}
+  m_GameStateInspector: {fileID: 705225202}
 --- !u!4 &1915025328
 Transform:
   m_ObjectHideFlags: 0

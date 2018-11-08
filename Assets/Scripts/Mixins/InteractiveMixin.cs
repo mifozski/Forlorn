@@ -15,9 +15,9 @@ public enum InteractiveObjectType
 	Notebook
 }
 
-public class Interactive : MonoBehaviour
+public class InteractiveMixin : MonoBehaviour
 {
-	public InteractiveObjectType interactiveType;
+	// public InteractiveObjectType interactiveType;
 
 	private void Reset()
 	{
@@ -26,10 +26,10 @@ public class Interactive : MonoBehaviour
 
 	public void OnLookAt()
 	{
-		
+
 	}
 
-	private void OnInteract()
+	virtual public  void OnInteracted()
 	{
 		// ue.Invoke();
 	}

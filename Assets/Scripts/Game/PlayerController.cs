@@ -63,7 +63,7 @@ namespace Forlorn
 			RaycastHit hit;
 			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 			{
-				Interactive interactive = hit.transform.gameObject.GetComponent<Interactive>();
+				InteractiveMixin interactive = hit.transform.gameObject.GetComponent<InteractiveMixin>();
 				if (interactive)
 				{
 					GameController.ShowInteractableObjectIndicator(true);
@@ -78,11 +78,12 @@ namespace Forlorn
 			{
 				if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance + 1, interactableMask))
 				{
-					Interactive interactive = hit.transform.gameObject.GetComponentInChildren<Interactive>();
-					if (interactive)
-					{
-						interactiveEvent.Invoke(interactive.interactiveType);
-					}
+					hit.transform.gameObject.SendMessage("OnInteracted");
+					// if (interactive)
+					// {
+					// 	interactive.OnInteracted();
+						// interactiveEvent.Invoke(interactive.interactiveType);
+					// }
 				}
 			}
 		}

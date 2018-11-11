@@ -48,6 +48,7 @@ namespace Forlorn
 		// Use this for initialization
 		void Start()
 		{
+			prevGeneralState = store.getStateTree()[Reducers.general] as Reducers.GeneralState;
 			camera = GetComponentInChildren<CinemachineVirtualCamera>().transform;
 		}
 

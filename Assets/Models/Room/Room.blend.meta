@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: e04f7b57982293840a243741dea4b1aa
+ModelImporter:
+  serializedVersion: 24
+  fileIDToRecycleName:
+    100000: AirGrate_Grate
+    100002: AirGrate_Hull
+    100004: BathroomDoor
+    100006: BathroomDoorHandle
+    100008: BathroomDoorway
+    100010: Ceiling
+    100012: Cube
+    100014: Door
+    100016: Door_001
+    100018: DoorMonitor
+    100020: Floor
+    100022: HallWalls
+    100024: HallWindow
+    100026: //RootNode
+    100028: WallsAndFloor
+    100030: Window
+    100032: WindowFrame_001
+    100034: Plane
+    100036: Plane_001
+    100038: Walls
+    400000: AirGrate_Grate
+    400002: AirGrate_Hull
+    400004: BathroomDoor
+    400006: BathroomDoorHandle
+    400008: BathroomDoorway
+    400010: Ceiling
+    400012: Cube
+    400014: Door
+    400016: Door_001
+    400018: DoorMonitor
+    400020: Floor
+    400022: HallWalls
+    400024: HallWindow
+    400026: //RootNode
+    400028: WallsAndFloor
+    400030: Window
+    400032: WindowFrame_001
+    400034: Plane
+    400036: Plane_001
+    400038: Walls
+    2100000: unnamed
+    2100002: Metal
+    2100004: Room_BathroomDoorway
+    2100006: Room_BathroomDoor
+    2100008: WindowFrame
+    2100010: RoomWall
+    2100012: Window
+    2100014: DoorMonitor_Body
+    2100016: DoorMonitor_Viewer
+    2300000: AirGrate_Grate
+    2300002: AirGrate_Hull
+    2300004: BathroomDoor
+    2300006: BathroomDoorHandle
+    2300008: BathroomDoorway
+    2300010: Ceiling
+    2300012: Cube
+    2300014: Door
+    2300016: Door_001
+    2300018: DoorMonitor
+    2300020: Floor
+    2300022: HallWalls
+    2300024: HallWindow
+    2300026: WallsAndFloor
+    2300028: Window
+    2300030: WindowFrame_001
+    2300032: Plane
+    2300034: Plane_001
+    2300036: Walls
+    3300000: AirGrate_Grate
+    3300002: AirGrate_Hull
+    3300004: BathroomDoor
+    3300006: BathroomDoorHandle
+    3300008: BathroomDoorway
+    3300010: Ceiling
+    3300012: Cube
+    3300014: Door
+    3300016: Door_001
+    3300018: DoorMonitor
+    3300020: Floor
+    3300022: HallWalls
+    3300024: HallWindow
+    3300026: WallsAndFloor
+    3300028: Window
+    3300030: WindowFrame_001
+    3300032: Plane
+    3300034: Plane_001
+    3300036: Walls
+    4300000: Ceiling
+    4300002: Floor
+    4300004: AirGrate_Grate
+    4300006: AirGrate_Hull
+    4300008: BathroomDoorHandle
+    4300010: BathroomDoorway
+    4300012: BathroomDoor
+    4300014: WallsAndFloor
+    4300016: Cube
+    4300018: Door_001
+    4300020: HallWindow
+    4300022: WindowFrame_001
+    4300024: HallWalls
+    4300026: DoorMonitor
+    4300028: Door
+    4300030: Window
+    4300032: Plane_001
+    4300034: Plane
+    4300036: Walls
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

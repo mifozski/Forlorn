@@ -1,25 +1,35 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 using Forlorn;
 
 namespace Forlorn
 {
-	[RequireComponent(typeof(BoxCollider))]
+	[RequireComponent(typeof(BoxCollider), typeof(InteractiveMixin))]
+	[RequireComponent(typeof(AudioSource))]
 	public class LightSwitchMixin : MonoBehaviour
 	{
-		public UnityEvent switchingEvent;
+		[SerializeField] new SwitchableLightMixin light;
+
+		private AudioSource clicking;
 
 		Animator doorAnimator;
 
+		void Awake()
+		{
+			clicking = GetComponent<AudioSource>();
+		}
+
 		void Start()
 		{
-			doorAnimator = GetComponent<Animator>();
+			// doorAnimator = GetComponent<Animator>();
 		}
 
 		public void OnInteracted()
 		{
-			doorAnimator.SetBool("IsOpen", !doorAnimator.GetBool("IsOpen"));
+			light.ToggleLight();
+
+			clicking.Play();
+			// doorAnimator.SetBool("IsOpen", !doorAnimator.GetBool("IsOpen"));
 		}
 	}
 }

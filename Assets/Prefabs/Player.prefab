@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 7389204734437881855}
   - component: {fileID: 7427513849957807577}
   - component: {fileID: 7407329453520677747}
+  - component: {fileID: 4714967130282441964}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: Untagged
@@ -493,3 +494,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &4714967130282441964
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387899431184421321}
+  m_Enabled: 1

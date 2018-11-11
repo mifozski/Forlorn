@@ -797,6 +797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Living Room Light
       objectReference: {fileID: 0}
+    - target: {fileID: 8773969192627617776, guid: a591f62eac82ffd4c8181fd4bcd1507c,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a591f62eac82ffd4c8181fd4bcd1507c, type: 3}
 --- !u!1 &1251650828 stripped
@@ -1540,6 +1545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hallway Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773969192627617776, guid: a591f62eac82ffd4c8181fd4bcd1507c,
+        type: 3}
+      propertyPath: m_Shadows.m_Resolution
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a591f62eac82ffd4c8181fd4bcd1507c, type: 3}

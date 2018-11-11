@@ -27,6 +27,11 @@ namespace Forlorn
 			PlayHumming(!humming.isPlaying);
 		}
 
+		public bool IsOn()
+		{
+			return light.enabled;
+		}
+
 		private void PlayHumming(bool play)
 		{
 			if (play)

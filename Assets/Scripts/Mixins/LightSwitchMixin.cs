@@ -12,16 +12,17 @@ namespace Forlorn
 
 		private AudioSource clicking;
 
-		Animator doorAnimator;
+		Animator toggleAnimator;
 
 		void Awake()
 		{
 			clicking = GetComponent<AudioSource>();
+			toggleAnimator = GetComponent<Animator>();
 		}
 
 		void Start()
 		{
-			// doorAnimator = GetComponent<Animator>();
+			toggleAnimator.SetBool("TurnedOn", light.IsOn());
 		}
 
 		public void OnInteracted()
@@ -29,7 +30,8 @@ namespace Forlorn
 			light.ToggleLight();
 
 			clicking.Play();
-			// doorAnimator.SetBool("IsOpen", !doorAnimator.GetBool("IsOpen"));
+
+			toggleAnimator.SetBool("TurnedOn", !toggleAnimator.GetBool("TurnedOn"));
 		}
 	}
 }

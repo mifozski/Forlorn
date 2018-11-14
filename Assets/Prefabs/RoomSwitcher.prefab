@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3236431460060108524}
   - component: {fileID: 3236431460060108512}
   - component: {fileID: 1251650829}
+  - component: {fileID: 6285569335465752671}
   m_Layer: 8
   m_Name: SwitchToggle
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c51dfd2fcf92664e8000bf1db4f44e3, type: 3}
+  - {fileID: 2100000, guid: 88e41287666d2f84897ec6df06338392, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 0}
-  clicking: {fileID: 1251650829}
 --- !u!82 &1251650829
 AudioSource:
   m_ObjectHideFlags: 0
@@ -216,6 +216,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6285569335465752671
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236431458049951033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e20ea192e56f344fabc407a9a8f459c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3236431458049951037
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,14 +261,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3236431458049951037}
-  m_LocalRotation: {x: -0.50434417, y: -0.50434417, z: -0.4956178, w: 0.4956178}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3236431458049464601}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.99999, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3236431458046597437
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -275,7 +294,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c51dfd2fcf92664e8000bf1db4f44e3, type: 3}
+  - {fileID: 2100000, guid: 88e41287666d2f84897ec6df06338392, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1650,5 +1650,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7427014724002500073, guid: affc85e1c6a2d64448ba3d66922ba8b3,
+        type: 3}
+      propertyPath: m_UseFovKick
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: affc85e1c6a2d64448ba3d66922ba8b3, type: 3}

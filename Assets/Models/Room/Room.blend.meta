@@ -54,6 +54,7 @@ ModelImporter:
     2100012: Window
     2100014: DoorMonitor_Body
     2100016: DoorMonitor_Viewer
+    2100018: MirrorCase
     2300000: AirGrate_Grate
     2300002: AirGrate_Hull
     2300004: BathroomDoor

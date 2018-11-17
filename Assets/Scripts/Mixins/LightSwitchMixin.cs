@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 using Forlorn;
 
@@ -8,7 +9,7 @@ namespace Forlorn
 	[RequireComponent(typeof(AudioSource))]
 	public class LightSwitchMixin : MonoBehaviour
 	{
-		[SerializeField] new SwitchableLightMixin light;
+		[SerializeField] SwitchableLightMixin[] lights;
 
 		[SerializeField] string switchedOffSubtitles;
 		[SerializeField] string switchedOnSubtitles;
@@ -28,13 +29,19 @@ namespace Forlorn
 
 		void Start()
 		{
-			toggleAnimator.SetBool("TurnedOn", light.IsOn());
+			bool isOn = lights.Where(light => light.IsOn()).Count() > 0;
+			// Sync all lights to be in the same switch state
+			foreach (SwitchableLightMixin light in lights)
+				light.lightIsOn = isOn;
+
+			toggleAnimator.SetBool("TurnedOn", isOn);
 			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;
 		}
 
 		public void OnInteracted()
 		{
-			light.ToggleLight();
+			foreach (SwitchableLightMixin light in lights)
+				light.lightIsOn = !light.lightIsOn;
 
 			clicking.Play();
 

@@ -36,6 +36,8 @@ namespace Forlorn
 
 		private FirstPersonController firstPersonController;
 
+		private InteractiveMixin prevHoveredObject = null;
+
 		// Store stuff
 		Reducers.GeneralState prevGeneralState = null;
 		Reducers.SceneState prevSceneState = null;
@@ -65,14 +67,21 @@ namespace Forlorn
 			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
 			{
 				InteractiveMixin interactive = hit.transform.gameObject.GetComponent<InteractiveMixin>();
+				if (prevHoveredObject && prevHoveredObject != interactive)
+						prevHoveredObject.SendMessage("OnHover", false);
 				if (interactive)
 				{
-					GameController.ShowInteractableObjectIndicator(true);
+					// GameController.ShowInteractableObjectIndicator(true);
+					interactive.transform.gameObject.SendMessage("OnHover", true);
 				}
+				prevHoveredObject = interactive;
 			}
 			else
 			{
-				GameController.ShowInteractableObjectIndicator(false);
+				// GameController.ShowInteractableObjectIndicator(false);
+				if (prevHoveredObject)
+					prevHoveredObject.SendMessage("OnHover", false);
+				prevHoveredObject = null;
 			}
 
 			if (Input.GetKeyDown(KeyCode.E))

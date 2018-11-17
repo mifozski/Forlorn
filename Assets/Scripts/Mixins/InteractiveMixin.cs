@@ -19,6 +19,8 @@ public class InteractiveMixin : MonoBehaviour
 {
 	// public InteractiveObjectType interactiveType;
 
+	public string onHoverSubtitles;
+
 	private void Reset()
 	{
 		gameObject.layer = LayerMask.NameToLayer("Interactive");
@@ -29,9 +31,18 @@ public class InteractiveMixin : MonoBehaviour
 
 	}
 
-	virtual public  void OnInteracted()
+	public void OnHover(bool hover)
 	{
-		// ue.Invoke();
+		GameController.ShowInteractableObjectIndicator(hover);
+
+		if (hover)
+			GameController.ShowSubtitles(onHoverSubtitles);
+		else
+			GameController.ShowSubtitles("");
+	}
+
+	virtual public void OnInteracted()
+	{
 	}
 }
 }

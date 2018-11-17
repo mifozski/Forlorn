@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3bfafd77cc95c4f8776fa69f789cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHoverSubtitles: 
 --- !u!114 &3236431460060108512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 0}
+  switchedOffSubtitles: Turn On
+  switchedOnSubtitles: Turn Off
 --- !u!82 &1251650829
 AudioSource:
   m_ObjectHideFlags: 0

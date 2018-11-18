@@ -24,6 +24,7 @@ ModelImporter:
     100036: Plane_001
     100038: Walls
     100040: Baseboard
+    100042: Wardrobe
     400000: AirGrate_Grate
     400002: AirGrate_Hull
     400004: BathroomDoor
@@ -45,6 +46,7 @@ ModelImporter:
     400036: Plane_001
     400038: Walls
     400040: Baseboard
+    400042: Wardrobe
     2100000: unnamed
     2100002: Metal
     2100004: Room_BathroomDoorway
@@ -55,6 +57,9 @@ ModelImporter:
     2100014: DoorMonitor_Body
     2100016: DoorMonitor_Viewer
     2100018: MirrorCase
+    2100020: DarkWood
+    2100022: LightWood
+    2100024: LightBand
     2300000: AirGrate_Grate
     2300002: AirGrate_Hull
     2300004: BathroomDoor
@@ -75,6 +80,7 @@ ModelImporter:
     2300034: Plane_001
     2300036: Walls
     2300038: Baseboard
+    2300040: Wardrobe
     3300000: AirGrate_Grate
     3300002: AirGrate_Hull
     3300004: BathroomDoor
@@ -95,6 +101,7 @@ ModelImporter:
     3300034: Plane_001
     3300036: Walls
     3300038: Baseboard
+    3300040: Wardrobe
     4300000: Ceiling
     4300002: Floor
     4300004: AirGrate_Grate
@@ -115,6 +122,7 @@ ModelImporter:
     4300034: Plane
     4300036: Walls
     4300038: Baseboard
+    4300040: Wardrobe
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

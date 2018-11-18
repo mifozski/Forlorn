@@ -13,8 +13,8 @@ namespace Forlorn
 		Animator doorAnimator;
 
 		Material emissionMaterial;
-		[SerializeField] MeshRenderer emissiveMaterialrenderer;
-		[SerializeField] Color m_OriginalEmissiveMatColor;
+		MeshRenderer emissiveMaterialrenderer;
+		Color m_OriginalEmissiveMatColor;
 
 		public bool lightIsOn
 		{

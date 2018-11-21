@@ -16,6 +16,8 @@ namespace Forlorn
 		MeshRenderer emissiveMaterialrenderer;
 		Color m_OriginalEmissiveMatColor;
 
+		string emissiveColorParam = "_EmissiveColor";
+
 		public bool lightIsOn
 		{
 			set {
@@ -27,11 +29,11 @@ namespace Forlorn
 				{
 					if (value)
 					{
-						emissionMaterial.SetColor("_EmissionColor", m_OriginalEmissiveMatColor);
+						emissionMaterial.SetColor(emissiveColorParam, m_OriginalEmissiveMatColor);
 					}
 					else
 					{
-						emissionMaterial.SetColor("_EmissionColor", Color.black);
+						emissionMaterial.SetColor(emissiveColorParam, Color.black);
 					}
 					emissiveMaterialrenderer.UpdateGIMaterials();
 				}
@@ -42,7 +44,7 @@ namespace Forlorn
 				if (light != null)
 					return light.enabled;
 				else if (emissionMaterial)
-					return emissionMaterial.GetColor("_EmissionColor") != Color.black;
+					return emissionMaterial.GetColor(emissiveColorParam) != Color.black;
 				else
 				{
 					Debug.LogError("No light or emissive material found on the object");
@@ -59,11 +61,11 @@ namespace Forlorn
 				emissiveMaterialrenderer = GetComponent<MeshRenderer>();
 				foreach (Material mat in emissiveMaterialrenderer.materials)
 				{
-					Color we = mat.GetColor("_EmissionColor");
-					if (mat.GetColor("_EmissionColor") != Color.black)
+					Color we = mat.GetColor(emissiveColorParam);
+					if (mat.GetColor(emissiveColorParam) != Color.black)
 					{
 						emissionMaterial = mat;
-						m_OriginalEmissiveMatColor = emissionMaterial.GetColor("_EmissionColor");
+						m_OriginalEmissiveMatColor = emissionMaterial.GetColor(emissiveColorParam);
 						break;
 					}
 				}

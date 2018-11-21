@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3236431460060108512}
   - component: {fileID: 1251650829}
   - component: {fileID: 6285569335465752671}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SwitchToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e9b069ccdb17c4a9f8626c220bb904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 0}
+  lights: []
   switchedOffSubtitles: Turn On
   switchedOnSubtitles: Turn Off
 --- !u!82 &1251650829

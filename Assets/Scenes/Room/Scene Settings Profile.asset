@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 114226746677450812}
   - {fileID: 114695902713036394}
   - {fileID: 114841640603806170}
+  - {fileID: 114324227003866362}
 --- !u!114 &114226746677450812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,13 +30,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   skyType:
     m_OverrideState: 1
     m_Value: 2
   fogType:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 2
+--- !u!114 &114324227003866362
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
+  m_Name: IndirectLightingController
+  m_EditorClassIdentifier: 
+  active: 1
+  indirectSpecularIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  indirectDiffuseIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
 --- !u!114 &114569420791447918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   rotation:
     m_OverrideState: 1
     m_Value: 0
@@ -157,7 +179,7 @@ MonoBehaviour:
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    m_Value: {r: 0.066571735, g: 0.07358383, b: 0.0754717, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

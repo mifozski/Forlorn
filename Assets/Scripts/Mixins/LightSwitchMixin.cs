@@ -18,6 +18,10 @@ namespace Forlorn
 
 		Animator toggleAnimator;
 
+		string emissiveColorParam = "_EmissiveColor";
+		Material indicatorMat;
+		Color indicatorColor;
+
 		protected InteractiveMixin interactive;
 
 		void Awake()
@@ -25,6 +29,8 @@ namespace Forlorn
 			clicking = GetComponent<AudioSource>();
 			toggleAnimator = GetComponent<Animator>();
 			interactive = GetComponent<InteractiveMixin>();
+			indicatorMat = GetComponent<MeshRenderer>().material;
+			indicatorColor = indicatorMat.GetColor(emissiveColorParam);
 		}
 
 		void Start()
@@ -36,6 +42,7 @@ namespace Forlorn
 
 			toggleAnimator.SetBool("TurnedOn", isOn);
 			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;
+			indicatorMat.SetColor(emissiveColorParam, !isOn ? indicatorColor : Color.black);
 		}
 
 		public void OnInteracted()
@@ -48,6 +55,15 @@ namespace Forlorn
 			toggleAnimator.SetBool("TurnedOn", !toggleAnimator.GetBool("TurnedOn"));
 
 			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;
+			indicatorMat.SetColor(emissiveColorParam, !isOn ? indicatorColor : Color.black);
+		}
+
+		bool isOn
+		{
+			get
+			{
+				return lights.Where(light => light.IsOn()).Count() > 0;
+			}
 		}
 	}
 }

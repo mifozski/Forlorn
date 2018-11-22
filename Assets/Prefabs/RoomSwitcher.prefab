@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3236431460060108524}
   - component: {fileID: 3236431460060108512}
   - component: {fileID: 1251650829}
-  - component: {fileID: 6285569335465752671}
+  - component: {fileID: 154479017}
   m_Layer: 9
   m_Name: SwitchToggle
   m_TagString: Untagged
@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3236431458049951033}
-  m_LocalRotation: {x: 0, y: 0.027921675, z: 0, w: 0.9996101}
+  m_LocalRotation: {x: 0.00031498077, y: -0.04024801, z: -0.0005096496, w: 0.99918956}
   m_LocalPosition: {x: 0.006, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3236431458049464605}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 3.2, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.034, y: -4.6130004, z: -0.060000002}
 --- !u!33 &3236431458046597433
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88e41287666d2f84897ec6df06338392, type: 2}
+  - {fileID: 2100000, guid: 053a690c7faaf15408cd1d5b66ad71bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e9b069ccdb17c4a9f8626c220bb904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
+  lights:
+  - {fileID: 0}
   switchedOffSubtitles: Turn On
   switchedOnSubtitles: Turn Off
 --- !u!82 &1251650829
@@ -219,7 +220,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &6285569335465752671
+--- !u!95 &154479017
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

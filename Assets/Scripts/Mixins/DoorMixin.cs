@@ -5,7 +5,6 @@ using Forlorn;
 namespace Forlorn
 {
 	[RequireComponent(typeof(BoxCollider))]
-	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(InteractiveMixin))]
 	public class DoorMixin : MonoBehaviour
 	{
@@ -20,7 +19,9 @@ namespace Forlorn
 
 		void Awake()
 		{
-			doorAnimator = GetComponent<Animator>();
+			doorAnimator = GetComponentInParent<Animator>();
+			if (doorAnimator == null)
+				Debug.LogError("No animator on a door");
 			interactive = GetComponent<InteractiveMixin>();
 		}
 

@@ -25,6 +25,9 @@ ModelImporter:
     100038: Walls
     100040: Baseboard
     100042: Wardrobe
+    100044: WallsOuter
+    100046: Ceiling_Outer
+    100048: Walls_Outer
     400000: AirGrate_Grate
     400002: AirGrate_Hull
     400004: BathroomDoor
@@ -47,6 +50,9 @@ ModelImporter:
     400038: Walls
     400040: Baseboard
     400042: Wardrobe
+    400044: WallsOuter
+    400046: Ceiling_Outer
+    400048: Walls_Outer
     2100000: unnamed
     2100002: Metal
     2100004: Room_BathroomDoorway
@@ -81,6 +87,9 @@ ModelImporter:
     2300036: Walls
     2300038: Baseboard
     2300040: Wardrobe
+    2300042: WallsOuter
+    2300044: Ceiling_Outer
+    2300046: Walls_Outer
     3300000: AirGrate_Grate
     3300002: AirGrate_Hull
     3300004: BathroomDoor
@@ -102,6 +111,9 @@ ModelImporter:
     3300036: Walls
     3300038: Baseboard
     3300040: Wardrobe
+    3300042: WallsOuter
+    3300044: Ceiling_Outer
+    3300046: Walls_Outer
     4300000: Ceiling
     4300002: Floor
     4300004: AirGrate_Grate
@@ -123,11 +135,14 @@ ModelImporter:
     4300036: Walls
     4300038: Baseboard
     4300040: Wardrobe
+    4300042: WallsOuter
+    4300044: Ceiling_Outer
+    4300046: Walls_Outer
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1

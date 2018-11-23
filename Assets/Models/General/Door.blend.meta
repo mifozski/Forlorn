@@ -7,10 +7,12 @@ ModelImporter:
     100002: BathroomDoorway
     100004: //RootNode
     100006: DoorHandle
+    100008: DoorPlank
     400000: BathroomDoor
     400002: BathroomDoorway
     400004: //RootNode
     400006: DoorHandle
+    400008: DoorPlank
     2100000: Room_BathroomDoorway
     2100002: Room_BathroomDoor
     2100004: Metal
@@ -18,14 +20,17 @@ ModelImporter:
     2300002: BathroomDoorway
     2300004: //RootNode
     2300006: DoorHandle
+    2300008: DoorPlank
     3300000: BathroomDoor
     3300002: BathroomDoorway
     3300004: //RootNode
     3300006: DoorHandle
+    3300008: DoorPlank
     4300000: BathroomDoorway
     4300002: BathroomDoor
     4300004: Door
     4300006: DoorHandle
+    4300008: DoorPlank
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

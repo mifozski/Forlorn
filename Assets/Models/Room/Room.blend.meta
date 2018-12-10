@@ -28,6 +28,8 @@ ModelImporter:
     100044: WallsOuter
     100046: Ceiling_Outer
     100048: Walls_Outer
+    100050: Entrance_Door_Casing
+    100052: Windows
     400000: AirGrate_Grate
     400002: AirGrate_Hull
     400004: BathroomDoor
@@ -53,6 +55,8 @@ ModelImporter:
     400044: WallsOuter
     400046: Ceiling_Outer
     400048: Walls_Outer
+    400050: Entrance_Door_Casing
+    400052: Windows
     2100000: unnamed
     2100002: Metal
     2100004: Room_BathroomDoorway
@@ -90,6 +94,8 @@ ModelImporter:
     2300042: WallsOuter
     2300044: Ceiling_Outer
     2300046: Walls_Outer
+    2300048: Entrance_Door_Casing
+    2300050: Windows
     3300000: AirGrate_Grate
     3300002: AirGrate_Hull
     3300004: BathroomDoor
@@ -114,6 +120,8 @@ ModelImporter:
     3300042: WallsOuter
     3300044: Ceiling_Outer
     3300046: Walls_Outer
+    3300048: Entrance_Door_Casing
+    3300050: Windows
     4300000: Ceiling
     4300002: Floor
     4300004: AirGrate_Grate
@@ -138,6 +146,8 @@ ModelImporter:
     4300042: WallsOuter
     4300044: Ceiling_Outer
     4300046: Walls_Outer
+    4300048: Entrance_Door_Casing
+    4300050: Windows
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

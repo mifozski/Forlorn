@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3647802553104882257}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0800002, y: 0.060995437, z: 1.2500002}
+  m_LocalPosition: {x: 1.035818, y: -0.049999997, z: 1.2500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3647802553104844415}
@@ -92,11 +92,11 @@ GameObject:
   - component: {fileID: 797737445598259298}
   - component: {fileID: 5138227237815507524}
   m_Layer: 9
-  m_Name: DoorPlank
+  m_Name: DoorBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 65
   m_IsActive: 1
 --- !u!4 &3647802553104844415
 Transform:
@@ -213,7 +213,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4321621208181782388
 Transform:

@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 372ba990cfac0c445ae38a6322a2a8fe
+ModelImporter:
+  serializedVersion: 24
+  fileIDToRecycleName:
+    100000: Baseboard
+    100002: //RootNode
+    100004: Ceiling
+    100006: Ceiling_Outer
+    100008: Entrance_Door_Casing
+    100010: Floor
+    100012: Walls
+    100014: Walls_Outer
+    100016: Windows
+    100018: Stairs
+    100020: Stairs_001
+    100022: Cube
+    100024: Floor_001
+    100026: HallwayFloor
+    100028: CTRL_Baseboard
+    100030: CTRL_Hole
+    100032: Door
+    100034: Door_Group
+    100036: DoorFrame
+    100038: Handle_Back
+    100040: Handle_Front
+    100042: Cube_001
+    400000: Baseboard
+    400002: //RootNode
+    400004: Ceiling
+    400006: Ceiling_Outer
+    400008: Entrance_Door_Casing
+    400010: Floor
+    400012: Walls
+    400014: Walls_Outer
+    400016: Windows
+    400018: Stairs
+    400020: Stairs_001
+    400022: Cube
+    400024: Floor_001
+    400026: HallwayFloor
+    400028: CTRL_Baseboard
+    400030: CTRL_Hole
+    400032: Door
+    400034: Door_Group
+    400036: DoorFrame
+    400038: Handle_Back
+    400040: Handle_Front
+    400042: Cube_001
+    2100000: unnamed
+    2300000: Baseboard
+    2300002: Ceiling
+    2300004: Ceiling_Outer
+    2300006: Entrance_Door_Casing
+    2300008: Floor
+    2300010: Walls
+    2300012: Walls_Outer
+    2300014: Windows
+    2300016: Stairs
+    2300018: Stairs_001
+    2300020: Cube
+    2300022: Floor_001
+    2300024: HallwayFloor
+    2300026: CTRL_Baseboard
+    2300028: CTRL_Hole
+    2300030: Door
+    2300032: DoorFrame
+    2300034: Handle_Back
+    2300036: Handle_Front
+    2300038: Cube_001
+    3300000: Baseboard
+    3300002: Ceiling
+    3300004: Ceiling_Outer
+    3300006: Entrance_Door_Casing
+    3300008: Floor
+    3300010: Walls
+    3300012: Walls_Outer
+    3300014: Windows
+    3300016: Stairs
+    3300018: Stairs_001
+    3300020: Cube
+    3300022: Floor_001
+    3300024: HallwayFloor
+    3300026: CTRL_Baseboard
+    3300028: CTRL_Hole
+    3300030: Door
+    3300032: DoorFrame
+    3300034: Handle_Back
+    3300036: Handle_Front
+    3300038: Cube_001
+    4300000: Windows
+    4300002: Entrance_Door_Casing
+    4300004: Ceiling_Outer
+    4300006: Baseboard
+    4300008: Walls_Outer
+    4300010: Floor
+    4300012: Ceiling
+    4300014: Walls
+    4300016: Stairs
+    4300018: Stairs_001
+    4300020: Cube
+    4300022: Floor_001
+    4300024: HallwayFloor
+    4300026: CTRL_Baseboard
+    4300028: CTRL_Hole
+    4300030: DoorFrame
+    4300032: Door
+    4300034: Handle_Back
+    4300036: Handle_Front
+    4300038: Cube_001
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

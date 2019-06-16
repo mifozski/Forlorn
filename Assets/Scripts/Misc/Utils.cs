@@ -34,7 +34,7 @@ namespace Forlorn
 			}
 		}
 
-		public static IEnumerator FadeOutText(Text guiText, float timeOut, float fadeOutTime)
+		public static IEnumerator FadeOutText(TMPro.TextMeshProUGUI guiText, float timeOut, float fadeOutTime)
 		{
 			yield return new WaitForSeconds(timeOut);
 
@@ -69,10 +69,5 @@ namespace Forlorn
 
 			return result;
 	   }
-
-		public static T GetActionData<T>(Redux.Action action, string name)
-		{
-			return (T)action.data?.GetType().GetProperty(name)?.GetValue(action.data, null);
-		}
 	}
 }

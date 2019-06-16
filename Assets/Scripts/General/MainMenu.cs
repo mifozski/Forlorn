@@ -10,8 +10,6 @@ namespace Forlorn
 	{
 		[SerializeField] Canvas mainMenuCanvas;
 
-		public Redux.Store store;
-
 		void Start()
 		{
 			mainMenuCanvas.enabled = false;
@@ -22,8 +20,6 @@ namespace Forlorn
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				mainMenuCanvas.enabled = !mainMenuCanvas.enabled;
-
-				store.dispatch(ActionCreators.GameGeneral.enterMainMenu(mainMenuCanvas.enabled));
 			}
 		}
 	}

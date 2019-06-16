@@ -16,7 +16,7 @@ namespace Forlorn
 			var we = GameState.current.cutscenesPlayed.Contains("wewe");
 			var wewe = Cutscene.SchoolShooting.ToString();
 			if (GameState.current.cutscenesPlayed.Contains(Cutscene.SchoolShooting.ToString()) == false)
-				EventController_Cutscene.Instance.TriggerEvent("PlayCutscene", schoolShootingCutscene);
+				CutsceneController.PlayCutscene(schoolShootingCutscene);
 		}
 
 		void Update ()

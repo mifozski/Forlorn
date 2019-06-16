@@ -35,10 +35,27 @@ namespace Forlorn
 
 		void Start()
 		{
-			bool isOn = lights.Where(light => light.IsOn()).Count() > 0;
+			if (lights == null || lights.Length == 0)
+			{
+				Debug.LogWarning($"No lights set for switcher '{gameObject.name}'");
+				return;
+			}
+
+			bool isOn = false;
+			try
+			{
+				/* bool  */isOn = lights.Where(light => light.IsOn()).Count() > 0;
+
+			}
+			catch
+			{
+				var we = 5;
+			}
 			// Sync all lights to be in the same switch state
 			foreach (SwitchableLightMixin light in lights)
+			{
 				light.lightIsOn = isOn;
+			}
 
 			toggleAnimator.SetBool("TurnedOn", isOn);
 			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;

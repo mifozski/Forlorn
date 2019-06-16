@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: bddf9eecd5fca844fb43f710fa9d79a4
 ModelImporter:
-  serializedVersion: 24
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: BasementWalls
@@ -17,6 +17,7 @@ ModelImporter:
     100022: _Cube
     100024: Door_001
     100026: Toilet_Walls
+    100028: _Door_001
     400000: //RootNode
     400002: BasementWalls
     400004: Toilet
@@ -31,6 +32,7 @@ ModelImporter:
     400022: _Cube
     400024: Door_001
     400026: Toilet_Walls
+    400028: _Door_001
     2100000: unnamed
     2100002: RestroomWall
     2100004: ToiletCeramic
@@ -56,6 +58,7 @@ ModelImporter:
     2300022: _Cube
     2300024: Door_001
     2300026: Toilet_Walls
+    2300028: _Door_001
     3300000: //RootNode
     3300002: BasementWalls
     3300004: Toilet
@@ -70,6 +73,7 @@ ModelImporter:
     3300022: _Cube
     3300024: Door_001
     3300026: Toilet_Walls
+    3300028: _Door_001
     4300000: BasementWalls
     4300002: Toilet
     4300004: Cube
@@ -83,6 +87,7 @@ ModelImporter:
     4300020: _Cube
     4300022: Door_001
     4300024: Toilet_Walls
+    4300026: _Door_001
     6400000: //RootNode
     6400002: BasementWalls
     6400004: Toilet
@@ -97,6 +102,7 @@ ModelImporter:
     6400022: _Cube
     6400024: Door_001
     6400026: Toilet_Walls
+    6400028: _Door_001
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
@@ -177,10 +183,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e04f7b57982293840a243741dea4b1aa
 ModelImporter:
-  serializedVersion: 24
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: AirGrate_Grate
     100002: AirGrate_Hull
@@ -31,6 +31,11 @@ ModelImporter:
     100050: Entrance_Door_Casing
     100052: Windows
     100054: Window_Sill
+    100056: _Plane_000
+    100058: _Plane_001
+    100060: _Plane_002
+    100062: _Plane_003
+    100064: _WindowCutter
     400000: AirGrate_Grate
     400002: AirGrate_Hull
     400004: BathroomDoor
@@ -59,6 +64,11 @@ ModelImporter:
     400050: Entrance_Door_Casing
     400052: Windows
     400054: Window_Sill
+    400056: _Plane_000
+    400058: _Plane_001
+    400060: _Plane_002
+    400062: _Plane_003
+    400064: _WindowCutter
     2100000: unnamed
     2100002: Metal
     2100004: Room_BathroomDoorway
@@ -99,6 +109,11 @@ ModelImporter:
     2300048: Entrance_Door_Casing
     2300050: Windows
     2300052: Window_Sill
+    2300054: _Plane_000
+    2300056: _Plane_001
+    2300058: _Plane_002
+    2300060: _Plane_003
+    2300062: _WindowCutter
     3300000: AirGrate_Grate
     3300002: AirGrate_Hull
     3300004: BathroomDoor
@@ -126,6 +141,11 @@ ModelImporter:
     3300048: Entrance_Door_Casing
     3300050: Windows
     3300052: Window_Sill
+    3300054: _Plane_000
+    3300056: _Plane_001
+    3300058: _Plane_002
+    3300060: _Plane_003
+    3300062: _WindowCutter
     4300000: Ceiling
     4300002: Floor
     4300004: AirGrate_Grate
@@ -153,6 +173,11 @@ ModelImporter:
     4300048: Entrance_Door_Casing
     4300050: Windows
     4300052: Window_Sill
+    4300054: _WindowCutter
+    4300056: _Plane_003
+    4300058: _Plane_001
+    4300060: _Plane_000
+    4300062: _Plane_002
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -197,10 +222,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

@@ -11,19 +11,6 @@ namespace Forlorn
 {
 	public class PlayerController : MonoBehaviour
 	{
-		Redux.Store _store;
-		public Redux.Store store {
-			set
-			{
-				_store = value;
-				_store.subscribe(OnChangeState);
-			}
-			get
-			{
-				return _store;
-			}
-		}
-
 		new Transform camera;
 
 		[SerializeField] float ineractiveDistance = 0.3f;
@@ -38,10 +25,6 @@ namespace Forlorn
 
 		private InteractiveMixin prevHoveredObject = null;
 
-		// Store stuff
-		Reducers.GeneralState prevGeneralState = null;
-		Reducers.SceneState prevSceneState = null;
-
 		void Awake()
 		{
 			firstPersonController = gameObject.GetComponent<FirstPersonController>();
@@ -50,7 +33,7 @@ namespace Forlorn
 		// Use this for initialization
 		void Start()
 		{
-			prevGeneralState = store.getStateTree()[Reducers.general] as Reducers.GeneralState;
+			// prevGeneralState = store.getStateTree()[Reducers.general] as Reducers.GeneralState;
 			camera = GetComponentInChildren<CinemachineVirtualCamera>().transform;
 		}
 
@@ -68,12 +51,16 @@ namespace Forlorn
 			{
 				InteractiveMixin interactive = hit.transform.gameObject.GetComponent<InteractiveMixin>();
 				if (prevHoveredObject && prevHoveredObject != interactive)
-						prevHoveredObject.SendMessage("OnHover", false);
+				{
+					prevHoveredObject.SendMessage("OnHover", false);
+				}
+
 				if (interactive)
 				{
 					// GameController.ShowInteractableObjectIndicator(true);
 					interactive.transform.gameObject.SendMessage("OnHover", true);
 				}
+
 				prevHoveredObject = interactive;
 			}
 			else
@@ -109,26 +96,7 @@ namespace Forlorn
 
 		bool IsPaused()
 		{
-			return prevGeneralState.mainMenuEntered;
-		}
-
-		void OnChangeState(Redux.Store store)
-		{
-			Redux.StateTree state = store.getStateTree();
-
-			var generalState = state[Reducers.general] as Reducers.GeneralState;
-			if (prevGeneralState != generalState)
-			{
-				prevGeneralState = generalState;
-			}
-
-			var sceneState = state[Reducers.scene] as Reducers.SceneState;
-			if (prevSceneState != sceneState)
-			{
-				gameObject.SetActive(true);
-
-				prevSceneState = sceneState;
-			}
+			return ImmediateGameState.isInMainMenu || ImmediateGameState.isInCutscene;
 		}
 	}
 }

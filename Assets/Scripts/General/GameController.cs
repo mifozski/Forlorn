@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 using Forlorn;
+using Serialization;
 
 namespace Forlorn
 {
@@ -18,14 +19,14 @@ namespace Forlorn
 
 	public class GameController : SingletonMonoBehavior<GameController>
 	{
-		[SerializeField] GameSaver gameSaver;
+		[SerializeField] PersistenceController persistenceController;
 
 		private GameStageController stageController;
 
 		[SerializeField] Animator fadeInOutScreenAnimator;
 
 		[SerializeField]
-		Text subtitles;
+		TMPro.TextMeshProUGUI subtitles;
 		static Coroutine subtitlesFadeOutCourutine = null;
 
 		[SerializeField] Image interactableObjectIndicator;
@@ -92,7 +93,7 @@ namespace Forlorn
 
 		public void Save()
 		{
-			gameSaver.Save();
+			PersistenceController.Save();
 		}
 
 		public void Exit()

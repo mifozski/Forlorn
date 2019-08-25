@@ -482,10 +482,11 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -527,7 +528,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8233840895264092605}
   m_AABB:
-    m_Center: {x: 0.000026151538, y: 0.23808968, z: -0.027307998}
+    m_Center: {x: 0.000026151538, y: 0.23808968, z: -0.027307991}
     m_Extent: {x: 0.30753708, y: 0.27133667, z: 0.14149265}
   m_DirtyAABB: 0
 --- !u!114 &5281040783931124448
@@ -847,10 +848,11 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -892,7 +894,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8233840895264092605}
   m_AABB:
-    m_Center: {x: 0.0000988394, y: 0.23874772, z: -0.027577572}
+    m_Center: {x: 0.0000988394, y: 0.23874772, z: -0.027577564}
     m_Extent: {x: 0.30777407, y: 0.27111864, z: 0.14093265}
   m_DirtyAABB: 0
 --- !u!114 &1535160085412154169
@@ -971,10 +973,11 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2067,10 +2070,11 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2112,7 +2116,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8233840895264092605}
   m_AABB:
-    m_Center: {x: 0.000055655837, y: 0.23951507, z: -0.026431177}
+    m_Center: {x: 0.000055640936, y: 0.23951507, z: -0.026431177}
     m_Extent: {x: 0.30763215, y: 0.27157116, z: 0.14223126}
   m_DirtyAABB: 0
 --- !u!114 &7941426926438947391

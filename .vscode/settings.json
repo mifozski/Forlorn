@@ -53,5 +53,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true
 }

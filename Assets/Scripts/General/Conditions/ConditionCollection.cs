@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Forlorn
 {
+	[CreateAssetMenu]
 	public class ConditionCollection : ScriptableObject
 	{
 		public string description;

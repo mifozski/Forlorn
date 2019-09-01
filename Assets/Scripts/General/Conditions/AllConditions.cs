@@ -4,6 +4,7 @@ using Forlorn;
 
 namespace Forlorn
 {
+	[CreateAssetMenu]
 	public class AllConditions : ResettableScriptableObject
 	{
 		public Condition[] conditions;
@@ -17,9 +18,14 @@ namespace Forlorn
 			get
 			{
 				if (!instance)
+				{
 					instance = FindObjectOfType<AllConditions>();
+				}
+
 				if (!instance)
+				{
 					instance = Resources.Load<AllConditions>(loadPath);
+				}
 				if (!instance)
 					Debug.LogError("AllConditions has not been created yet.  Go to Assets > Create > AllConditions.");
 				return instance;

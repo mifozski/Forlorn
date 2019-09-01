@@ -84,7 +84,9 @@ namespace Forlorn
 			if (GUILayout.Button("+", GUILayout.Width(conditionButtonWidth)))
 			{
 				Condition newCondition = ConditionEditor.CreateCondition();
+				// Debug.Log($"newCondition: {newCondition.description}");
 				conditionsProperty.AddToObjectArray(newCondition);
+				// Debug.Log($"conditionsProperty.Length = {conditionsProperty.arraySize}");
 			}
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.Space();

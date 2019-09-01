@@ -30,7 +30,7 @@ namespace Forlorn
 
 		private void OnEnable()
 		{
-			condition = (Condition)target;
+			condition = target as Condition;
 
 			if (target == null)
 			{

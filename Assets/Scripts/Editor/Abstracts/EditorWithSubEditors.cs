@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor where TEditor : Editor where TTarget : Object
+public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
+	where TEditor : Editor
+	where TTarget : Object
 {
 	protected TEditor[] subEditors;
 

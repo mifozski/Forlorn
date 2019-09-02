@@ -70,11 +70,23 @@ namespace Forlorn
 
 			EditorGUILayout.LabelField(condition.description);
 
+			int conditionIndex = AllConditionsEditor.TryGetConditionIndex(condition);
+			if (conditionIndex == -1)
+				conditionIndex = 0;
+			bool satisfied = EditorGUILayout.PropertyField(satisfiedProperty, GUIContent.none, GUILayout.Width(toggleOffset));
+			Condition globalCondition = AllConditionsEditor.TryGetConditionAt(conditionIndex);
+			if (globalCondition)
+			{
+				globalCondition.satisfied = satisfied;
+			}
+
 			if (GUILayout.Button("-", GUILayout.Width(conditionButtonWidth)))
 				AllConditionsEditor.RemoveCondition(condition);
 
 			EditorGUI.indentLevel--;
 			EditorGUILayout.EndHorizontal();
+
+			serializedObject.ApplyModifiedProperties();
 		}
 
 

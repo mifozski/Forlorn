@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 8793491324303697764}
+  - {fileID: 8892051911539791960}
 --- !u!114 &8793491324303697764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,3 +30,18 @@ MonoBehaviour:
   description: Ready
   satisfied: 0
   hash: -380327253
+--- !u!114 &8892051911539791960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5ea44f6fdaa9146b8316ec8c8be2fe, type: 3}
+  m_Name: TV checked
+  m_EditorClassIdentifier: 
+  description: TV checked
+  satisfied: 0
+  hash: -1692110573

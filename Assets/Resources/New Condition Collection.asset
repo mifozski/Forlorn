@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: New Condition Collection
   m_EditorClassIdentifier: 
   description: 
-  requiredConditions: []
+  requiredConditions:
+  - {fileID: 0}
   reactionCollection: {fileID: 0}

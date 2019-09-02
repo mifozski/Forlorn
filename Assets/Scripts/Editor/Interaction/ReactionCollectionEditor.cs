@@ -54,6 +54,11 @@ namespace Forlorn
 
 			CheckAndCreateSubEditors(reactionCollection.reactions);
 
+			foreach (string missingEditor in missingEditors)
+			{
+				EditorGUILayout.HelpBox($"The custom editor is missing for object of type {missingEditor}", MessageType.Error);
+			}
+
 			for (int i = 0; i < subEditors.Length; i++)
 			{
 				subEditors[i].OnInspectorGUI();

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 	where TEditor : Editor
 	where TTarget : Object
 {
 	protected TEditor[] subEditors;
+
+	protected List<string> missingEditors = new List<string>();
 
 	protected void CheckAndCreateSubEditors(TTarget[] subEditorTargets)
 	{
@@ -19,7 +22,15 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 		for (int i = 0; i < subEditors.Length; i++)
 		{
 			subEditors[i] = CreateEditor(subEditorTargets[i]) as TEditor;
-			SubEditorSetup(subEditors[i]);
+
+			if (subEditors[i] == null)
+			{
+				missingEditors.Add(subEditorTargets[i].name);
+			}
+			else
+			{
+				SubEditorSetup(subEditors[i]);
+			}
 		}
 	}
 
@@ -34,6 +45,8 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 		}
 
 		subEditors = null;
+
+		missingEditors.Clear();
 	}
 
 	protected abstract void SubEditorSetup(TEditor editor);

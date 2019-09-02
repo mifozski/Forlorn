@@ -63,6 +63,7 @@ namespace Forlorn
 			if (!globalCondition)
 				return false;
 
+			Debug.Log($"During checking {requiredCondition.description}: globalCondition: {globalCondition.satisfied} requiredCondition: {requiredCondition.satisfied}");
 			return globalCondition.satisfied == requiredCondition.satisfied;
 		}
 	}

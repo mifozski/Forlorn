@@ -84,9 +84,13 @@ namespace Forlorn
 			if (GUILayout.Button("+", GUILayout.Width(conditionButtonWidth)))
 			{
 				Condition newCondition = ConditionEditor.CreateCondition();
-				// Debug.Log($"newCondition: {newCondition.description}");
+				Debug.Log($"newCondition: {newCondition.description}");
 				conditionsProperty.AddToObjectArray(newCondition);
-				// Debug.Log($"conditionsProperty.Length = {conditionsProperty.arraySize}");
+				Debug.Log($"conditionsProperty.Length = {conditionsProperty.arraySize}");
+				SerializedProperty we = conditionsProperty.GetArrayElementAtIndex(0);
+				Debug.Log($"new object: {we.objectReferenceValue}");
+				Condition qweqw = we.objectReferenceValue as Condition;
+				Debug.Log($"new object2: {qweqw}");
 			}
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.Space();

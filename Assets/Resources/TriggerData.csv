@@ -1,3 +1,3 @@
 TRIGGER_ID;Text;Condition;Reaction;Cues
-CHECK_TV;"""I don't wanna watch TV now, the show I'm watching already has ended anyway.""";CHECKED_TV==false;TURN_ON_TV;
+CHECK_TV;"""I don't wanna watch TV now, the show I'm watching already has ended anyway.""";false==false;TURN_ON_TV;
 CHECK_TV;"""I really don't wanna watch TV right now...""";CHECKED_TV==true;;TV_CHECKED

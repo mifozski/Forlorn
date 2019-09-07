@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CityLightsMover : MonoBehaviour {
-
-	Transform camera;
+public class CityLightsMover : MonoBehaviour
+{
+	Transform mainCamera;
 
 	// Use this for initialization
-	void Start () {
-		camera = Camera.main.transform;
+	void Start()
+	{
+		mainCamera = Camera.main.transform;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		transform.position = new Vector3(camera.position.x, transform.position.y, transform.position.z);
+	void Update()
+	{
+		transform.position = new Vector3(mainCamera.position.x, transform.position.y, transform.position.z);
 	}
 }

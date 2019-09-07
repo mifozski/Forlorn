@@ -50,7 +50,7 @@ namespace Forlorn
 			}
 			catch
 			{
-				var we = 5;
+				// var we = 5;
 			}
 			// Sync all lights to be in the same switch state
 			foreach (SwitchableLightMixin light in lights)

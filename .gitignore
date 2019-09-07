@@ -39,3 +39,4 @@ sysinfo.txt
 
 // Blender recovery files
 *.blend1*
+*.~csv

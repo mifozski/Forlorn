@@ -1,12 +1,7 @@
-using UnityEngine;
 using UnityEngine.Events;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 
-using Forlorn;
-
-namespace Forlorn
+namespace Forlorn.Events
 {
 	[System.Serializable]
 	public class InteractiveObjectTypeEvent : UnityEvent<InteractiveObjectType>
@@ -28,12 +23,11 @@ namespace Forlorn
 	{
 	}
 
-
-	public class EventController<T> : SingletonMonoBehavior<EventController<T>>
+	public class EventManager<T> : SingletonMonoBehavior<EventManager<T>>
 	{
-		private Dictionary <string, UnityEvent<T>> eventDictionary = new Dictionary<string, UnityEvent<T>>();
+		private Dictionary<string, UnityEvent<T>> eventDictionary = new Dictionary<string, UnityEvent<T>>();
 
-		private class EventImpl : UnityEvent<T> { } ;
+		private class EventImpl : UnityEvent<T> { };
 
 		public void StartListening(string eventName, UnityAction<T> listener)
 		{
@@ -69,4 +63,7 @@ namespace Forlorn
 			}
 		}
 	}
+
+	// [System.Serializable]
+	// public class StringEventManager : EventManager<string> { };
 }

@@ -1812,10 +1812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baf0f5f19443494abf70b5c11bf8093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionLocation: {fileID: 0}
-  conditionCollections:
-  - {fileID: 469089863}
-  defaultReactionCollection: {fileID: 0}
+  triggerId: 
 --- !u!1 &164461124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4908,22 +4905,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 39.08151, y: 20.577799, z: 72.16962}
   m_Center: {x: 9.628752, y: 16.527899, z: -7.0587015}
---- !u!114 &469089863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e47f8cfc113fce48b9fea11dccf5ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: HMM
-  requiredConditions:
-  - {fileID: 1149441067}
-  reactionCollection: {fileID: 0}
 --- !u!1 &481989572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9212879530232810162, guid: 6d00dd8c8eb50764f9d26904b5c496c2,
@@ -5044,21 +5025,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510656387}
   m_Mesh: {fileID: 4300356, guid: 483e9cd51ab9a954fba8339494f51ad3, type: 3}
---- !u!114 &515853000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5ea44f6fdaa9146b8316ec8c8be2fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: TV checked
-  satisfied: 0
-  hash: -1692110573
 --- !u!1 &526625218
 GameObject:
   m_ObjectHideFlags: 0
@@ -6823,7 +6789,13 @@ PrefabInstance:
       propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.isFptlEnabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2502396834526833341, guid: c9c21187e8098924d9f5a67ba88e66fb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1109581249299498977, guid: c9c21187e8098924d9f5a67ba88e66fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9c21187e8098924d9f5a67ba88e66fb, type: 3}
 --- !u!1 &772874180
 GameObject:
@@ -6907,22 +6879,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772874180}
   m_Mesh: {fileID: 4300244, guid: 483e9cd51ab9a954fba8339494f51ad3, type: 3}
---- !u!114 &781915820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e47f8cfc113fce48b9fea11dccf5ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Never checked TV before
-  requiredConditions:
-  - {fileID: 515853000}
-  reactionCollection: {fileID: 1057194374}
 --- !u!1 &784106716
 GameObject:
   m_ObjectHideFlags: 0
@@ -9523,11 +9479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baf0f5f19443494abf70b5c11bf8093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionLocation: {fileID: 0}
-  conditionCollections:
-  - {fileID: 781915820}
-  - {fileID: 1336044486}
-  defaultReactionCollection: {fileID: 1057194369}
+  triggerId: CHECK_TV
 --- !u!114 &1057194369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9916,21 +9868,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 838716655}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1149441067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5ea44f6fdaa9146b8316ec8c8be2fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Ready
-  satisfied: 0
-  hash: -380327253
 --- !u!4 &1152567026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236431458049464605, guid: 896805688c9f48c408457020ce4fa5d6,
@@ -10842,37 +10779,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312669695}
   m_Mesh: {fileID: 4300148, guid: 483e9cd51ab9a954fba8339494f51ad3, type: 3}
---- !u!114 &1336044486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e47f8cfc113fce48b9fea11dccf5ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Checked TV 1 time
-  requiredConditions:
-  - {fileID: 1344974342}
-  reactionCollection: {fileID: 1057194369}
---- !u!114 &1344974342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5ea44f6fdaa9146b8316ec8c8be2fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: TV checked
-  satisfied: 1
-  hash: -1692110573
 --- !u!1 &1350344914
 GameObject:
   m_ObjectHideFlags: 0

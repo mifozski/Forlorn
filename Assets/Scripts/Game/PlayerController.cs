@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using Cinemachine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-using Forlorn;
+using Forlorn.Events;
 
 namespace Forlorn
 {
@@ -75,7 +72,7 @@ namespace Forlorn
 			{
 				if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance + 1, interactableMask))
 				{
-					hit.transform.gameObject.SendMessage("OnInteracted");
+					// hit.transform.gameObject.SendMessage("OnInteracted");
 					hit.transform.gameObject.SendMessage("Interact");
 
 					// if (interactive)

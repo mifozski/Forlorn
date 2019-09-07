@@ -53,8 +53,8 @@ namespace Forlorn
 
 			// if (stage != Stage.Init)
 			// {
-				GameState.current.stage = stage;
-				// SaveLoadGame.Save();
+			GameState.current.stage = stage;
+			// SaveLoadGame.Save();
 			// }
 		}
 
@@ -93,30 +93,30 @@ namespace Forlorn
 
 		private void OnUse_DoorMonitor()
 		{
-			if (GetStage() == GameStage.AfterSchoolShootingCustcene)
-			{
-				SetStage(GameStage.AfterCheckingTheDoorMonitor);
+			// if (GetStage() == GameStage.AfterSchoolShootingCustcene)
+			// {
+			// 	SetStage(GameStage.AfterCheckingTheDoorMonitor);
 
-				// paperPiece.gameObject.SetActive(true);
-			}
+			// 	// paperPiece.gameObject.SetActive(true);
+			// }
 		}
 
 		private void OnUse_PaperPiece()
 		{
-			if (GetStage() == GameStage.AfterCheckingTheDoorMonitor)
-			{
-				SetStage(GameStage.AfterCheckingBackAlleyPaperPiece);
+			// if (GetStage() == GameStage.AfterCheckingTheDoorMonitor)
+			// {
+			// 	SetStage(GameStage.AfterCheckingBackAlleyPaperPiece);
 
-				GameController.ShowSubtitles("There's something for you in the bin in the back alley");
-			}
+			// 	GameController.ShowSubtitles("There's something for you in the bin in the back alley");
+			// }
 		}
 
 		private void OnUse_EntranceDoor()
 		{
-			if (GetStage() < GameStage.AfterCheckingBackAlleyPaperPiece)
-				GameController.ShowSubtitles("I don't want to go outside at this time");
-			else
-				GameController.LoadScene(Scenes.Entrance);
+			// if (GetStage() < GameStage.AfterCheckingBackAlleyPaperPiece)
+			// 	GameController.ShowSubtitles("I don't want to go outside at this time");
+			// else
+			// 	GameController.LoadScene(Scenes.Entrance);
 		}
 
 		private void OnUse_Notebook()
@@ -127,7 +127,7 @@ namespace Forlorn
 
 		void OnGUI()
 		{
-			GUI.Label(new Rect(10, 10, 200, 50), $"Current state: {GetStage().ToString()}");
+			// GUI.Label(new Rect(10, 10, 200, 50), $"Current state: {GetStage().ToString()}");
 		}
 	}
 }

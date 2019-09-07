@@ -45,7 +45,9 @@ namespace Forlorn.ConditionSystem
 			if (triggers != null)
 			{
 				Debug.Log($"Found {triggers.ToArray().Length} trigger(s) with ID {triggerId}");
-
+				// Invoke first reaction first for test
+				StringEventManager.Instance.TriggerEvent("invokeReaction", triggers[0].reaction);
+				Debug.Log($"Triggered {triggers[0].reaction}");
 			}
 			else
 			{

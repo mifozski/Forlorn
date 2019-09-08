@@ -7,6 +7,7 @@ namespace Serialization.Json
 {
     internal class JsonReader : System.IDisposable
     {
+
         private enum ObjectState : byte
         {
             None,

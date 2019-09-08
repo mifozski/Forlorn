@@ -19,7 +19,7 @@ namespace Forlorn
 
 		protected override void ImmediateReaction()
 		{
-			GameController.ShowSubtitles(message);
+			SubtitleController.Instance.ShowHoverSubtitles(message);
 			// textManager.DisplayMessage(message, textColor, delay);
 		}
 	}

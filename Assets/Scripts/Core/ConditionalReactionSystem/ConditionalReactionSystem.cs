@@ -1,20 +1,25 @@
 
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 using Forlorn.Events;
+using Forlorn.Core.Variables;
 
-namespace Forlorn.ConditionSystem
+namespace Forlorn.Core.ConditionSystem
 {
 	struct Trigger
 	{
-		public string reaction;
 		public string condition;
+		public string text;
+		public string[] reactions;
 		public string cues;
 	}
 
 	class ConditionalReactionSystem : MonoBehaviour
 	{
+		[SerializeField] private VariableCollection variableCollection;
+
 		private Dictionary<string, List<Trigger>> reactionMapByReactionId = new Dictionary<string, List<Trigger>>();
 
 		private ExpressionEvaluator evaluator = new ExpressionEvaluator();
@@ -22,7 +27,15 @@ namespace Forlorn.ConditionSystem
 		[ContextMenu("Re init")]
 		void Start()
 		{
-			evaluator.Init();
+			if (variableCollection == null)
+			{
+				Debug.LogError("No variable collection assigned to ConditionalReactionSystem");
+				return;
+			}
+
+			evaluator.Init(variableCollection.Variables);
+			evaluator.HandleSetVariable = OnSetVariable;
+			evaluator.HandleCallReaction = OnCallReaction;
 
 			StringEventManager.Instance.StartListening("invokeTrigger", OnTrigger);
 
@@ -31,14 +44,20 @@ namespace Forlorn.ConditionSystem
 
 			foreach (TriggerData data in triggerData)
 			{
-				Debug.Log($"TEXT DATA WITH id {data.id} has been read");
-
 				if (reactionMapByReactionId.ContainsKey(data.id) == false)
 				{
 					reactionMapByReactionId.Add(data.id, new List<Trigger>());
 				}
 
-				reactionMapByReactionId[data.id].Add(new Trigger { reaction = data.reaction, condition = data.condition, cues = data.cues });
+				var reactions = data.reaction.Split(';').Select(s => s.Replace("\"\"", "\"").TrimStart('"').TrimEnd('"')).ToArray();
+
+				reactionMapByReactionId[data.id].Add(new Trigger
+				{
+					condition = data.condition,
+					text = data.text,
+					reactions = reactions,
+					cues = data.cues,
+				});
 			}
 		}
 
@@ -53,8 +72,17 @@ namespace Forlorn.ConditionSystem
 				{
 					if (evaluator.Evaluate(trigger.condition))
 					{
-						StringEventManager.Instance.TriggerEvent("invokeReaction", trigger.reaction);
-						Debug.Log($"Triggered {trigger.reaction}");
+						if (trigger.text.Length != 0)
+						{
+							SubtitleController.Instance.ShowSubtitles(trigger.text);
+						}
+
+						foreach (string reaction in trigger.reactions)
+						{
+							evaluator.Evaluate(reaction);
+							Debug.Log($"Triggered {reaction}");
+						}
+						break;
 					}
 				}
 			}
@@ -62,6 +90,16 @@ namespace Forlorn.ConditionSystem
 			{
 				Debug.LogWarning($"NO TRIGGERS FOUND WITH ID {triggerId}");
 			}
+		}
+
+		void OnCallReaction(string reaction)
+		{
+			StringEventManager.Instance.TriggerEvent("invokeReaction", reaction);
+		}
+
+		void OnSetVariable(string name, int value)
+		{
+			variableCollection.SetVariable(name, value);
 		}
 	}
 }

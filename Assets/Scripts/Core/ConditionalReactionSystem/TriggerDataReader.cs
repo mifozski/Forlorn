@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Forlorn.ConditionSystem
+namespace Forlorn.Core.ConditionSystem
 {
 	public struct TriggerData
 	{

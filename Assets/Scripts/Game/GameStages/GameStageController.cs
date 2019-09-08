@@ -1,9 +1,5 @@
 using UnityEngine;
 using StateMachine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-using Forlorn;
 
 namespace Forlorn
 {
@@ -122,7 +118,7 @@ namespace Forlorn
 		private void OnUse_Notebook()
 		{
 			Debug.Log("OnUse_Notebook");
-			GameController.ShowSubtitles("The notebook contains details about my ... about my work. I'd rather not look at it at the moment.");
+			SubtitleController.Instance.ShowSubtitles("The notebook contains details about my ... about my work. I'd rather not look at it at the moment.");
 		}
 
 		void OnGUI()

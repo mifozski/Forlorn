@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e47f8cfc113fce48b9fea11dccf5ce0, type: 3}
-  m_Name: New Condition Collection
+  m_Script: {fileID: 11500000, guid: 1fed236dd9a000341b96efc698d3769f, type: 3}
+  m_Name: Variable Collection
   m_EditorClassIdentifier: 
-  description: 
-  requiredConditions:
-  - {fileID: 0}
-  reactionCollection: {fileID: 0}
+  Variables:
+  - name: TV_CHECKED
+    value: 0

@@ -68,22 +68,12 @@ namespace Forlorn
 		{
 			switch (scene)
 			{
-			case Scenes.Room: return "Room";
-			case Scenes.Entrance: return "Entrance";
-			case Scenes.Restroom: return "Restroom";
-			case Scenes.Hallway: return "Hallway";
-			default: return "";
+				case Scenes.Room: return "Room";
+				case Scenes.Entrance: return "Entrance";
+				case Scenes.Restroom: return "Restroom";
+				case Scenes.Hallway: return "Hallway";
+				default: return "";
 			}
-		}
-
-		static public void ShowSubtitles(string text)
-		{
-			if (subtitlesFadeOutCourutine != null)
-					Instance.StopCoroutine(subtitlesFadeOutCourutine);
-
-			Instance.subtitles.text = text;
-
-			subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(Instance.subtitles, 6f, 0f));
 		}
 
 		void OnApplicationQuit()

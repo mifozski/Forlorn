@@ -72,14 +72,8 @@ namespace Forlorn
 			{
 				if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance + 1, interactableMask))
 				{
-					// hit.transform.gameObject.SendMessage("OnInteracted");
-					hit.transform.gameObject.SendMessage("Interact");
-
-					// if (interactive)
-					// {
-					// 	interactive.OnInteracted();
-					// interactiveEvent.Invoke(interactive.interactiveType);
-					// }
+					hit.transform.gameObject.SendMessage("OnInteracted", SendMessageOptions.DontRequireReceiver);
+					hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 				}
 			}
 		}

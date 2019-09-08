@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using System.IO;
 using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Forlorn
@@ -28,7 +26,7 @@ namespace Forlorn
 				// Create a new color using original color RGB values combined
 				// with new alpha value. We have to do this because we can't
 				// change the alpha value of the original color directly.
-				material.color = new Color (color.r, color.g, color.b, alpha);
+				material.color = new Color(color.r, color.g, color.b, alpha);
 
 				yield return null;
 			}
@@ -68,6 +66,6 @@ namespace Forlorn
 			}
 
 			return result;
-	   }
+		}
 	}
 }

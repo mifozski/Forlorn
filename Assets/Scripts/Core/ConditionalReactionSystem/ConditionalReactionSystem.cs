@@ -74,7 +74,7 @@ namespace Forlorn.Core.ConditionSystem
 					{
 						if (trigger.text.Length != 0)
 						{
-							SubtitleController.Instance.ShowSubtitles(trigger.text);
+							ScreenController.Instance.ShowSubtitles(trigger.text);
 						}
 
 						foreach (string reaction in trigger.reactions)

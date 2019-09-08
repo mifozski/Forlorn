@@ -46,7 +46,6 @@ namespace Forlorn
 			{
 				/* bool  */
 				isOn = lights.Where(light => light.IsOn()).Count() > 0;
-
 			}
 			catch
 			{

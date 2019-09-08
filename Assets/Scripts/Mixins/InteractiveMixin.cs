@@ -31,9 +31,9 @@ namespace Forlorn
 			GameController.ShowInteractableObjectIndicator(hover);
 
 			if (hover)
-				SubtitleController.Instance.ShowHoverSubtitles(onHoverSubtitles);
+				ScreenController.Instance.ShowHoverSubtitles(onHoverSubtitles);
 			else
-				SubtitleController.Instance.ShowHoverSubtitles("");
+				ScreenController.Instance.ShowHoverSubtitles("");
 		}
 
 		virtual public void OnInteracted()

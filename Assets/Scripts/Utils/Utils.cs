@@ -32,11 +32,13 @@ namespace Forlorn
 			}
 		}
 
-		public static IEnumerator FadeOutText(TMPro.TextMeshProUGUI guiText, float timeOut, float fadeOutTime)
+		public static IEnumerator FadeOutText(TMPro.TextMeshProUGUI guiText, float timeOut, float fadeOutTime, Action onEnd)
 		{
 			yield return new WaitForSeconds(timeOut);
 
 			guiText.text = "";
+
+			onEnd();
 
 			yield return null;
 		}

@@ -41,7 +41,7 @@ namespace Forlorn.Core.ConditionSystem
 		public delegate void Pow(string name, int value);
 		public bool Evaluate(string expression)
 		{
-			Debug.Log($"Evaluating \"{expression}\"");
+			// Debug.Log($"Evaluating \"{expression}\"");
 
 			var detectedIdentifiers = interpreter.DetectIdentifiers(expression);
 

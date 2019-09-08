@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using Forlorn;
-
 namespace Forlorn
 {
 	// [RequireComponent(typeof(Light), typeof(AudioSource))]
@@ -20,7 +18,8 @@ namespace Forlorn
 
 		public bool lightIsOn
 		{
-			set {
+			set
+			{
 				if (light != null)
 				{
 					light.enabled = value;
@@ -40,7 +39,8 @@ namespace Forlorn
 				if (humming)
 					PlayHumming(value);
 			}
-			get {
+			get
+			{
 				if (light != null)
 					return light.enabled;
 				else if (emissionMaterial)
@@ -58,6 +58,7 @@ namespace Forlorn
 			light = GetComponentInChildren<Light>();
 			if (light == null)
 			{
+				// Try to get the emissive material
 				emissiveMaterialrenderer = GetComponent<MeshRenderer>();
 				foreach (Material mat in emissiveMaterialrenderer.materials)
 				{

@@ -25,9 +25,7 @@ namespace Forlorn
 
 		[SerializeField] Animator fadeInOutScreenAnimator;
 
-		[SerializeField]
-		TMPro.TextMeshProUGUI subtitles;
-		static Coroutine subtitlesFadeOutCourutine = null;
+		[SerializeField] public Transform player;
 
 		[SerializeField] Image interactableObjectIndicator;
 		static bool interactableObjectIndicatorIsShown = false;

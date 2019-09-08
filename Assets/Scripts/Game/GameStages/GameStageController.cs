@@ -118,7 +118,7 @@ namespace Forlorn
 		private void OnUse_Notebook()
 		{
 			Debug.Log("OnUse_Notebook");
-			SubtitleController.Instance.ShowSubtitles("The notebook contains details about my ... about my work. I'd rather not look at it at the moment.");
+			ScreenController.Instance.ShowSubtitles("The notebook contains details about my ... about my work. I'd rather not look at it at the moment.");
 		}
 
 		void OnGUI()

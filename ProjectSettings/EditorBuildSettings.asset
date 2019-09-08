@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneManager.unity
     guid: 4b8f93b45f6088548bdc8a734c16d0f8
   - enabled: 1
-    path: Assets/Scenes/Room.unity
+    path: Assets/Scenes/Appartment.unity
     guid: 1114d4ea572e1ba4999c7ed5e75ce1a5
   - enabled: 1
     path: Assets/Scenes/Outdoor.unity

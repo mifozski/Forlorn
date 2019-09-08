@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 namespace Forlorn
 {
-	public class SubtitleController : SingletonMonoBehavior<SubtitleController>
+	public class ScreenController : SingletonMonoBehavior<ScreenController>
 	{
 		[SerializeField] TMPro.TextMeshProUGUI subtitlesText;
+		Coroutine hoverSubtitlesFadeOutCourutine = null;
 		Coroutine subtitlesFadeOutCourutine = null;
 
 		private string subtitles = "";
@@ -17,12 +18,17 @@ namespace Forlorn
 		public void ShowHoverSubtitles(string text)
 		{
 			if (subtitlesFadeOutCourutine != null)
-				Instance.StopCoroutine(subtitlesFadeOutCourutine);
+			{
+				return;
+			}
+
+			if (hoverSubtitlesFadeOutCourutine != null)
+				Instance.StopCoroutine(hoverSubtitlesFadeOutCourutine);
 
 			subtitles = text;
 			Instance.subtitlesText.text = text;
 
-			subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(subtitlesText, 6f, 0f));
+			hoverSubtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(subtitlesText, 6f, 0f, () => { hoverSubtitlesFadeOutCourutine = null; }));
 		}
 
 		public void ShowSubtitles(string text)
@@ -32,7 +38,7 @@ namespace Forlorn
 
 			Instance.subtitlesText.text = text;
 
-			subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(subtitlesText, 6f, 0f));
+			subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(subtitlesText, 6f, 0f, () => { subtitlesFadeOutCourutine = null; }));
 		}
 	}
 }

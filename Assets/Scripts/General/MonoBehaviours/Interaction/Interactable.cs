@@ -4,6 +4,7 @@ using Forlorn.Events;
 
 namespace Forlorn
 {
+	[RequireComponent(typeof(Collider))]
 	public class Interactable : MonoBehaviour
 	{
 		// public Transform interactionLocation;

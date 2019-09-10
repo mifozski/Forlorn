@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Variables:
   - name: TV_CHECKED
-    value: 3
+    value: 1
+  - name: ELEVATOR_CHASE
+    value: 0
+  - name: LOCKED_DOOR_CHECKED
+    value: 0

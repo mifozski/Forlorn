@@ -3,6 +3,35 @@ using UnityEditor;
 
 namespace Forlorn
 {
+	[CustomEditor(typeof(Interactable))]
+	public class InteractableEditor : Editor
+	{
+		private Interactable interactable;
+
+		private void OnEnable()
+		{
+			interactable = (Interactable)target;
+		}
+
+		public override void OnInspectorGUI()
+		{
+			serializedObject.Update();
+
+			if (LayerMask.LayerToName(interactable.gameObject.layer) != "Interactive")
+			{
+				EditorGUILayout.HelpBox("This object isn't a part of Interactive layer", MessageType.Error);
+				if (GUILayout.Button("Fix", GUILayout.Width(30)))
+				{
+					interactable.gameObject.layer = LayerMask.NameToLayer("Interactive");
+
+				}
+			}
+
+			base.OnInspectorGUI();
+			serializedObject.ApplyModifiedProperties();
+		}
+	}
+
 	// [CustomEditor(typeof(Interactable))]
 	// public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor, ConditionCollection>
 	// {

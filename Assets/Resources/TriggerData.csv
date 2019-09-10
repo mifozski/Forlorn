@@ -1,6 +1,8 @@
 TRIGGER_ID;Text;Condition;Reaction;Cues
-CHECK_TV;"""I don't wanna watch TV now, the show I'm watching already has ended anyway""";TV_CHECKED==0;"set(""TV_CHECKED"",1)";
+CHECK_TV;"""I don't wanna watch TV now, the show I'm watching has already ended""";TV_CHECKED==0;"set(""TV_CHECKED"",1)";
 CHECK_TV;"""I really don't wanna watch TV right now...""";TV_CHECKED<5;"set(""TV_CHECKED"", TV_CHECKED + 1)";
 CHECK_TV;;TV_CHECKED==5;"call(""TOGGLE_TV"")";
 LEAVE_APPARTMENT;It's too late to go out at this hour...;TV_CHECKED==0;;
-LEAVE_APPARTMENT;;TV_CHECKED>=1;"call(""GO_OUT"")";
+LEAVE_APPARTMENT;;TV_CHECKED>=1 && ELEVATOR_CHASE==0;"call(""GO_OUT"");set(""ELEVATOR_CHASE"", 1)";
+CHECK_ELEVATOR_DOORS;I should stop chasing it, I haven't locked my door...;ELEVATOR_CHASE==1;;
+LEAVE_APPARTMENT;The door seems to be locked from the other side...;ELEVATOR_CHASE==1;"set(""LOCKED_DOOR_CHECKED"", LOCKED_DOOR_CHECKED+1);call(""LOCKED_DOOR_CHECKED"")";

@@ -49,7 +49,7 @@ namespace Forlorn.Core.ConditionSystem
 					reactionMapByReactionId.Add(data.id, new List<Trigger>());
 				}
 
-				var reactions = data.reaction.Split(';').Select(s => s.Replace("\"\"", "\"").TrimStart('"').TrimEnd('"')).ToArray();
+				var reactions = data.reaction.Split(';').Select(r => r.Replace("\"\"", "\"").TrimStart('"').TrimEnd('"')).Where(r => r.Length > 0).ToArray();
 
 				reactionMapByReactionId[data.id].Add(new Trigger
 				{

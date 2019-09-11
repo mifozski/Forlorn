@@ -5,4 +5,6 @@ CHECK_TV;;TV_CHECKED==5;"call(""TOGGLE_TV"")";
 LEAVE_APPARTMENT;It's too late to go out at this hour...;TV_CHECKED==0;;
 LEAVE_APPARTMENT;;TV_CHECKED>=1 && ELEVATOR_CHASE==0;"call(""GO_OUT"");set(""ELEVATOR_CHASE"", 1)";
 CHECK_ELEVATOR_DOORS;I should stop chasing it, I haven't locked my door...;ELEVATOR_CHASE==1;;
-LEAVE_APPARTMENT;The door seems to be locked from the other side...;ELEVATOR_CHASE==1;"set(""LOCKED_DOOR_CHECKED"", LOCKED_DOOR_CHECKED+1);call(""LOCKED_DOOR_CHECKED"")";
+LEAVE_APPARTMENT;The door seems to be locked from the other side...;ELEVATOR_CHASE==1&&LOCKED_DOOR_CHECKED==0;"set(""LOCKED_DOOR_CHECKED"", LOCKED_DOOR_CHECKED+1);call(""LOCKED_DOOR_CHECKED"")";
+LEAVE_APPARTMENT;I didn't lock it, how is that ...;ELEVATOR_CHASE==1&&LOCKED_DOOR_CHECKED==1;"set(""LOCKED_DOOR_CHECKED"", LOCKED_DOOR_CHECKED+1);";
+LEAVE_APPARTMENT;The door won't open;ELEVATOR_CHASE==1&&LOCKED_DOOR_CHECKED==2;;

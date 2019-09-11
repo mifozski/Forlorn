@@ -57,12 +57,17 @@ namespace UnityStandardAssets.Utility
 							{
 								Instantiate(source, targetGameObject.transform.position,
 											targetGameObject.transform.rotation);
-								DestroyObject(targetGameObject);
+								Destroy(targetGameObject);
 							}
 						}
 						break;
 					case Mode.Activate:
-						if (targetGameObject != null)
+						if (targetBehaviour != null)
+						{
+							targetBehaviour.enabled = true;
+
+						}
+						else if (targetGameObject != null)
 						{
 							targetGameObject.SetActive(true);
 						}
@@ -92,10 +97,48 @@ namespace UnityStandardAssets.Utility
 			}
 		}
 
+		private void DeactivateTrigger()
+		{
+			Object currentTarget = target ?? gameObject;
+			Behaviour targetBehaviour = currentTarget as Behaviour;
+			GameObject targetGameObject = currentTarget as GameObject;
+			if (targetBehaviour != null)
+			{
+				targetGameObject = targetBehaviour.gameObject;
+			}
+
+			switch (action)
+			{
+				case Mode.Activate:
+					{
+						if (targetBehaviour != null)
+						{
+							targetBehaviour.enabled = false;
+
+						}
+						else if (targetGameObject != null)
+						{
+							targetGameObject.SetActive(false);
+						}
+						break;
+					}
+			}
+		}
 
 		private void OnTriggerEnter(Collider other)
 		{
-			DoActivateTrigger();
+			if (other.gameObject.tag == ("Player"))
+			{
+				DoActivateTrigger();
+			}
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			if (other.gameObject.tag == ("Player"))
+			{
+				DeactivateTrigger();
+			}
 		}
 	}
 }

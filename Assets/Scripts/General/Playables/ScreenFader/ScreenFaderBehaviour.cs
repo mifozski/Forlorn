@@ -7,30 +7,23 @@ namespace Forlorn.Playables
 	[Serializable]
 	public class ScreenFaderBehaviour : PlayableBehaviour
 	{
-		AudioSource audioSource;
+		public float fadeOutDuration;
+		[SerializeField] float fadeInDuration;
+
+		bool fadedOut = false;
 
 		public override void ProcessFrame(Playable playable, FrameData info, object playerData)
 		{
-			audioSource = playerData as AudioSource;
-
-			if (audioSource == null)
+			if (fadedOut == false)
 			{
-				return;
-			}
 
-			if (audioSource.isPlaying == false)
-			{
-				audioSource.Play();
+				ScreenController.Instance.FadeOutScreen(fadeOutDuration);
+				fadedOut = true;
 			}
 		}
 
 		public override void OnBehaviourPause(Playable playable, FrameData info)
 		{
-			if (audioSource != null)
-			{
-				audioSource.Pause();
-			}
-
 			base.OnBehaviourPause(playable, info);
 		}
 	}

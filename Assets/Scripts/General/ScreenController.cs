@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,11 @@ namespace Forlorn
 		Coroutine hoverSubtitlesFadeOutCourutine = null;
 		Coroutine subtitlesFadeOutCourutine = null;
 
+		public CanvasGroup faderCanvasGroup;
+
 		private string subtitles = "";
+
+		bool isFading = false;
 
 		void Start()
 		{
@@ -39,6 +44,41 @@ namespace Forlorn
 			Instance.subtitlesText.text = text;
 
 			subtitlesFadeOutCourutine = Instance.StartCoroutine(Utils.FadeOutText(subtitlesText, 6f, 0f, () => { subtitlesFadeOutCourutine = null; }));
+		}
+
+		public void FadeOutScreen(float duration)
+		{
+			if (!isFading)
+			{
+				StartCoroutine(Fade(1.0f, duration));
+			}
+		}
+
+		public void FadeInScreen(float duration)
+		{
+			if (!isFading)
+			{
+				StartCoroutine(Fade(0.0f, duration));
+			}
+		}
+
+		private IEnumerator Fade(float finalAlpha, float fadeDuration = 1f)
+		{
+			isFading = true;
+			faderCanvasGroup.blocksRaycasts = true;
+
+			float fadeSpeed = Mathf.Abs(faderCanvasGroup.alpha - finalAlpha) / fadeDuration;
+
+			while (!Mathf.Approximately(faderCanvasGroup.alpha, finalAlpha))
+			{
+				faderCanvasGroup.alpha = Mathf.MoveTowards(faderCanvasGroup.alpha, finalAlpha,
+					fadeSpeed * Time.deltaTime);
+
+				yield return null;
+			}
+
+			isFading = false;
+			faderCanvasGroup.blocksRaycasts = false;
 		}
 	}
 }

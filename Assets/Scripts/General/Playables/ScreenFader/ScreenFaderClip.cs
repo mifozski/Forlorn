@@ -15,10 +15,7 @@ namespace Forlorn.Playables
 
 		public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
 		{
-			var playable = ScriptPlayable<ScreenFaderBehaviour>.Create(graph, template);
-			ScreenFaderBehaviour clone = playable.GetBehaviour();
-
-			return playable;
+			return ScriptPlayable<ScreenFaderBehaviour>.Create(graph, template);
 		}
 	}
 }

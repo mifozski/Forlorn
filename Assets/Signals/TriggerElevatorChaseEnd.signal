@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fed236dd9a000341b96efc698d3769f, type: 3}
-  m_Name: Variable Collection
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: TriggerElevatorChaseEnd
   m_EditorClassIdentifier: 
-  Variables:
-  - name: TV_CHECKED
-    value: 1
-  - name: ELEVATOR_CHASE
-    value: 1
-  - name: LOCKED_DOOR_CHECKED
-    value: 0

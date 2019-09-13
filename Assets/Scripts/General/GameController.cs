@@ -42,6 +42,17 @@ namespace Forlorn
 
 		void Start()
 		{
+			bool haveDataSave = persistenceController.Deserialize();
+			if (haveDataSave)
+			{
+				GameState.current = persistenceController.GetDeserializedData().genericObjects["game_state"] as GameState;
+				PersistenceController.AddSerializedObject("game_state", GameState.current);
+			}
+			else
+			{
+				Debug.Log("No saved data found.");
+				GameState.current = new GameState();
+			}
 		}
 
 		public static void ShowInteractableObjectIndicator(bool draw)

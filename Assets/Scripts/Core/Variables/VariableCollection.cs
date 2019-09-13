@@ -19,7 +19,7 @@ namespace Forlorn.Core.Variables
 
 		public void GetVariables(out List<Variable> variables)
 		{
-			variables = this.Variables.ToList();
+			variables = this.Variables;
 		}
 
 		public void SetVariable(string name, int value)

@@ -10,13 +10,24 @@ using Project;
 
 namespace Serialization
 {
+	[Serializable]
+	public class PersistentData
+	{
+		public Dictionary<string, object> genericObjects;
+		public Dictionary<string, PersistentObject> precreatedGameObjects;
+	}
+
 	public class PersistenceController : MonoBehaviour
 	{
 		[SerializeField] private PrefabMap _prefabMap;
 
 		Serializer serializer = new Serializer();
 
-		private Dictionary<string, object> _serializedObjects = new Dictionary<string, object>();
+		private PersistentData m_PersistentData = new PersistentData
+		{
+			genericObjects = new Dictionary<string, object>(),
+			precreatedGameObjects = new Dictionary<string, PersistentObject>(),
+		};
 
 		static private PersistenceController _instance;
 		private static bool applicationIsQuitting = false;
@@ -37,13 +48,16 @@ namespace Serialization
 			}
 		}
 
-		private Dictionary<string, PersistentObject> m_PrecreatedPersistentObjects = new Dictionary<string, PersistentObject>();
+		public PersistentData GetDeserializedData()
+		{
+			return m_PersistentData;
+		}
 
 		static public void RegisterPersistentObject(PersistentUid uid, PersistentObject persistentObject)
 		{
 			if (Instance)
 			{
-				Instance.m_PrecreatedPersistentObjects.Add(uid, persistentObject);
+				Instance.m_PersistentData.precreatedGameObjects.Add(uid, persistentObject);
 				Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid}");
 			}
 		}
@@ -51,13 +65,13 @@ namespace Serialization
 		static public void UnregisterPersistentObject(PersistentUid uid)
 		{
 			if (Instance)
-				Instance.m_PrecreatedPersistentObjects.Remove(uid);
+				Instance.m_PersistentData.precreatedGameObjects.Remove(uid);
 		}
 
 		static public PersistentObject GetPrecreatedPersistentObject(PersistentUid uid)
 		{
 			PersistentObject persistentObject;
-			Instance.m_PrecreatedPersistentObjects.TryGetValue(uid, out persistentObject);
+			Instance.m_PersistentData.precreatedGameObjects.TryGetValue(uid, out persistentObject);
 			return persistentObject;
 		}
 
@@ -158,7 +172,7 @@ namespace Serialization
 
 			// serializer.Serialize(file, m_PrecreatedPersistentObjects);
 
-			serializer.Serialize(file, _serializedObjects);
+			serializer.Serialize(file, m_PersistentData);
 
 			// foreach (KeyValuePair<long, PrecreatedPersistentObject> entry in m_PrecreatedPersistentObjects)
 			// {
@@ -174,7 +188,7 @@ namespace Serialization
 			file.Close();
 		}
 
-		public void Deserialize()
+		public bool Deserialize()
 		{
 			// guids = AssetDatabase.FindAssets("t:ScriptObj");
 
@@ -186,14 +200,16 @@ namespace Serialization
 			}
 			catch
 			{
-				return;
+				return false;
 			}
 
 			var serializer = new Serializer();
 
-			_serializedObjects = serializer.Deserialize(file) as Dictionary<string, object>;
+			m_PersistentData = serializer.Deserialize(file) as PersistentData;
 
 			Debug.Log("Deserialized");
+
+			return true;
 		}
 
 		class Serializer
@@ -222,7 +238,7 @@ namespace Serialization
 		{
 			if (Instance)
 			{
-				Instance._serializedObjects[key] = serializedObject;
+				Instance.m_PersistentData.genericObjects[key] = serializedObject;
 			}
 		}
 
@@ -232,7 +248,7 @@ namespace Serialization
 			if (Instance)
 			{
 
-				Instance._serializedObjects.TryGetValue(key, out serializedObject);
+				Instance.m_PersistentData.genericObjects.TryGetValue(key, out serializedObject);
 			}
 
 			return serializedObject;

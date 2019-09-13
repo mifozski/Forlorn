@@ -1181,8 +1181,8 @@ GameObject:
   - component: {fileID: 705225201}
   - component: {fileID: 705225202}
   - component: {fileID: 705225199}
-  - component: {fileID: 705225203}
   - component: {fileID: 705225204}
+  - component: {fileID: 705225203}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b39947a8672f1043b5abbd55b23b214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistenceController: {fileID: 0}
+  persistenceController: {fileID: 1335762487}
   fadeInOutScreenAnimator: {fileID: 641039828}
   player: {fileID: 1496663612}
   interactableObjectIndicator: {fileID: 1292622475}
@@ -1276,6 +1276,7 @@ MonoBehaviour:
     stage: 0
     sceneId: 0
     cutscenesPlayed: []
+    variables: []
 --- !u!114 &705225203
 MonoBehaviour:
   m_ObjectHideFlags: 0

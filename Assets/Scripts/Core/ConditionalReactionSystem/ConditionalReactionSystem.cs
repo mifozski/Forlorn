@@ -6,6 +6,8 @@ using System.Linq;
 using Forlorn.Events;
 using Forlorn.Core.Variables;
 
+using Serialization;
+
 namespace Forlorn.Core.ConditionSystem
 {
 	struct Trigger
@@ -32,6 +34,8 @@ namespace Forlorn.Core.ConditionSystem
 				Debug.LogError("No variable collection assigned to ConditionalReactionSystem");
 				return;
 			}
+
+			GameState.current.variables = variableCollection.Variables;
 
 			evaluator.Init(variableCollection.Variables);
 			evaluator.HandleSetVariable = OnSetVariable;
@@ -100,6 +104,8 @@ namespace Forlorn.Core.ConditionSystem
 		void OnSetVariable(string name, int value)
 		{
 			variableCollection.SetVariable(name, value);
+
+			GameState.current.variables = variableCollection.Variables;
 		}
 	}
 }

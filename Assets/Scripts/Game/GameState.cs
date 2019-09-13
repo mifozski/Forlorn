@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using Forlorn;
 using Cradle;
 using Serialization;
+
+using Forlorn.Core.Variables;
 
 namespace Forlorn
 {
@@ -18,6 +19,8 @@ namespace Forlorn
 		public int sceneId = 0;
 
 		public List<string> cutscenesPlayed = new List<string>();
+
+		public List<Variable> variables = new List<Variable>();
 
 		public GameState()
 		{

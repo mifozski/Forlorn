@@ -11,7 +11,7 @@ namespace Forlorn.Playables
 		[HideInInspector]
 		public ScreenFaderBehaviour template = new ScreenFaderBehaviour();
 
-		public ClipCaps clipCaps => ClipCaps.None;
+		public ClipCaps clipCaps => ClipCaps.Blending;
 
 		public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
 		{

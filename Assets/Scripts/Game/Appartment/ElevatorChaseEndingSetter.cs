@@ -17,8 +17,6 @@ namespace Forlorn.Game
 		public void Set()
 		{
 			GameController.Instance.player.SetPositionAndRotation(wakeUpPoint.position, wakeUpPoint.rotation);
-
-			ScreenController.Instance.FadeInScreen(3.5f);
 		}
 	}
 }

@@ -1,60 +1,164 @@
 fileFormatVersion: 2
 guid: 9223a141679ce1a4d9c192d95ebc233d
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Baseboard
-    100002: Ceiling
-    100004: Floor
-    100006: Plane
-    100008: Walls
-    100010: //RootNode
-    100012: _Plane_000
-    100014: _Plane_001
-    100016: _Plane_002
-    100018: Wardrobe
-    400000: Baseboard
-    400002: Ceiling
-    400004: Floor
-    400006: Plane
-    400008: Walls
-    400010: //RootNode
-    400012: _Plane_000
-    400014: _Plane_001
-    400016: _Plane_002
-    400018: Wardrobe
-    2100000: unnamed
-    2300000: Baseboard
-    2300002: Ceiling
-    2300004: Floor
-    2300006: Plane
-    2300008: Walls
-    2300010: //RootNode
-    2300012: _Plane_000
-    2300014: _Plane_001
-    2300016: _Plane_002
-    2300018: Wardrobe
-    3300000: Baseboard
-    3300002: Ceiling
-    3300004: Floor
-    3300006: Plane
-    3300008: Walls
-    3300010: //RootNode
-    3300012: _Plane_000
-    3300014: _Plane_001
-    3300016: _Plane_002
-    3300018: Wardrobe
-    4300000: Plane
-    4300002: Baseboard
-    4300004: Floor
-    4300006: Ceiling
-    4300008: Walls
-    4300010: Wardrobe
-    4300012: _Plane_001
-    4300014: _Plane_000
-    4300016: _Plane_002
-    7400000: Default Take
-    9500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Baseboard
+  - first:
+      1: 100002
+    second: Ceiling
+  - first:
+      1: 100004
+    second: Floor
+  - first:
+      1: 100006
+    second: Plane
+  - first:
+      1: 100008
+    second: Walls
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: _Plane_000
+  - first:
+      1: 100014
+    second: _Plane_001
+  - first:
+      1: 100016
+    second: _Plane_002
+  - first:
+      1: 100018
+    second: Wardrobe
+  - first:
+      4: 400000
+    second: Baseboard
+  - first:
+      4: 400002
+    second: Ceiling
+  - first:
+      4: 400004
+    second: Floor
+  - first:
+      4: 400006
+    second: Plane
+  - first:
+      4: 400008
+    second: Walls
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: _Plane_000
+  - first:
+      4: 400014
+    second: _Plane_001
+  - first:
+      4: 400016
+    second: _Plane_002
+  - first:
+      4: 400018
+    second: Wardrobe
+  - first:
+      21: 2100000
+    second: unnamed
+  - first:
+      23: 2300000
+    second: Baseboard
+  - first:
+      23: 2300002
+    second: Ceiling
+  - first:
+      23: 2300004
+    second: Floor
+  - first:
+      23: 2300006
+    second: Plane
+  - first:
+      23: 2300008
+    second: Walls
+  - first:
+      23: 2300010
+    second: //RootNode
+  - first:
+      23: 2300012
+    second: _Plane_000
+  - first:
+      23: 2300014
+    second: _Plane_001
+  - first:
+      23: 2300016
+    second: _Plane_002
+  - first:
+      23: 2300018
+    second: Wardrobe
+  - first:
+      33: 3300000
+    second: Baseboard
+  - first:
+      33: 3300002
+    second: Ceiling
+  - first:
+      33: 3300004
+    second: Floor
+  - first:
+      33: 3300006
+    second: Plane
+  - first:
+      33: 3300008
+    second: Walls
+  - first:
+      33: 3300010
+    second: //RootNode
+  - first:
+      33: 3300012
+    second: _Plane_000
+  - first:
+      33: 3300014
+    second: _Plane_001
+  - first:
+      33: 3300016
+    second: _Plane_002
+  - first:
+      33: 3300018
+    second: Wardrobe
+  - first:
+      43: 4300000
+    second: Plane
+  - first:
+      43: 4300002
+    second: Baseboard
+  - first:
+      43: 4300004
+    second: Floor
+  - first:
+      43: 4300006
+    second: Ceiling
+  - first:
+      43: 4300008
+    second: Walls
+  - first:
+      43: 4300010
+    second: Wardrobe
+  - first:
+      43: 4300012
+    second: _Plane_001
+  - first:
+      43: 4300014
+    second: _Plane_000
+  - first:
+      43: 4300016
+    second: _Plane_002
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -90,6 +194,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -97,18 +202,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -117,10 +223,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -130,6 +237,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

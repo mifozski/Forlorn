@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Forlorn.Playables
 {
@@ -10,16 +12,14 @@ namespace Forlorn.Playables
 		public float fadeOutDuration;
 		[SerializeField] float fadeInDuration;
 
-		bool fadedOut = false;
-
 		public override void ProcessFrame(Playable playable, FrameData info, object playerData)
 		{
-			if (fadedOut == false)
+			if (playable.GetInputCount() == 0)
 			{
-
-				ScreenController.Instance.FadeOutScreen(fadeOutDuration);
-				fadedOut = true;
+				return;
 			}
+
+			ScreenController.Instance.setScreenFade(playable.GetInputWeight(0));
 		}
 
 		public override void OnBehaviourPause(Playable playable, FrameData info)

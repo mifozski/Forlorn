@@ -62,6 +62,11 @@ namespace Forlorn
 			}
 		}
 
+		public void setScreenFade(float value)
+		{
+			faderCanvasGroup.alpha = value;
+		}
+
 		private IEnumerator Fade(float finalAlpha, float fadeDuration = 1f)
 		{
 			isFading = true;

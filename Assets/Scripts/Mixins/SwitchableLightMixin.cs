@@ -11,7 +11,7 @@ namespace Forlorn
 		Animator doorAnimator;
 
 		Material emissionMaterial;
-		MeshRenderer emissiveMaterialrenderer;
+		MeshRenderer emissiveMaterialRenderer;
 		Color m_OriginalEmissiveMatColor;
 
 		string emissiveColorParam = "_EmissiveColor";
@@ -34,7 +34,7 @@ namespace Forlorn
 					{
 						emissionMaterial.SetColor(emissiveColorParam, Color.black);
 					}
-					emissiveMaterialrenderer.UpdateGIMaterials();
+					emissiveMaterialRenderer.UpdateGIMaterials();
 				}
 				if (humming)
 					PlayHumming(value);
@@ -59,8 +59,8 @@ namespace Forlorn
 			if (light == null)
 			{
 				// Try to get the emissive material
-				emissiveMaterialrenderer = GetComponent<MeshRenderer>();
-				foreach (Material mat in emissiveMaterialrenderer.materials)
+				emissiveMaterialRenderer = GetComponent<MeshRenderer>();
+				foreach (Material mat in emissiveMaterialRenderer.materials)
 				{
 					Color we = mat.GetColor(emissiveColorParam);
 					if (mat.GetColor(emissiveColorParam) != Color.black)

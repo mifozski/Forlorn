@@ -193,6 +193,7 @@ namespace Serialization
 			// guids = AssetDatabase.FindAssets("t:ScriptObj");
 
 			string saveFilePath = Application.persistentDataPath + "/" + "Save.json";
+			Debug.Log($"Reading save file at {saveFilePath}");
 			FileStream file;
 			try
 			{

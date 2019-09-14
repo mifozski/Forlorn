@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-using Forlorn;
 using Serialization;
+using Forlorn;
+using Forlorn.Core.ConditionSystem;
 
 namespace Forlorn
 {
@@ -20,6 +18,7 @@ namespace Forlorn
 	public class GameController : SingletonMonoBehavior<GameController>
 	{
 		[SerializeField] PersistenceController persistenceController;
+		[SerializeField] ConditionalReactionSystem conditionalReactionSystem;
 
 		private GameStageController stageController;
 
@@ -30,6 +29,8 @@ namespace Forlorn
 		[SerializeField] Image interactableObjectIndicator;
 		static bool interactableObjectIndicatorIsShown = false;
 		static Coroutine interactableObjectIndicatorCoroutine = null;
+
+		private string gameStateKey = "game_state";
 
 		void Awake()
 		{
@@ -45,14 +46,15 @@ namespace Forlorn
 			bool haveDataSave = persistenceController.Deserialize();
 			if (haveDataSave)
 			{
-				GameState.current = persistenceController.GetDeserializedData().genericObjects["game_state"] as GameState;
-				PersistenceController.AddSerializedObject("game_state", GameState.current);
+				GameState.current = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
+				conditionalReactionSystem.SetVariables(GameState.current.variables);
 			}
 			else
 			{
 				Debug.Log("No saved data found.");
 				GameState.current = new GameState();
 			}
+			PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
 		}
 
 		public static void ShowInteractableObjectIndicator(bool draw)
@@ -66,11 +68,6 @@ namespace Forlorn
 
 				interactableObjectIndicatorIsShown = draw;
 			}
-		}
-
-		static public void LoadScene(Scenes scene)
-		{
-			Instance.fadeInOutScreenAnimator.SetBool("FadeOut", true);
 		}
 
 		static private string GetSceneName(Scenes scene)

@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistenceController: {fileID: 1335762487}
+  conditionalReactionSystem: {fileID: 705225203}
   fadeInOutScreenAnimator: {fileID: 641039828}
   player: {fileID: 1496663612}
   interactableObjectIndicator: {fileID: 1292622475}

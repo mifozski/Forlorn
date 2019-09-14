@@ -1,38 +1,98 @@
 fileFormatVersion: 2
 guid: 1da40ad6a5f2dec45bbf3306f3abe01d
 ModelImporter:
-  serializedVersion: 24
-  fileIDToRecycleName:
-    100000: BathroomDoor
-    100002: BathroomDoorway
-    100004: //RootNode
-    100006: DoorHandle
-    100008: DoorPlank
-    400000: BathroomDoor
-    400002: BathroomDoorway
-    400004: //RootNode
-    400006: DoorHandle
-    400008: DoorPlank
-    2100000: Room_BathroomDoorway
-    2100002: Room_BathroomDoor
-    2100004: Metal
-    2300000: BathroomDoor
-    2300002: BathroomDoorway
-    2300004: //RootNode
-    2300006: DoorHandle
-    2300008: DoorPlank
-    3300000: BathroomDoor
-    3300002: BathroomDoorway
-    3300004: //RootNode
-    3300006: DoorHandle
-    3300008: DoorPlank
-    4300000: BathroomDoorway
-    4300002: BathroomDoor
-    4300004: Door
-    4300006: DoorHandle
-    4300008: DoorPlank
-    7400000: Default Take
-    9500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: BathroomDoor
+  - first:
+      1: 100002
+    second: BathroomDoorway
+  - first:
+      1: 100004
+    second: //RootNode
+  - first:
+      1: 100006
+    second: DoorHandle
+  - first:
+      1: 100008
+    second: DoorPlank
+  - first:
+      4: 400000
+    second: BathroomDoor
+  - first:
+      4: 400002
+    second: BathroomDoorway
+  - first:
+      4: 400004
+    second: //RootNode
+  - first:
+      4: 400006
+    second: DoorHandle
+  - first:
+      4: 400008
+    second: DoorPlank
+  - first:
+      21: 2100000
+    second: Room_BathroomDoorway
+  - first:
+      21: 2100002
+    second: Room_BathroomDoor
+  - first:
+      21: 2100004
+    second: Metal
+  - first:
+      23: 2300000
+    second: BathroomDoor
+  - first:
+      23: 2300002
+    second: BathroomDoorway
+  - first:
+      23: 2300004
+    second: //RootNode
+  - first:
+      23: 2300006
+    second: DoorHandle
+  - first:
+      23: 2300008
+    second: DoorPlank
+  - first:
+      33: 3300000
+    second: BathroomDoor
+  - first:
+      33: 3300002
+    second: BathroomDoorway
+  - first:
+      33: 3300004
+    second: //RootNode
+  - first:
+      33: 3300006
+    second: DoorHandle
+  - first:
+      33: 3300008
+    second: DoorPlank
+  - first:
+      43: 4300000
+    second: BathroomDoorway
+  - first:
+      43: 4300002
+    second: BathroomDoor
+  - first:
+      43: 4300004
+    second: Door
+  - first:
+      43: 4300006
+    second: DoorHandle
+  - first:
+      43: 4300008
+    second: DoorPlank
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -68,6 +128,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -78,6 +139,9 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -85,8 +149,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -95,10 +157,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -108,6 +171,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

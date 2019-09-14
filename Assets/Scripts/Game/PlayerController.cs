@@ -55,7 +55,7 @@ namespace Forlorn
 				if (interactive)
 				{
 					// GameController.ShowInteractableObjectIndicator(true);
-					interactive.transform.gameObject.SendMessage("OnHover", true);
+					interactive.transform.gameObject.BroadcastMessage("OnHover", true);
 				}
 
 				prevHoveredObject = interactive;
@@ -72,7 +72,7 @@ namespace Forlorn
 			{
 				if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance + 1, interactableMask))
 				{
-					hit.transform.gameObject.SendMessage("OnInteracted", SendMessageOptions.DontRequireReceiver);
+					hit.transform.gameObject.SendMessageUpwards("OnInteracted", SendMessageOptions.DontRequireReceiver);
 					hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 				}
 			}

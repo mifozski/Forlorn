@@ -5,12 +5,15 @@ using Cradle;
 using Serialization;
 
 using Forlorn.Core.Variables;
+using Forlorn.Core.ConditionSystem;
 
 namespace Forlorn
 {
 	[System.Serializable]
 	public class GameState
 	{
+		private static GameState _current;
+
 		public static GameState current;
 
 		public Dictionary<string, bool> StoryVars_Boolean { get; }

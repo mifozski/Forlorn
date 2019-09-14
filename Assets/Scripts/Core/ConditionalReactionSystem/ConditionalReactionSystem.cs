@@ -6,8 +6,6 @@ using System.Linq;
 using Forlorn.Events;
 using Forlorn.Core.Variables;
 
-using Serialization;
-
 namespace Forlorn.Core.ConditionSystem
 {
 	struct Trigger
@@ -106,6 +104,11 @@ namespace Forlorn.Core.ConditionSystem
 			variableCollection.SetVariable(name, value);
 
 			GameState.current.variables = variableCollection.Variables;
+		}
+
+		public void SetVariables(List<Variable> variables)
+		{
+			variableCollection.Variables = variables;
 		}
 	}
 }

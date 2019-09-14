@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using Forlorn;
-
 namespace Forlorn
 {
 	public class DoorMixin : MonoBehaviour
@@ -36,8 +34,6 @@ namespace Forlorn
 			doorAnimator.SetBool(isOpenParamKey, !IsOpen());
 			interactive.onHoverSubtitles = doorAnimator.GetBool(isOpenParamKey) ? openedUpSubtitles : closedUpSubtitles;
 		}
-
-		public void QEW(bool weqw) { }
 
 		public void PlayOpeningSound()
 		{

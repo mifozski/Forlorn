@@ -23,7 +23,9 @@ namespace Serialization
 
 		Serializer serializer = new Serializer();
 
-		private PersistentData m_PersistentData = new PersistentData
+		// private static Dictionary<string, PersistentObject> staticPrecreatedGameObjects = new Dictionary<string, PersistentObject>();
+
+		static private PersistentData m_PersistentData = new PersistentData
 		{
 			genericObjects = new Dictionary<string, object>(),
 			precreatedGameObjects = new Dictionary<string, PersistentObject>(),
@@ -55,23 +57,19 @@ namespace Serialization
 
 		static public void RegisterPersistentObject(PersistentUid uid, PersistentObject persistentObject)
 		{
-			if (Instance)
-			{
-				Instance.m_PersistentData.precreatedGameObjects.Add(uid, persistentObject);
-				Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid}");
-			}
+			m_PersistentData.precreatedGameObjects.Add(uid, persistentObject);
+			Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid}");
 		}
 
 		static public void UnregisterPersistentObject(PersistentUid uid)
 		{
-			if (Instance)
-				Instance.m_PersistentData.precreatedGameObjects.Remove(uid);
+			m_PersistentData.precreatedGameObjects.Remove(uid);
 		}
 
 		static public PersistentObject GetPrecreatedPersistentObject(PersistentUid uid)
 		{
 			PersistentObject persistentObject;
-			Instance.m_PersistentData.precreatedGameObjects.TryGetValue(uid, out persistentObject);
+			m_PersistentData.precreatedGameObjects.TryGetValue(uid, out persistentObject);
 			return persistentObject;
 		}
 
@@ -239,7 +237,7 @@ namespace Serialization
 		{
 			if (Instance)
 			{
-				Instance.m_PersistentData.genericObjects[key] = serializedObject;
+				m_PersistentData.genericObjects[key] = serializedObject;
 			}
 		}
 
@@ -249,7 +247,7 @@ namespace Serialization
 			if (Instance)
 			{
 
-				Instance.m_PersistentData.genericObjects.TryGetValue(key, out serializedObject);
+				m_PersistentData.genericObjects.TryGetValue(key, out serializedObject);
 			}
 
 			return serializedObject;

@@ -72,7 +72,7 @@ namespace Forlorn.Core.ConditionSystem
 				Debug.Log($"Found {triggers.ToArray().Length} trigger(s) with ID {triggerId}");
 				foreach (Trigger trigger in triggers)
 				{
-					if (evaluator.Evaluate(trigger.condition))
+					if (trigger.condition == "" || evaluator.Evaluate(trigger.condition))
 					{
 						if (trigger.text.Length != 0)
 						{
@@ -101,7 +101,14 @@ namespace Forlorn.Core.ConditionSystem
 
 		void OnSetVariable(string name, int value)
 		{
-			variableCollection.SetVariable(name, value);
+			SetVariable(name, value);
+		}
+
+		public void SetVariable(string variableName, int value)
+		{
+			variableCollection.SetVariable(variableName, value);
+
+			evaluator.UpdateVariable(variableName, value);
 
 			GameState.current.variables = variableCollection.Variables;
 		}

@@ -38,6 +38,11 @@ namespace Forlorn.Core.ConditionSystem
 			interpreter.SetFunction("set", set);
 		}
 
+		public void UpdateVariable(string varName, int value)
+		{
+			interpreter.SetVariable(varName, value, typeof(int));
+		}
+
 		public delegate void Pow(string name, int value);
 		public bool Evaluate(string expression)
 		{

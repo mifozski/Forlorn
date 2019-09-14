@@ -630,7 +630,7 @@ PrefabInstance:
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.811
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.679
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
@@ -681,191 +681,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
-      value: 1114534838044
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_Version
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableShadow
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableContactShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableShadowMask
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableSSAO
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableSubsurfaceScattering
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableTransmission
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableAtmosphericScattering
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableVolumetrics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableReprojectionForVolumetrics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableLightLayers
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.diffuseGlobalDimmer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.specularGlobalDimmer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableTransparentPrepass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableMotionVectors
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableObjectMotionVectors
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableDecals
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableRoughRefraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableTransparentPostpass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableDistortion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enablePostprocess
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableOpaqueObjects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableTransparentObjects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableRealtimePlanarReflection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.enableAsyncCompute
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableDeferredTileAndCluster
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableComputeLightEvaluation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableComputeLightVariants
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableComputeMaterialVariants
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableFptlForForwardOpaque
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.enableBigTilePrepass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152757895236649759, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_ObsoleteFrameSettings.lightLoopSettings.isFptlEnabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502396834526833341, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_UseFovKick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027661186458486259, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5699050248239163647, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5699050248239163647, guid: c9c21187e8098924d9f5a67ba88e66fb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734316463756219154, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
@@ -1522,7 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40a83b4b66dd87498dc76608932b3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabMap: {fileID: 0}
+  _prefabMap: {fileID: 11400000, guid: fc5c1fea65dceec478d2405ce4eaec0a, type: 2}
 --- !u!1 &1396545409
 GameObject:
   m_ObjectHideFlags: 0

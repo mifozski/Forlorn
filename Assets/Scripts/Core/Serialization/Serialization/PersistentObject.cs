@@ -76,10 +76,7 @@ namespace Serialization
 
 		void Awake()
 		{
-		}
-
-		void Start()
-		{
+			Debug.Log("PERSISTENT OBJECT");
 			// Created from a prefab
 			if (_isPrefab && Application.isPlaying)
 			{
@@ -93,6 +90,10 @@ namespace Serialization
 			}
 
 			PersistenceController.RegisterPersistentObject(Uid, this);
+		}
+
+		void Start()
+		{
 		}
 
 		void OnDestroy()
@@ -126,7 +127,7 @@ namespace Serialization
 
 			var lst = new List<IPersistentUnityObject>();
 			this.GetComponentsInChildren<IPersistentUnityObject>(true, lst);
-			if(lst.Count > 0)
+			if (lst.Count > 0)
 			{
 				var data = new ChildObjectData();
 				int cnt = 0;
@@ -170,7 +171,7 @@ namespace Serialization
 			}
 
 			int cnt = info.GetInt32("count");
-			if(cnt > 0)
+			if (cnt > 0)
 			{
 				var lst = new List<IPersistentUnityObject>();
 				this.GetComponentsInChildren<IPersistentUnityObject>(true, lst);

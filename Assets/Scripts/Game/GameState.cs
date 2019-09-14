@@ -5,7 +5,6 @@ using Cradle;
 using Serialization;
 
 using Forlorn.Core.Variables;
-using Forlorn.Core.ConditionSystem;
 
 namespace Forlorn
 {

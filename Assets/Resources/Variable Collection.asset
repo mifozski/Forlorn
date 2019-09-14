@@ -18,4 +18,4 @@ MonoBehaviour:
   - name: ELEVATOR_CHASE
     value: 1
   - name: LOCKED_DOOR_CHECKED
-    value: 1
+    value: 0

@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 4321621208181782388}
   - component: {fileID: 8188360226328630002}
   - component: {fileID: 4343032671109336814}
+  - component: {fileID: 7974744370462608256}
   m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
@@ -350,3 +351,26 @@ MonoBehaviour:
   closedUpSubtitles: Open
   openingSound: {fileID: 8300000, guid: b30fa54696bb1af4e8ffe5c1e701abd6, type: 3}
   closingSound: {fileID: 8300000, guid: b2b8a5d58dc429447bf52d7dc7269a02, type: 3}
+--- !u!114 &7974744370462608256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321621208182270804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3d1676c84fbff49b9c85f29e63cb83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistenceUid:
+    _uid: mcVixy9dnU62a9nVh8tVyg
+  _isPrefab: 1
+  _linkedPrefabUid:
+    _uid: 
+  _prefabUid:
+    _uid: JwzpK6PRGEe0Zm41Qb6iTA
+  _serializeAllComponents: 0
+  _componentsToSerialize:
+  - {fileID: 8188360226328630002}
+  _serializeChildren: 0

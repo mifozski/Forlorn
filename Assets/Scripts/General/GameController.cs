@@ -43,6 +43,7 @@ namespace Forlorn
 
 		void Start()
 		{
+			Debug.Log("GAME CONTROLLER");
 			bool haveDataSave = persistenceController.Deserialize();
 			if (haveDataSave)
 			{

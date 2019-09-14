@@ -1,8 +1,0 @@
-# 2.59 and later
- +        # WVR HACKUMS HERE
- +        for obj in bpy.data.objects:
- +            obj.select = False if obj.name[0] in '_.' else True
- +
-          kwargs = io_scene_fbx.export_fbx.defaults_unity3d()
- +        kwargs["use_selection"] = True
-          io_scene_fbx.export_fbx.save(FakeOp(), bpy.context, filepath=outfile, **kwargs)

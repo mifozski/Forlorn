@@ -58,7 +58,7 @@ namespace Serialization
 		static public void RegisterPersistentObject(string uid, PersistentObject persistentObject)
 		{
 			m_PersistentData.precreatedGameObjects.Add(uid, persistentObject);
-			Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid} {m_PersistentData.precreatedGameObjects.Count}");
+			Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid} from scene {persistentObject.gameObject.scene.buildIndex}");
 		}
 
 		static public void UnregisterPersistentObject(PersistentUid uid)
@@ -180,7 +180,7 @@ namespace Serialization
 		public bool Deserialize(int[] sceneIds)
 		{
 			string saveFilePath = Application.persistentDataPath + "/" + "Save.json";
-			Debug.Log($"Reading save file at {saveFilePath}");
+			Debug.Log($"Reading save file at {saveFilePath} for scenes: [{string.Join(", ", sceneIds)}]");
 			FileStream file;
 			try
 			{

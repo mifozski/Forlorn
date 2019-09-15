@@ -2,12 +2,13 @@
 
 using UnityEngine;
 using System.Linq;
+using Serialization;
+using System.Runtime.Serialization;
 
 namespace Forlorn
 {
-	[RequireComponent(typeof(BoxCollider), typeof(InteractiveMixin))]
 	[RequireComponent(typeof(AudioSource))]
-	public class LightSwitchMixin : MonoBehaviour
+	public class LightSwitchMixin : MonoBehaviour, OnDeserializedCallback, OnSerializeCallback
 	{
 		[SerializeField] SwitchableLightMixin[] lights;
 
@@ -22,14 +23,16 @@ namespace Forlorn
 		Material indicatorMat;
 		Color indicatorColor;
 
+		string turnedOnParamKey = "TurnedOn";
+
 		protected InteractiveMixin interactive;
 
 		void Awake()
 		{
 			clicking = GetComponent<AudioSource>();
 			toggleAnimator = GetComponent<Animator>();
-			interactive = GetComponent<InteractiveMixin>();
-			indicatorMat = GetComponent<MeshRenderer>().material;
+			interactive = GetComponentInChildren<InteractiveMixin>();
+			indicatorMat = GetComponentInChildren<MeshRenderer>().material;
 			indicatorColor = indicatorMat.GetColor(emissiveColorParam);
 		}
 
@@ -37,49 +40,64 @@ namespace Forlorn
 		{
 			if (lights == null || lights.Length == 0)
 			{
-				Debug.LogWarning($"No lights set for switcher '{gameObject.name}'");
+				Debug.LogError($"No lights set for switcher '{gameObject.name}'");
 				return;
 			}
 
-			bool isOn = false;
+			bool heuristicallyTurnedOn = false;
 			try
 			{
-				/* bool  */
-				isOn = lights.Where(light => light.IsOn()).Count() > 0;
+				heuristicallyTurnedOn = lights.Where(light => light.lightIsOn).Count() > 0;
 			}
 			catch
 			{
 				// var we = 5;
 			}
 			// Sync all lights to be in the same switch state
-			foreach (SwitchableLightMixin light in lights)
-			{
-				light.lightIsOn = isOn;
-			}
+			toggleAnimator.SetBool(turnedOnParamKey, heuristicallyTurnedOn);
 
-			toggleAnimator.SetBool("TurnedOn", isOn);
-			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;
-			indicatorMat.SetColor(emissiveColorParam, !isOn ? indicatorColor : Color.black);
+			UpdateState();
 		}
 
 		public void OnInteracted()
 		{
-			foreach (SwitchableLightMixin light in lights)
-				light.lightIsOn = !light.lightIsOn;
+			toggleAnimator.SetBool(turnedOnParamKey, !isOn);
 
 			clicking.Play();
 
-			toggleAnimator.SetBool("TurnedOn", !toggleAnimator.GetBool("TurnedOn"));
+			UpdateState();
+		}
 
-			interactive.onHoverSubtitles = toggleAnimator.GetBool("TurnedOn") ? switchedOnSubtitles : switchedOffSubtitles;
+		void UpdateState()
+		{
+			foreach (SwitchableLightMixin light in lights)
+				light.lightIsOn = isOn;
+
+			interactive.onHoverSubtitles = isOn ? switchedOnSubtitles : switchedOffSubtitles;
 			indicatorMat.SetColor(emissiveColorParam, !isOn ? indicatorColor : Color.black);
+		}
+
+		public void OnDeserialized()
+		{
+			UpdateState();
+		}
+
+		public void OnSerialize(ref SerializationInfo info)
+		{
+			info.AddValue(turnedOnParamKey, isOn);
+		}
+
+		public void OnDeserialize(SerializationInfo info)
+		{
+			toggleAnimator.SetBool(turnedOnParamKey, (bool)info.GetValue(turnedOnParamKey, typeof(bool)));
+			UpdateState();
 		}
 
 		bool isOn
 		{
 			get
 			{
-				return lights.Where(light => light.IsOn()).Count() > 0;
+				return toggleAnimator.GetBool(turnedOnParamKey);
 			}
 		}
 	}

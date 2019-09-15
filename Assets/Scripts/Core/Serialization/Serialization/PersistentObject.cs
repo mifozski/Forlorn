@@ -30,6 +30,7 @@ namespace Serialization
 		[HideInInspector]
 		private PersistentUid _prefabUid = null;
 
+		[SerializeField] private bool _skipTransform;
 		[SerializeField] private bool _serializeAllComponents;
 		[SerializeField] private Component[] _componentsToSerialize;
 		[SerializeField] private bool _serializeChildren;
@@ -116,9 +117,12 @@ namespace Serialization
 				info.AddValue("linkedPrefabUid", "");
 			}
 
-			info.AddValue("pos", this.transform.position);
-			info.AddValue("rot", this.transform.rotation);
-			info.AddValue("scale", this.transform.localScale);
+			if (_skipTransform == false)
+			{
+				info.AddValue("pos", this.transform.position);
+				info.AddValue("rot", this.transform.rotation);
+				info.AddValue("scale", this.transform.localScale);
+			}
 
 			// Serialize components
 			Component[] components = _serializeAllComponents ? GetComponents<Component>() : _componentsToSerialize;
@@ -156,23 +160,38 @@ namespace Serialization
 
 			_uidSet = true;
 
-			this.transform.position = (Vector3)info.GetValue("pos", typeof(Vector3));
-			this.transform.rotation = (Quaternion)info.GetValue("rot", typeof(Quaternion));
-			this.transform.localScale = (Vector3)info.GetValue("scale", typeof(Vector3));
+			if (_skipTransform == false)
+			{
+				this.transform.position = (Vector3)info.GetValue("pos", typeof(Vector3));
+				this.transform.rotation = (Quaternion)info.GetValue("rot", typeof(Quaternion));
+				this.transform.localScale = (Vector3)info.GetValue("scale", typeof(Vector3));
+			}
 
 			SerializationInfoEnumerator e = info.GetEnumerator();
+			int serializedComponentIndex = 0;
 			while (e.MoveNext())
 			{
 				Type componentType = TypeUtil.FindType(e.Name, true);
 				if (componentType == null)
 					continue;
-				Component component = this.GetComponent(componentType);
-				if (component == null)
+
+				if (
+					_componentsToSerialize.Length > serializedComponentIndex &&
+					_componentsToSerialize[serializedComponentIndex].GetType() == componentType
+				)
+				{
+					Component component = _componentsToSerialize[serializedComponentIndex];
+
+					SerializableComponent serializedComponent = (SerializableComponent)e.Value;
+
+					ComponentSerializationUtility.DeserializeComponent(ref component, serializedComponent.DeserializeInfo);
+
+					serializedComponentIndex++;
+				}
+				else
+				{
 					continue;
-
-				SerializableComponent serializedComponent = (SerializableComponent)e.Value;
-
-				ComponentSerializationUtility.DeserializeComponent(ref component, serializedComponent.DeserializeInfo);
+				}
 			}
 
 			int cnt = info.GetInt32("count");

@@ -26,6 +26,7 @@ namespace Serialization
 		SerializedProperty linkedPrefabUidIdProp;
 
 		SerializedProperty isPrefabProp;
+		SerializedProperty skipTransform;
 		SerializedProperty componentsToSerializeProp;
 
 		void OnEnable()
@@ -42,6 +43,8 @@ namespace Serialization
 				linkedPrefabUidIdProp = linkedPrefabUidProp.FindPropertyRelative("_uid");
 
 				isPrefabProp = serializedObject.FindProperty("_isPrefab");
+
+				skipTransform = serializedObject.FindProperty("_skipTransform");
 
 				componentsToSerializeProp = serializedObject.FindProperty("_componentsToSerialize");
 
@@ -75,35 +78,35 @@ namespace Serialization
 
 			if (EditorGUI.EndChangeCheck())
 			{
-				isPrefab = isPrefabProp.boolValue;
-				if (isPrefab)
-				{
-					PersistentObject prefab = GetPrefab();
+				// isPrefab = isPrefabProp.boolValue;
+				// if (isPrefab)
+				// {
+				// 	PersistentObject prefab = GetPrefab();
 
-					if (prefab != null)
-					{
-						PersistenceController.RegisterPrefab(prefab);
+				// 	if (prefab != null)
+				// 	{
+				// 		PersistenceController.RegisterPrefab(prefab);
 
-						prevPrefab = prefab;
-					}
+				// 		prevPrefab = prefab;
+				// 	}
 
-					if (prefabUidIdProp.stringValue == "")
-					{
-						prefabUidIdProp.stringValue = PersistentUid.NewUid().Value;
-					}
-				}
-				else
-				{
-					if (prevPrefab)
-					{
-						PersistenceController.UnregisterPrefab(prevPrefab);
-					}
+				// 	if (prefabUidIdProp.stringValue == "")
+				// 	{
+				// 		prefabUidIdProp.stringValue = PersistentUid.NewUid().Value;
+				// 	}
+				// }
+				// else
+				// {
+				// 	if (prevPrefab)
+				// 	{
+				// 		PersistenceController.UnregisterPrefab(prevPrefab);
+				// 	}
 
-					if (persistenceUidIdProp.stringValue == "")
-					{
-						persistenceUidIdProp.stringValue = PersistentUid.NewUid().Value;
-					}
-				}
+				// 	if (persistenceUidIdProp.stringValue == "")
+				// 	{
+				// 		persistenceUidIdProp.stringValue = PersistentUid.NewUid().Value;
+				// 	}
+				// }
 			}
 
 			if (isPrefab && prevPrefab == null)
@@ -134,6 +137,8 @@ namespace Serialization
 			}
 
 			EditorGUILayout.LabelField($"Scene id: {persistentObject.gameObject.scene.buildIndex}");
+
+			EditorGUILayout.PropertyField(skipTransform);
 
 			EditorGUILayout.PropertyField(componentsToSerializeProp, true);
 

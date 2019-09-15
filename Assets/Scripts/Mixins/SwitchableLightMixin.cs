@@ -80,11 +80,6 @@ namespace Forlorn
 			}
 		}
 
-		public bool IsOn()
-		{
-			return lightIsOn;
-		}
-
 		private void PlayHumming(bool play)
 		{
 			if (play)

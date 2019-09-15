@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Playables;
+﻿#pragma warning disable 649
+
 using UnityEngine;
 
 namespace Forlorn
@@ -11,7 +10,7 @@ namespace Forlorn
 
 		[SerializeField] Transform paperPiece;
 
-		void Start ()
+		void Start()
 		{
 			var we = GameState.current.cutscenesPlayed.Contains("wewe");
 			var wewe = Cutscene.SchoolShooting.ToString();
@@ -19,7 +18,7 @@ namespace Forlorn
 				CutsceneController.PlayCutscene(schoolShootingCutscene);
 		}
 
-		void Update ()
+		void Update()
 		{
 
 		}

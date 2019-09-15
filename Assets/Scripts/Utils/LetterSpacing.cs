@@ -1,4 +1,5 @@
-using UnityEngine;
+#pragma warning disable 649
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -42,210 +43,210 @@ and turn on component's [useRichText] checkbox.
 
 namespace UnityEngine.UI
 {
-    [AddComponentMenu("UI/Effects/Letter Spacing", 15)]
+	[AddComponentMenu("UI/Effects/Letter Spacing", 15)]
 
-    public class LetterSpacing : BaseMeshEffect
-    {
-        private const string SupportedTagRegexPattersn = @"<b>|</b>|<i>|</i>|<size=.*?>|</size>|<color=.*?>|</color>|<material=.*?>|</material>";
-        [SerializeField]
-        private bool useRichText;
+	public class LetterSpacing : BaseMeshEffect
+	{
+		private const string SupportedTagRegexPattersn = @"<b>|</b>|<i>|</i>|<size=.*?>|</size>|<color=.*?>|</color>|<material=.*?>|</material>";
+		[SerializeField]
+		private bool useRichText;
 
-        [SerializeField]
-        private float m_spacing = 0f;
+		[SerializeField]
+		private float m_spacing = 0f;
 
-        protected LetterSpacing() { }
+		protected LetterSpacing() { }
 
 #if UNITY_EDITOR
-        protected override void OnValidate()
-        {
-            spacing = m_spacing;
-            base.OnValidate();
-        }
+		protected override void OnValidate()
+		{
+			spacing = m_spacing;
+			base.OnValidate();
+		}
 #endif
 
-        public float spacing
-        {
-            get { return m_spacing; }
-            set
-            {
-                if (m_spacing == value) return;
-                m_spacing = value;
-                if (graphic != null) graphic.SetVerticesDirty();
-            }
-        }
+		public float spacing
+		{
+			get { return m_spacing; }
+			set
+			{
+				if (m_spacing == value) return;
+				m_spacing = value;
+				if (graphic != null) graphic.SetVerticesDirty();
+			}
+		}
 
-        /**
+		/**
         * Note: Unity 5.2.1 ModifyMesh(Mesh mesh) used VertexHelper.FillMesh(mesh);
         * For performance reasons, ModifyMesh(VertexHelper vh) was introduced
         * @see http://forum.unity3d.com/threads/unity-5-2-ui-performance-seems-much-worse.353650/
         */
-        public override void ModifyMesh(VertexHelper vh)
-        {
-            if (!this.IsActive())
-                return;
+		public override void ModifyMesh(VertexHelper vh)
+		{
+			if (!this.IsActive())
+				return;
 
-            List<UIVertex> list = new List<UIVertex>();
-            vh.GetUIVertexStream(list);
+			List<UIVertex> list = new List<UIVertex>();
+			vh.GetUIVertexStream(list);
 
-            ModifyVertices(list);
+			ModifyVertices(list);
 
-            vh.Clear();
-            vh.AddUIVertexTriangleStream(list);
-        }
+			vh.Clear();
+			vh.AddUIVertexTriangleStream(list);
+		}
 
-        public void ModifyVertices(List<UIVertex> verts)
-        {
-            if (!IsActive()) return;
+		public void ModifyVertices(List<UIVertex> verts)
+		{
+			if (!IsActive()) return;
 
-            Text text = GetComponent<Text>();
-
-
-            string str = text.text;
-
-            // Artificially insert line breaks for automatic line breaks.
-            IList<UILineInfo> lineInfos = text.cachedTextGenerator.lines;
-            for (int i = lineInfos.Count - 1; i > 0; i--)
-            {
-                // Insert a \n at the location Unity wants to automatically line break.
-                // Also, remove any space before the automatic line break location.
-                str = str.Insert(lineInfos[i].startCharIdx, "\n");
-                str = str.Remove(lineInfos[i].startCharIdx - 1, 1);
-            }
-
-            string[] lines = str.Split('\n');
+			Text text = GetComponent<Text>();
 
 
-            if (text == null)
-            {
-                Debug.LogWarning("LetterSpacing: Missing Text component");
-                return;
-            }
+			string str = text.text;
 
-            Vector3 pos;
-            float letterOffset = spacing * (float)text.fontSize / 100f;
-            float alignmentFactor = 0;
-            int glyphIdx = 0;  // character index from the beginning of the text, including RichText tags and line breaks
+			// Artificially insert line breaks for automatic line breaks.
+			IList<UILineInfo> lineInfos = text.cachedTextGenerator.lines;
+			for (int i = lineInfos.Count - 1; i > 0; i--)
+			{
+				// Insert a \n at the location Unity wants to automatically line break.
+				// Also, remove any space before the automatic line break location.
+				str = str.Insert(lineInfos[i].startCharIdx, "\n");
+				str = str.Remove(lineInfos[i].startCharIdx - 1, 1);
+			}
 
-            bool isRichText = useRichText && text.supportRichText;
-            IEnumerator matchedTagCollection = null; // when using RichText this will collect all tags (index, length, value)
-            Match currentMatchedTag = null;
+			string[] lines = str.Split('\n');
 
-            switch (text.alignment)
-            {
-                case TextAnchor.LowerLeft:
-                case TextAnchor.MiddleLeft:
-                case TextAnchor.UpperLeft:
-                    alignmentFactor = 0f;
-                    break;
 
-                case TextAnchor.LowerCenter:
-                case TextAnchor.MiddleCenter:
-                case TextAnchor.UpperCenter:
-                    alignmentFactor = 0.5f;
-                    break;
+			if (text == null)
+			{
+				Debug.LogWarning("LetterSpacing: Missing Text component");
+				return;
+			}
 
-                case TextAnchor.LowerRight:
-                case TextAnchor.MiddleRight:
-                case TextAnchor.UpperRight:
-                    alignmentFactor = 1f;
-                    break;
-            }
+			Vector3 pos;
+			float letterOffset = spacing * (float)text.fontSize / 100f;
+			float alignmentFactor = 0;
+			int glyphIdx = 0;  // character index from the beginning of the text, including RichText tags and line breaks
 
-            for (int lineIdx = 0; lineIdx < lines.Length; lineIdx++)
-            {
-                string line = lines[lineIdx];
-                int lineLength = line.Length;
+			bool isRichText = useRichText && text.supportRichText;
+			IEnumerator matchedTagCollection = null; // when using RichText this will collect all tags (index, length, value)
+			Match currentMatchedTag = null;
 
-                if (isRichText)
-                {
-                    matchedTagCollection = GetRegexMatchedTagCollection(line, out lineLength);
-                    currentMatchedTag = null;
-                    if (matchedTagCollection.MoveNext())
-                    {
-                        currentMatchedTag = (Match)matchedTagCollection.Current;
-                    }
-                }
+			switch (text.alignment)
+			{
+				case TextAnchor.LowerLeft:
+				case TextAnchor.MiddleLeft:
+				case TextAnchor.UpperLeft:
+					alignmentFactor = 0f;
+					break;
 
-                float lineOffset = (lineLength - 1) * letterOffset * alignmentFactor;
+				case TextAnchor.LowerCenter:
+				case TextAnchor.MiddleCenter:
+				case TextAnchor.UpperCenter:
+					alignmentFactor = 0.5f;
+					break;
 
-                for (int charIdx = 0, actualCharIndex = 0; charIdx < line.Length; charIdx++, actualCharIndex++)
-                {
-                    if (isRichText)
-                    {
-                        if (currentMatchedTag != null && currentMatchedTag.Index == charIdx)
-                        {
-                            // skip matched RichText tag
-                            charIdx += currentMatchedTag.Length - 1;  // -1 because next iteration will increment charIdx
-                            actualCharIndex--;                          // tag is not an actual character, cancel counter increment on this iteration
-                            glyphIdx += currentMatchedTag.Length;      // glyph index is not incremented in for loop so skip entire length
+				case TextAnchor.LowerRight:
+				case TextAnchor.MiddleRight:
+				case TextAnchor.UpperRight:
+					alignmentFactor = 1f;
+					break;
+			}
 
-                            // prepare next tag to detect
-                            currentMatchedTag = null;
-                            if (matchedTagCollection.MoveNext())
-                            {
-                                currentMatchedTag = (Match)matchedTagCollection.Current;
-                            }
+			for (int lineIdx = 0; lineIdx < lines.Length; lineIdx++)
+			{
+				string line = lines[lineIdx];
+				int lineLength = line.Length;
 
-                            continue;
-                        }
-                    }
+				if (isRichText)
+				{
+					matchedTagCollection = GetRegexMatchedTagCollection(line, out lineLength);
+					currentMatchedTag = null;
+					if (matchedTagCollection.MoveNext())
+					{
+						currentMatchedTag = (Match)matchedTagCollection.Current;
+					}
+				}
 
-                    int idx1 = glyphIdx * 6 + 0;
-                    int idx2 = glyphIdx * 6 + 1;
-                    int idx3 = glyphIdx * 6 + 2;
-                    int idx4 = glyphIdx * 6 + 3;
-                    int idx5 = glyphIdx * 6 + 4;
-                    int idx6 = glyphIdx * 6 + 5;
+				float lineOffset = (lineLength - 1) * letterOffset * alignmentFactor;
 
-                    // Check for truncated text (doesn't generate verts for all characters)
-                    if (idx6 > verts.Count - 1) return;
+				for (int charIdx = 0, actualCharIndex = 0; charIdx < line.Length; charIdx++, actualCharIndex++)
+				{
+					if (isRichText)
+					{
+						if (currentMatchedTag != null && currentMatchedTag.Index == charIdx)
+						{
+							// skip matched RichText tag
+							charIdx += currentMatchedTag.Length - 1;  // -1 because next iteration will increment charIdx
+							actualCharIndex--;                          // tag is not an actual character, cancel counter increment on this iteration
+							glyphIdx += currentMatchedTag.Length;      // glyph index is not incremented in for loop so skip entire length
 
-                    UIVertex vert1 = verts[idx1];
-                    UIVertex vert2 = verts[idx2];
-                    UIVertex vert3 = verts[idx3];
-                    UIVertex vert4 = verts[idx4];
-                    UIVertex vert5 = verts[idx5];
-                    UIVertex vert6 = verts[idx6];
+							// prepare next tag to detect
+							currentMatchedTag = null;
+							if (matchedTagCollection.MoveNext())
+							{
+								currentMatchedTag = (Match)matchedTagCollection.Current;
+							}
 
-                    pos = Vector3.right * (letterOffset * actualCharIndex - lineOffset);
+							continue;
+						}
+					}
 
-                    vert1.position += pos;
-                    vert2.position += pos;
-                    vert3.position += pos;
-                    vert4.position += pos;
-                    vert5.position += pos;
-                    vert6.position += pos;
+					int idx1 = glyphIdx * 6 + 0;
+					int idx2 = glyphIdx * 6 + 1;
+					int idx3 = glyphIdx * 6 + 2;
+					int idx4 = glyphIdx * 6 + 3;
+					int idx5 = glyphIdx * 6 + 4;
+					int idx6 = glyphIdx * 6 + 5;
 
-                    verts[idx1] = vert1;
-                    verts[idx2] = vert2;
-                    verts[idx3] = vert3;
-                    verts[idx4] = vert4;
-                    verts[idx5] = vert5;
-                    verts[idx6] = vert6;
+					// Check for truncated text (doesn't generate verts for all characters)
+					if (idx6 > verts.Count - 1) return;
 
-                    glyphIdx++;
-                }
+					UIVertex vert1 = verts[idx1];
+					UIVertex vert2 = verts[idx2];
+					UIVertex vert3 = verts[idx3];
+					UIVertex vert4 = verts[idx4];
+					UIVertex vert5 = verts[idx5];
+					UIVertex vert6 = verts[idx6];
 
-                // Offset for carriage return character that still generates verts
-                glyphIdx++;
-            }
-        }
+					pos = Vector3.right * (letterOffset * actualCharIndex - lineOffset);
 
-        private IEnumerator GetRegexMatchedTagCollection(string line, out int lineLengthWithoutTags)
-        {
-            MatchCollection matchedTagCollection = Regex.Matches(line,SupportedTagRegexPattersn);
-            lineLengthWithoutTags = 0;
-            int tagsLength = 0;
+					vert1.position += pos;
+					vert2.position += pos;
+					vert3.position += pos;
+					vert4.position += pos;
+					vert5.position += pos;
+					vert6.position += pos;
 
-            if (matchedTagCollection.Count > 0)
-            {
-                foreach (Match matchedTag in matchedTagCollection)
-                {
-                    tagsLength += matchedTag.Length;
-                }
-            }
-            lineLengthWithoutTags = line.Length - tagsLength;
-            return matchedTagCollection.GetEnumerator();
-        }
-    }
+					verts[idx1] = vert1;
+					verts[idx2] = vert2;
+					verts[idx3] = vert3;
+					verts[idx4] = vert4;
+					verts[idx5] = vert5;
+					verts[idx6] = vert6;
+
+					glyphIdx++;
+				}
+
+				// Offset for carriage return character that still generates verts
+				glyphIdx++;
+			}
+		}
+
+		private IEnumerator GetRegexMatchedTagCollection(string line, out int lineLengthWithoutTags)
+		{
+			MatchCollection matchedTagCollection = Regex.Matches(line, SupportedTagRegexPattersn);
+			lineLengthWithoutTags = 0;
+			int tagsLength = 0;
+
+			if (matchedTagCollection.Count > 0)
+			{
+				foreach (Match matchedTag in matchedTagCollection)
+				{
+					tagsLength += matchedTag.Length;
+				}
+			}
+			lineLengthWithoutTags = line.Length - tagsLength;
+			return matchedTagCollection.GetEnumerator();
+		}
+	}
 }

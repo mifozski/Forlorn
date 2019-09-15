@@ -1,10 +1,8 @@
 #pragma warning disable 649
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.Serialization;
 
 using UnityEngine;
@@ -14,7 +12,7 @@ using Utils;
 namespace Serialization
 {
 	[Serializable]
-	public class PersistentObject : MonoBehaviour, IPersistentUnityObject
+	public class PersistentObject : MonoBehaviour, IPersistentUnityObject, IDeserializationCallback
 	{
 		[SerializeField]
 		[HideInInspector]
@@ -35,6 +33,8 @@ namespace Serialization
 		[SerializeField] private bool _serializeAllComponents;
 		[SerializeField] private Component[] _componentsToSerialize;
 		[SerializeField] private bool _serializeChildren;
+
+		private OnDeserializedCallback[] onDeserializedCallbacks;
 
 		bool _uidSet = false;
 
@@ -90,6 +90,8 @@ namespace Serialization
 			}
 
 			PersistenceController.RegisterPersistentObject(Uid, this);
+
+			onDeserializedCallbacks = GetComponents<OnDeserializedCallback>();
 		}
 
 		void Start()
@@ -190,8 +192,16 @@ namespace Serialization
 			}
 		}
 
+		public void OnDeserialization(object sender)
+		{
+			foreach (OnDeserializedCallback callback in onDeserializedCallbacks)
+			{
+				callback.OnDeserialized();
+			}
+		}
+
 		[System.Serializable()]
-		private class ChildObjectData : ISerializable
+		private sealed class ChildObjectData : ISerializable
 		{
 			[System.NonSerialized()]
 			public PersistentUid Uid;

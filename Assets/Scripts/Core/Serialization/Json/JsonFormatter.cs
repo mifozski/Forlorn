@@ -397,13 +397,14 @@ public class JsonFormatter : IFormatter
 				}
 			}
 
-			Result:
+		Result:
 			result = FormatterServices.GetUninitializedObject(tp);
 			FormatterServices.PopulateObjectMembers(result, members, data);
 		}
 
 		if (result is IDeserializationCallback)
 		{
+			Debug.Log($"TYPE: {result.GetType()}");
 			(result as IDeserializationCallback).OnDeserialization(this);
 		}
 		return result;
@@ -484,7 +485,7 @@ public class JsonFormatter : IFormatter
 			}
 		}
 
-		Result:
+	Result:
 		return si;
 	}
 
@@ -602,7 +603,7 @@ public class JsonFormatter : IFormatter
 			}
 		}
 
-		Result:
+	Result:
 		if (keepAsList)
 			return lst;
 		else

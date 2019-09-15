@@ -1,3 +1,5 @@
+#pragma warning disable 649
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +11,7 @@ namespace Forlorn
 	{
 		[SerializeField] UnityAction onTrigger;
 
-		bool triggered = false;
+		// bool triggered = false;
 
 		// protected
 

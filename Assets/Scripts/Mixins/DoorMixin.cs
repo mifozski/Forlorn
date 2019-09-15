@@ -1,8 +1,12 @@
+#pragma warning disable 649
+
 using UnityEngine;
+
+using Serialization;
 
 namespace Forlorn
 {
-	public class DoorMixin : MonoBehaviour
+	public class DoorMixin : MonoBehaviour, OnDeserializedCallback
 	{
 		Animator doorAnimator;
 		AudioSource soundSource;
@@ -26,13 +30,13 @@ namespace Forlorn
 
 		void Start()
 		{
-			interactive.onHoverSubtitles = IsOpen() ? openedUpSubtitles : closedUpSubtitles;
+			UpdateSubtitles();
 		}
 
 		public void OnInteracted()
 		{
 			doorAnimator.SetBool(isOpenParamKey, !IsOpen());
-			interactive.onHoverSubtitles = doorAnimator.GetBool(isOpenParamKey) ? openedUpSubtitles : closedUpSubtitles;
+			UpdateSubtitles();
 		}
 
 		public void PlayOpeningSound()
@@ -51,9 +55,19 @@ namespace Forlorn
 			}
 		}
 
+		private void UpdateSubtitles()
+		{
+			interactive.onHoverSubtitles = doorAnimator.GetBool(isOpenParamKey) ? openedUpSubtitles : closedUpSubtitles;
+		}
+
 		private bool IsOpen()
 		{
 			return doorAnimator.GetBool(isOpenParamKey);
+		}
+
+		public void OnDeserialized()
+		{
+			UpdateSubtitles();
 		}
 	}
 }

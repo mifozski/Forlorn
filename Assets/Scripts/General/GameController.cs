@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 649
+
+using UnityEngine;
 using UnityEngine.UI;
 
 using Serialization;
-using Forlorn;
 using Forlorn.Core.ConditionSystem;
 
 namespace Forlorn

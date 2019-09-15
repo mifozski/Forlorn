@@ -1,7 +1,7 @@
+#pragma warning disable 649
+
 using UnityEngine;
 using System.Linq;
-
-using Forlorn;
 
 namespace Forlorn
 {

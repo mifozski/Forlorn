@@ -1,3 +1,5 @@
+#pragma warning disable 649
+
 using UnityEngine;
 
 namespace Forlorn.Game.Appartment

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿#pragma warning disable 649
 
-using Forlorn;
+using UnityEngine;
 
 namespace Forlorn
 {

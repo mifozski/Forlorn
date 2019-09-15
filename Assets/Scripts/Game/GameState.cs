@@ -40,7 +40,7 @@ namespace Forlorn
 				}
 			}
 
-			PersistenceController.Save();
+			PersistenceController.Save(new int[] { 0 });
 		}
 
 		public bool StoryVarIsSet(string varName)
@@ -55,7 +55,7 @@ namespace Forlorn
 			Debug.Log($"Setting '${name}: ${value}");
 			StoryVars_Boolean[name] = value;
 
-			PersistenceController.Save();
+			PersistenceController.Save(new int[] { 0 });
 		}
 	}
 

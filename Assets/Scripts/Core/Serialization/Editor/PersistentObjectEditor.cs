@@ -114,6 +114,14 @@ namespace Serialization
 			if (isPrefab)
 			{
 				EditorGUILayout.PropertyField(prefabUidProp);
+
+				if (prevPrefab && PrefabStageUtility.GetCurrentPrefabStage() == null)
+				{
+					EditorGUILayout.HelpBox(
+						"IsPrefab is set to true outside of Prefab stage. Make sure to remove this component from the scene or uncheck IsPrefab checkbox.",
+						MessageType.Warning
+					);
+				}
 			}
 			else
 			{
@@ -124,6 +132,8 @@ namespace Serialization
 					EditorGUILayout.PropertyField(linkedPrefabUidProp);
 				}
 			}
+
+			EditorGUILayout.LabelField($"Scene id: {persistentObject.gameObject.scene.buildIndex}");
 
 			EditorGUILayout.PropertyField(componentsToSerializeProp, true);
 
@@ -163,7 +173,7 @@ namespace Serialization
 
 		private void UpdatePrefabMap()
 		{
-			string [] guids = AssetDatabase.FindAssets("t:prefab");
+			string[] guids = AssetDatabase.FindAssets("t:prefab");
 
 			PersistentObject[] allFoundScripts = Resources.FindObjectsOfTypeAll<PersistentObject>();
 			List<PersistentObject> prefabs = new List<PersistentObject>();

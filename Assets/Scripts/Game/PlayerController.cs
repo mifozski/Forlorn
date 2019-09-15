@@ -2,13 +2,16 @@
 
 using UnityEngine;
 using Cinemachine;
+using System.Runtime.Serialization;
 using UnityStandardAssets.Characters.FirstPerson;
+
+using Serialization;
 
 using Forlorn.Events;
 
 namespace Forlorn
 {
-	public class PlayerController : MonoBehaviour
+	public class PlayerController : MonoBehaviour, OnSerializeCallback
 	{
 		new Transform camera;
 
@@ -92,6 +95,22 @@ namespace Forlorn
 		bool IsPaused()
 		{
 			return ImmediateGameState.isInMainMenu || ImmediateGameState.isInCutscene;
+		}
+
+		// public void OnDeserialized()
+		// {
+		// 	firstPersonController.SetOrientation();
+		// }
+
+		public void OnSerialize(ref SerializationInfo info)
+		{
+			info.AddValue("cameraOrietation", firstPersonController.GetOrientation());
+		}
+
+		public void OnDeserialize(SerializationInfo info)
+		{
+
+			firstPersonController.SetOrientation((Quaternion)info.GetValue("cameraOrietation", typeof(Quaternion)));
 		}
 	}
 }

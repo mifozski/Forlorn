@@ -20,6 +20,7 @@ namespace Forlorn
 	{
 		[SerializeField] PersistenceController persistenceController;
 		[SerializeField] ConditionalReactionSystem conditionalReactionSystem;
+		[SerializeField] SceneController sceneController;
 
 		private GameStageController stageController;
 
@@ -33,19 +34,9 @@ namespace Forlorn
 
 		private string gameStateKey = "game_state";
 
-		void Awake()
-		{
-			Init();
-		}
-
-		private void Init()
-		{
-		}
-
 		void Start()
 		{
-			Debug.Log("GAME CONTROLLER");
-			bool haveDataSave = persistenceController.Deserialize();
+			bool haveDataSave = persistenceController.Deserialize(sceneController.GetLoadedSceneIds());
 			if (haveDataSave)
 			{
 				GameState.current = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
@@ -91,7 +82,7 @@ namespace Forlorn
 
 		public void Save()
 		{
-			PersistenceController.Save();
+			PersistenceController.Save(new int[] { 0 });
 		}
 
 		public void Exit()

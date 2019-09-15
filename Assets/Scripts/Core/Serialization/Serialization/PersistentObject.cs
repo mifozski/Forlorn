@@ -76,7 +76,6 @@ namespace Serialization
 
 		void Awake()
 		{
-			Debug.Log("PERSISTENT OBJECT");
 			// Created from a prefab
 			if (_isPrefab && Application.isPlaying)
 			{
@@ -106,6 +105,7 @@ namespace Serialization
 		public void OnSerialize(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("uid", this.Uid.Value);
+			info.AddValue("sceneId", gameObject.scene.buildIndex);
 
 			if (_linkedPrefabUid != null)
 			{
@@ -120,6 +120,7 @@ namespace Serialization
 			info.AddValue("rot", this.transform.rotation);
 			info.AddValue("scale", this.transform.localScale);
 
+			// Serialize components
 			Component[] components = _serializeAllComponents ? GetComponents<Component>() : _componentsToSerialize;
 			foreach (Component component in components)
 			{
@@ -127,6 +128,7 @@ namespace Serialization
 				info.AddValue(component.GetType().FullName, data, component.GetType());
 			}
 
+			// Serialize chidlren objects
 			var lst = new List<IPersistentUnityObject>();
 			this.GetComponentsInChildren<IPersistentUnityObject>(true, lst);
 			if (lst.Count > 0)
@@ -151,6 +153,7 @@ namespace Serialization
 		public void OnDeserialize(SerializationInfo info, StreamingContext context, IAssetBundle assetBundle)
 		{
 			_persistenceUid = new PersistentUid(info.GetString("uid"));
+
 			_uidSet = true;
 
 			this.transform.position = (Vector3)info.GetValue("pos", typeof(Vector3));

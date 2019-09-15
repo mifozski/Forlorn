@@ -2,9 +2,6 @@ using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-
-using Forlorn;
 
 namespace Forlorn
 {
@@ -33,6 +30,16 @@ namespace Forlorn
 		void OnSceneUnloaded(Scene scene)
 		{
 			// store.dispatch(ActionCreators.SceneManagement.setSceneLoaded(scene.buildIndex, false));
+		}
+
+		public int[] GetLoadedSceneIds()
+		{
+			int[] sceneIds = new int[SceneManager.sceneCount];
+			for (int i = 0; i < SceneManager.sceneCount; i++)
+			{
+				sceneIds[i] = SceneManager.GetSceneAt(i).buildIndex;
+			}
+			return sceneIds;
 		}
 
 		public void LoadScene(int sceneId)

@@ -54,16 +54,23 @@ namespace Serialization
 			// Custom Component...
 			else
 			{
-				var members = component.GetType().GetFields(
-							BindingFlags.Public |
-							BindingFlags.NonPublic |
-							BindingFlags.Static |
-							BindingFlags.Instance |
-							BindingFlags.DeclaredOnly);
-				foreach (FieldInfo field in members)
+				if (component is OnSerializeCallback)
 				{
-					var value = field.GetValue(component);
-					info.AddValue(field.Name, value);
+					(component as OnSerializeCallback).OnSerialize(ref info);
+				}
+				else
+				{
+					var members = component.GetType().GetFields(
+								BindingFlags.Public |
+								BindingFlags.NonPublic |
+								BindingFlags.Static |
+								BindingFlags.Instance |
+								BindingFlags.DeclaredOnly);
+					foreach (FieldInfo field in members)
+					{
+						var value = field.GetValue(component);
+						info.AddValue(field.Name, value);
+					}
 				}
 			}
 		}
@@ -92,9 +99,9 @@ namespace Serialization
 
 			// Parameters
 			animator.enabled = (bool)info.GetValue("enabled", typeof(bool));
-			string [] serializedParameterNames = new string[animator.parameterCount];
-			int [] serializedParameterTypes = new int[animator.parameterCount];
-			object [] serializedParameterValues = new object[animator.parameterCount];
+			string[] serializedParameterNames = new string[animator.parameterCount];
+			int[] serializedParameterTypes = new int[animator.parameterCount];
+			object[] serializedParameterValues = new object[animator.parameterCount];
 			int i = 0;
 			foreach (AnimatorControllerParameter parameter in animator.parameters)
 			{
@@ -115,7 +122,7 @@ namespace Serialization
 			info.AddValue("parameterValues", serializedParameterValues);
 
 			// Current states
-			CurrentStateInfo [] currentStates = new CurrentStateInfo[animator.layerCount];
+			CurrentStateInfo[] currentStates = new CurrentStateInfo[animator.layerCount];
 			for (i = 0; i < animator.layerCount; i++)
 			{
 				currentStates[i] = new CurrentStateInfo
@@ -159,19 +166,26 @@ namespace Serialization
 			}
 			else
 			{
-				var members = component.GetType().GetFields(
-							BindingFlags.Public |
-							BindingFlags.NonPublic |
-							BindingFlags.Static |
-							BindingFlags.Instance |
-							BindingFlags.DeclaredOnly);
-				SerializationInfoEnumerator e = info.GetEnumerator();
-				while (e.MoveNext())
+				if (component is OnSerializeCallback)
 				{
-					var field = members.Where(f => f.Name == e.Name).FirstOrDefault();
-					if (field != null)
+					(component as OnSerializeCallback).OnDeserialize(info);
+				}
+				else
+				{
+					var members = component.GetType().GetFields(
+								BindingFlags.Public |
+								BindingFlags.NonPublic |
+								BindingFlags.Static |
+								BindingFlags.Instance |
+								BindingFlags.DeclaredOnly);
+					SerializationInfoEnumerator e = info.GetEnumerator();
+					while (e.MoveNext())
 					{
-						field.SetValue(component, Convert.ChangeType(e.Value, field.FieldType));
+						var field = members.Where(f => f.Name == e.Name).FirstOrDefault();
+						if (field != null)
+						{
+							field.SetValue(component, Convert.ChangeType(e.Value, field.FieldType));
+						}
 					}
 				}
 			}
@@ -193,11 +207,11 @@ namespace Serialization
 			}
 
 			// Parameters
-			string [] serializedParameterNames = (string[])info.GetValue("parameterNames", (typeof(string[])));
-			AnimatorControllerParameterType [] serializedParameterTypes =
+			string[] serializedParameterNames = (string[])info.GetValue("parameterNames", (typeof(string[])));
+			AnimatorControllerParameterType[] serializedParameterTypes =
 				((int[])info.GetValue("parameterTypes", (typeof(int[]))))
 					.Select(type => (AnimatorControllerParameterType)type).ToArray();
-			object [] serializedParameterValues = (object[])info.GetValue("parameterValues", (typeof(object[])));
+			object[] serializedParameterValues = (object[])info.GetValue("parameterValues", (typeof(object[])));
 			for (int i = 0; i < serializedParameterNames.Count(); i++)
 			{
 				string name = serializedParameterNames[i];
@@ -220,7 +234,7 @@ namespace Serialization
 			}
 
 			// Current states
-			CurrentStateInfo [] currentStates = (CurrentStateInfo[])info.GetValue("currentStates", typeof(CurrentStateInfo[]));
+			CurrentStateInfo[] currentStates = (CurrentStateInfo[])info.GetValue("currentStates", typeof(CurrentStateInfo[]));
 			for (int i = 0; i < animator.layerCount; i++)
 			{
 				int fullHashPath = currentStates[i].fullHashPath;

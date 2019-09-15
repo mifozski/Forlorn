@@ -39,12 +39,12 @@ namespace Serialization
 
 		override public string ToString()
 		{
-			return _uid;
+			return _uid.Clone() as string;
 		}
 
 		public static implicit operator string(PersistentUid uid)
-        {
-            return uid.ToString();
-        }
+		{
+			return uid.ToString();
+		}
 	}
 }

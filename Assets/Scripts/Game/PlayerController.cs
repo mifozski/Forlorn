@@ -97,11 +97,6 @@ namespace Forlorn
 			return ImmediateGameState.isInMainMenu || ImmediateGameState.isInCutscene;
 		}
 
-		// public void OnDeserialized()
-		// {
-		// 	firstPersonController.SetOrientation();
-		// }
-
 		public void OnSerialize(ref SerializationInfo info)
 		{
 			info.AddValue("cameraOrietation", firstPersonController.GetOrientation());

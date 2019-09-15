@@ -370,6 +370,7 @@ MonoBehaviour:
     _uid: 
   _prefabUid:
     _uid: JwzpK6PRGEe0Zm41Qb6iTA
+  _skipTransform: 1
   _serializeAllComponents: 0
   _componentsToSerialize:
   - {fileID: 8188360226328630002}

@@ -32,7 +32,7 @@ namespace Forlorn
 			clicking = GetComponent<AudioSource>();
 			toggleAnimator = GetComponent<Animator>();
 			interactive = GetComponentInChildren<InteractiveMixin>();
-			indicatorMat = GetComponentInChildren<MeshRenderer>().material;
+			indicatorMat = GetComponentsInChildren<MeshRenderer>()[1].material;
 			indicatorColor = indicatorMat.GetColor(emissiveColorParam);
 		}
 

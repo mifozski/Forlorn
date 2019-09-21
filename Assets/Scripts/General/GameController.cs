@@ -34,13 +34,19 @@ namespace Forlorn
 
 		private string gameStateKey = "game_state";
 
-		void Start()
+		void Awake()
 		{
-			bool haveDataSave = persistenceController.Deserialize(sceneController.GetLoadedSceneIds());
+			bool haveDataSave = persistenceController.Deserialize();
 			if (haveDataSave)
 			{
-				GameState.current = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
+				var qwe = persistenceController.GetDeserializedData();
+				GameState deserializedState = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
+
+				GameState.current = new GameState();
+				GameState.current.ReconcileStates(deserializedState);
 				conditionalReactionSystem.SetVariables(GameState.current.variables);
+
+				PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
 			}
 			else
 			{
@@ -48,6 +54,10 @@ namespace Forlorn
 				GameState.current = new GameState();
 			}
 			PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
+		}
+
+		void Start()
+		{
 		}
 
 		public static void ShowInteractableObjectIndicator(bool draw)
@@ -82,7 +92,7 @@ namespace Forlorn
 
 		public void Save()
 		{
-			PersistenceController.Save(new int[] { 0 });
+			PersistenceController.Save();
 		}
 
 		public void Exit()

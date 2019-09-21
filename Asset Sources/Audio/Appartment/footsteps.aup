@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="footsteps_data" version="1.3.0" audacityversion="2.3.2" sel0="0.0000000000" sel1="0.4389569161" vpos="0" h="0.0000000000" zoom="86.1328125000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14890">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d9b.au" len="14890" min="-0.56421" max="0.524958" rms="0.043602"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14890">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808dd3.au" len="14890" min="-0.56421" max="0.524958" rms="0.043602"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="16380">
+				<waveblock start="0">
+					<simpleblockfile filename="e08082eb.au" len="16380" min="-0.52217" max="0.529504" rms="0.034257"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="16380">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808dd8.au" len="16380" min="-0.733076" max="0.744125" rms="0.049691"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19109">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808410.au" len="19109" min="-0.289749" max="0.286927" rms="0.02232"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="16876">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808390.au" len="16876" min="-1.0" max="0.73249" rms="0.064776"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19358">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808129.au" len="19358" min="-0.452766" max="0.493053" rms="0.037543"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Feet-Footsteps-Wood-Parquet-Boots-Rubber Sole-Winter Boots-Sorel-Walk-Loop" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="16627">
+				<waveblock start="0">
+					<simpleblockfile filename="e080846b.au" len="16627" min="-0.761991" max="0.804647" rms="0.050145"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

@@ -99,13 +99,13 @@ namespace Forlorn
 
 		public void OnSerialize(ref SerializationInfo info)
 		{
-			info.AddValue("cameraOrietation", firstPersonController.GetOrientation());
+			info.AddValue("cameraOrientation", firstPersonController.GetOrientation());
 		}
 
 		public void OnDeserialize(SerializationInfo info)
 		{
 
-			firstPersonController.SetOrientation((Quaternion)info.GetValue("cameraOrietation", typeof(Quaternion)));
+			firstPersonController.SetOrientation((Quaternion)info.GetValue("cameraOrientation", typeof(Quaternion)));
 		}
 	}
 }

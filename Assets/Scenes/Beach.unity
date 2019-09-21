@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 936901263}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -801,6 +801,7 @@ MonoBehaviour:
     _uid: 
   _prefabUid:
     _uid: 
+  _skipTransform: 0
   _serializeAllComponents: 0
   _componentsToSerialize: []
   _serializeChildren: 0
@@ -1279,7 +1280,7 @@ PrefabInstance:
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.27
+      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}

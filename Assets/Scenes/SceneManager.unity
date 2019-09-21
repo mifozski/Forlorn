@@ -625,12 +625,12 @@ PrefabInstance:
     - target: {fileID: 2491816364138762910, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3
+      value: 3.161
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.49
+      value: -2.055
       objectReference: {fileID: 0}
     - target: {fileID: 3680082356761244649, guid: c9c21187e8098924d9f5a67ba88e66fb,
         type: 3}
@@ -697,6 +697,11 @@ PrefabInstance:
       propertyPath: _componentsToSerialize.Array.data[0]
       value: 
       objectReference: {fileID: 1353083481}
+    - target: {fileID: 2565398106957447889, guid: c9c21187e8098924d9f5a67ba88e66fb,
+        type: 3}
+      propertyPath: _persistenceUid._uid
+      value: rrY/MAyiWk6p+nIya4b85A
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1109581249299498977, guid: c9c21187e8098924d9f5a67ba88e66fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9c21187e8098924d9f5a67ba88e66fb, type: 3}
@@ -1008,6 +1013,7 @@ GameObject:
   - component: {fileID: 705225199}
   - component: {fileID: 705225204}
   - component: {fileID: 705225203}
+  - component: {fileID: 705225205}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1131,6 +1137,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitlesText: {fileID: 281442832}
   faderCanvasGroup: {fileID: 507129795}
+--- !u!114 &705225205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705225196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa84e23c66a3aae40bea654aa92346be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DefaultFootsteps:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  m_GroundTypes:
+  - tagName: Sand
+    footsteps:
+    - {fileID: 8300000, guid: 97af08cf6d39f8547839cd7252403fec, type: 3}
+    - {fileID: 8300000, guid: 992856efa3894de469622b51c75f6fea, type: 3}
+    - {fileID: 8300000, guid: 68801950a477ff049afb87a64d0f05e2, type: 3}
+    - {fileID: 8300000, guid: 9e2f69cdb4d471744bfc5f8f0d0dd492, type: 3}
+    - {fileID: 8300000, guid: a7fe54e8dc51dc44f9b04eb306053f67, type: 3}
+    - {fileID: 8300000, guid: dc729eedc03606348876771caacbd2fb, type: 3}
+    - {fileID: 8300000, guid: aa018f5d6dd18d641aa8c625de0e9a1b, type: 3}
+    - {fileID: 8300000, guid: 85cd1da873434174bac2ace85efc201a, type: 3}
+    - {fileID: 8300000, guid: 23ed265faf627fe4aa901a1951a454f3, type: 3}
+    volumeMultiplier: 1
+  - tagName: Parquet
+    footsteps:
+    - {fileID: 8300000, guid: 8cec1e3ffa1e7994382938e5aa42cf0f, type: 3}
+    - {fileID: 8300000, guid: 50ca6d967518ca14894e8633f55b6d6b, type: 3}
+    - {fileID: 8300000, guid: b44db987af0e3b042b3009b1ff28cd6b, type: 3}
+    - {fileID: 8300000, guid: abea19625810d134693f1464c22ae194, type: 3}
+    - {fileID: 8300000, guid: 6148a9b7bc9a20243a61080b4224da85, type: 3}
+    - {fileID: 8300000, guid: 09db76d384c01e349969781e17900c3a, type: 3}
+    - {fileID: 8300000, guid: df9788a70d3c48f4f96244606df3fbb8, type: 3}
+    - {fileID: 8300000, guid: d1ee224fe456045459d1a9190690682e, type: 3}
+    volumeMultiplier: 2
 --- !u!1 &725207445
 GameObject:
   m_ObjectHideFlags: 0

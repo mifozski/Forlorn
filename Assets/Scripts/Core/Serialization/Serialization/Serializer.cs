@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using Collections;
+using UnityEngine;
 
 using Project;
 
@@ -28,12 +28,12 @@ namespace Serialization
 		#region Properties
 
 		public IAssetBundle AssetBundle
-        {
-            set
+		{
+			set
 			{
 				_specialSurrogate.AssetBundle = value;
 			}
-        }
+		}
 
 		#endregion
 
@@ -70,6 +70,11 @@ namespace Serialization
 				formatter.SurrogateSelector = this;
 				return formatter.Deserialize(serializationStream);
 			}
+			catch (SerializationException e)
+			{
+				Debug.LogError(e.Message);
+				throw e;
+			}
 			finally
 			{
 				_formattersSurrogateSelector = null;
@@ -89,7 +94,7 @@ namespace Serialization
 			{
 				surrogate = _formattersSurrogateSelector.GetSurrogate(type, context, out selector);
 			}
-			if(surrogate == null)
+			if (surrogate == null)
 			{
 				surrogate = base.GetSurrogate(type, context, out selector);
 			}
@@ -122,6 +127,7 @@ namespace Serialization
 			if (tp == null) throw new System.ArgumentNullException("tp");
 
 			if (typeof(IPersistentUnityObject).IsAssignableFrom(tp)) return true;
+			if (typeof(GameObjectPersistenceToken).IsAssignableFrom(tp)) return true;
 
 			return SimpleUnityStructureSurrogate.IsSpeciallySerialized(tp);
 		}

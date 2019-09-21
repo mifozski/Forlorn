@@ -14,7 +14,7 @@ namespace Serialization
 	public class PersistentData
 	{
 		public Dictionary<string, object> genericObjects;
-		public Dictionary<string, PersistentObject> precreatedGameObjects;
+		public Dictionary<string, GameObjectPersistenceToken> precreatedGameObjects;
 	}
 
 	public class PersistenceController : MonoBehaviour
@@ -26,13 +26,11 @@ namespace Serialization
 		static private PersistentData m_PersistentData = new PersistentData
 		{
 			genericObjects = new Dictionary<string, object>(),
-			precreatedGameObjects = new Dictionary<string, PersistentObject>(),
+			precreatedGameObjects = new Dictionary<string, GameObjectPersistenceToken>(),
 		};
 
 		static private PersistenceController _instance;
 		private static bool applicationIsQuitting = false;
-
-		PersistentData m_DeserializedData = null;
 
 		static PersistenceController Instance
 		{
@@ -52,12 +50,23 @@ namespace Serialization
 
 		public PersistentData GetDeserializedData()
 		{
-			return m_DeserializedData;
+			return m_PersistentData;
 		}
 
 		static public void RegisterPersistentObject(string uid, PersistentObject persistentObject)
 		{
-			m_PersistentData.precreatedGameObjects.Add(uid, persistentObject);
+			if (!m_PersistentData.precreatedGameObjects.ContainsKey(uid))
+			{
+				GameObjectPersistenceToken token = new GameObjectPersistenceToken();
+				token.SetGameObject(persistentObject);
+				m_PersistentData.precreatedGameObjects.Add(uid, token);
+			}
+			else
+			{
+				m_PersistentData.precreatedGameObjects[uid].SetGameObject(persistentObject);
+				m_PersistentData.precreatedGameObjects[uid].Deserialize();
+			}
+
 			Debug.Log($"Registering created object: {persistentObject.name} with uid: {uid} from scene {persistentObject.gameObject.scene.buildIndex}");
 		}
 
@@ -69,9 +78,10 @@ namespace Serialization
 
 		static public PersistentObject GetPrecreatedPersistentObject(PersistentUid uid)
 		{
-			PersistentObject persistentObject;
-			m_PersistentData.precreatedGameObjects.TryGetValue(uid, out persistentObject);
-			return persistentObject;
+			Debug.Break();
+			GameObjectPersistenceToken token;
+			m_PersistentData.precreatedGameObjects.TryGetValue(uid, out token);
+			return null;
 		}
 
 		public static void RegisterPrefab(PersistentObject prefab)
@@ -160,11 +170,11 @@ namespace Serialization
 #endif
 		}
 
-		public void Serialize(int[] sceneIds)
+		public void Serialize()
 		{
 			string saveFilePath = Application.persistentDataPath + "/" + "Save.json";
 
-			var serializer = new Serializer(sceneIds);
+			var serializer = new Serializer();
 
 			FileStream file = File.Create(saveFilePath);
 			file.SetLength(0);
@@ -177,27 +187,27 @@ namespace Serialization
 			file.Close();
 		}
 
-		public bool Deserialize(int[] sceneIds)
+		public bool Deserialize()
 		{
 			string saveFilePath = Application.persistentDataPath + "/" + "Save.json";
-			Debug.Log($"Reading save file at {saveFilePath} for scenes: [{string.Join(", ", sceneIds)}]");
-			FileStream file;
+			Debug.Log($"Reading save file at {saveFilePath}");
 			try
 			{
+				FileStream file;
 				file = new FileStream(saveFilePath, FileMode.Open, FileAccess.Read);
+
+				var serializer = new Serializer();
+
+				m_PersistentData = serializer.Deserialize(file) as PersistentData;
+
+				Debug.Log("Deserialized");
+
+				return true;
 			}
 			catch
 			{
 				return false;
 			}
-
-			var serializer = new Serializer(sceneIds);
-
-			m_DeserializedData = serializer.Deserialize(file) as PersistentData;
-
-			Debug.Log("Deserialized");
-
-			return true;
 		}
 
 		class Serializer
@@ -205,9 +215,9 @@ namespace Serialization
 			JsonFormatter formatter;
 			SPSerializer serializer;
 
-			public Serializer(int[] sceneIds)
+			public Serializer()
 			{
-				formatter = new JsonFormatter(sceneIds);
+				formatter = new JsonFormatter();
 				serializer = new SPSerializer();
 				serializer.AssetBundle = ResourcesAssetBundle.Instance;
 			}
@@ -242,19 +252,19 @@ namespace Serialization
 			return serializedObject;
 		}
 
-		public static void Save(int[] sceneIds)
+		public static void Save()
 		{
 			if (Instance)
 			{
-				Instance.Serialize(sceneIds);
+				Instance.Serialize();
 			}
 		}
 
-		public static void Load(int[] sceneIds)
+		public static void Load()
 		{
 			if (Instance)
 			{
-				Instance.Deserialize(sceneIds);
+				Instance.Deserialize();
 			}
 		}
 

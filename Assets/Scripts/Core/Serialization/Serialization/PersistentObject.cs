@@ -12,7 +12,7 @@ using Utils;
 namespace Serialization
 {
 	[Serializable]
-	public class PersistentObject : MonoBehaviour, IPersistentUnityObject, IDeserializationCallback
+	public class PersistentObject : MonoBehaviour, IPersistentUnityObject
 	{
 		[SerializeField]
 		[HideInInspector]
@@ -88,14 +88,13 @@ namespace Serialization
 					_linkedPrefabUid = _prefabUid;
 				}
 			}
-
-			PersistenceController.RegisterPersistentObject(Uid, this);
-
-			onDeserializedCallbacks = GetComponents<OnDeserializedCallback>();
 		}
 
 		void Start()
 		{
+			onDeserializedCallbacks = GetComponents<OnDeserializedCallback>();
+
+			PersistenceController.RegisterPersistentObject(Uid, this);
 		}
 
 		void OnDestroy()
@@ -214,7 +213,7 @@ namespace Serialization
 			}
 		}
 
-		public void OnDeserialization(object sender)
+		public void OnDeserialization()
 		{
 			foreach (OnDeserializedCallback callback in onDeserializedCallbacks)
 			{

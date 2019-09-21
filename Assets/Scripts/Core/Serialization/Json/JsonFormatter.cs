@@ -30,13 +30,6 @@ public class JsonFormatter : IFormatter
 		}
 	}
 
-	int[] sceneIds;
-
-	public JsonFormatter(int[] sceneIds)
-	{
-		this.sceneIds = sceneIds;
-	}
-
 	public void Serialize(Stream serializationStream, object graph)
 	{
 		if (serializationStream == null) throw new System.ArgumentNullException("serializationStream");
@@ -268,12 +261,6 @@ public class JsonFormatter : IFormatter
 				if (tp.FullName == "Serialization.PersistentObject")
 				{
 					// TODO: Remove this hack. Use tokens instead of trying to directly serialize PersistentObject--the descedant of MonoBehavior
-					int sceneId = si.GetInt32("sceneId");
-					if (Array.IndexOf(sceneIds, sceneId) == -1)
-					{
-						return null;
-					}
-
 					string uid = si.GetString("uid");
 					obj = PersistenceController.GetPrecreatedPersistentObject(new PersistentUid(si.GetString("uid")));
 
@@ -427,7 +414,6 @@ public class JsonFormatter : IFormatter
 
 		if (result is IDeserializationCallback)
 		{
-			Debug.Log($"TYPE: {result.GetType()}");
 			(result as IDeserializationCallback).OnDeserialization(this);
 		}
 		return result;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using System.Runtime.Serialization;
 
@@ -17,17 +16,19 @@ namespace Serialization
 
 		private AutoPersistentAssetToken _proxy;
 
+		private GameObjectPersistenceToken _goProxy;
+
 		#endregion
 
 		#region Properties
 
-        public IAssetBundle AssetBundle
-        {
-            get { return _assets; }
-            set { _assets = value; }
-        }
+		public IAssetBundle AssetBundle
+		{
+			get { return _assets; }
+			set { _assets = value; }
+		}
 
-        #endregion
+		#endregion
 
 		#region ISurrogateSelector Interface
 
@@ -48,7 +49,7 @@ namespace Serialization
 				selector = this;
 				return this;
 			}
-			else if(_nextSelector != null)
+			else if (_nextSelector != null)
 			{
 				return _nextSelector.GetSurrogate(type, context, out selector);
 			}
@@ -69,25 +70,46 @@ namespace Serialization
 			{
 				if (obj is PersistentAssetToken)
 				{
-				    (obj as PersistentAssetToken).OnSerialize(info, context);
+					(obj as PersistentAssetToken).OnSerialize(info, context);
 				}
 				else if (obj is IPersistentAsset)
 				{
-				    if (_proxy == null)
-				        _proxy = new AutoPersistentAssetToken();
+					if (_proxy == null)
+						_proxy = new AutoPersistentAssetToken();
 
-				    info.SetType(typeof(AutoPersistentAssetToken));
-				    _proxy.SetObject(obj as IPersistentAsset);
-				    _proxy.OnSerialize(info, context);
-				    _proxy.SetObject(null);
+					info.SetType(typeof(AutoPersistentAssetToken));
+					_proxy.SetObject(obj as IPersistentAsset);
+					_proxy.OnSerialize(info, context);
+					_proxy.SetObject(null);
 				}
 				else if (obj is PersistentObject)
 				{
+					if (_goProxy == null)
+					{
+						_goProxy = new GameObjectPersistenceToken();
+					}
+
+					info.SetType((typeof(GameObjectPersistenceToken)));
+					// _goProxy.SetGameObject(obj as PersistentObject);
 					(obj as PersistentObject).OnSerialize(info, context);
 				}
 				else
 				{
-				    throw new SerializationException("IPersistentUnityObjects should be handled by an IPersistentAsset, not directly by the serializtion engine.");
+					throw new SerializationException("IPersistentUnityObjects should be handled by an IPersistentAsset, not directly by the serializtion engine.");
+				}
+			}
+			else if (obj is GameObjectPersistenceToken)
+			{
+				var token = obj as GameObjectPersistenceToken;
+				PersistentObject persistentObject = token.GetObject();
+				if (persistentObject)
+				{
+					persistentObject.OnSerialize(info, context);
+				}
+				else
+				{
+					info = token.GetSerializationInfo();
+					// throw new SerializationException("No object set for GameObjectPersistenceToken");
 				}
 			}
 			else
@@ -104,6 +126,11 @@ namespace Serialization
 				(obj as IPersistentUnityObject).OnDeserialize(info, context, _assets);
 				if (obj is AutoPersistentAssetToken)
 					return (obj as AutoPersistentAssetToken).PreemptiveCreate();
+				return obj;
+			}
+			else if (obj is GameObjectPersistenceToken)
+			{
+				(obj as GameObjectPersistenceToken).OnDeserialize(info, context);
 				return obj;
 			}
 			else

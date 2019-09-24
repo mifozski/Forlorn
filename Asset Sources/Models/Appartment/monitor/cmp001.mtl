@@ -1,0 +1,118 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  Deep Exploration 5 5.0.5.1846 Release
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl cmp001_monitor__
+Ka 0.0588235 0.0588235 0.0588235
+Kd 0.0588235 0.0588235 0.0588235
+Ks 1 1 1
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl cmp001_plastic2_
+Ka 0.0862745 0.0627451 0.180392
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 128
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl cmp001_plastic1_
+Ka 0.117647 0.117647 0.117647
+Kd 0.117647 0.117647 0.117647
+Ks 1 1 1
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl cmp001_plasti1
+Ka 0.0862745 0.0627451 0.180392
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 128
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl cmp001_plastic3_
+Ka 0.0862745 0.0627451 0.180392
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 128
+map_Kd 
+map_bump CMP00101.jpg
+bump CMP00101.jpg
+map_opacity CMP00101.jpg
+map_d CMP00101.jpg
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Explorer_Default
+Ka 0.117647 0.117647 0.117647
+Kd 0.752941 0.752941 0.752941
+Ks 0.752941 0.752941 0.752941
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl cmp001_dark
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 2
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 

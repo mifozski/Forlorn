@@ -1,22 +1,22 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
-<project xmlns="http://audacity.sourceforge.net/xml/" projname="footsteps_data" version="1.3.0" audacityversion="2.3.2" sel0="4.1795918367" sel1="4.1795918367" vpos="0" h="0.0000000000" zoom="86.1328125000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="footsteps_data" version="1.3.0" audacityversion="2.3.2" sel0="0.0000000000" sel1="0.7659183673" vpos="0" h="0.0000000000" zoom="86.1328125000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
 	<tags/>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="32329">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808d5b.au" len="32329" min="-0.042461" max="0.041392" rms="0.003948"/>
+					<simpleblockfile filename="e080844c.au" len="32329" min="-0.118302" max="0.115324" rms="0.010999"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="31364">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808fb1.au" len="31364" min="-0.043555" max="0.039893" rms="0.003694"/>
+					<simpleblockfile filename="e0808beb.au" len="31364" min="-0.121349" max="0.111148" rms="0.010293"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
@@ -26,67 +26,67 @@
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="29434">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808a3d.au" len="29434" min="-0.036702" max="0.039805" rms="0.004072"/>
+					<simpleblockfile filename="e08087f1.au" len="29434" min="-0.102255" max="0.110901" rms="0.011344"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="28952">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808c43.au" len="28952" min="-0.037901" max="0.030916" rms="0.003616"/>
+					<simpleblockfile filename="e0808f6b.au" len="28952" min="-0.105598" max="0.086136" rms="0.010073"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="31846">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808749.au" len="31846" min="-0.037662" max="0.040515" rms="0.004701"/>
+					<simpleblockfile filename="e08081ba.au" len="31846" min="-0.104932" max="0.112879" rms="0.013098"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="33777">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808010.au" len="33777" min="-0.037978" max="0.040323" rms="0.00404"/>
+					<simpleblockfile filename="e080867d.au" len="33777" min="-0.105812" max="0.112345" rms="0.011257"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="33294">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808cea.au" len="33294" min="-0.050431" max="0.04373" rms="0.004445"/>
+					<simpleblockfile filename="e0808b6e.au" len="33294" min="-0.140507" max="0.121838" rms="0.012384"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="28469">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808a67.au" len="28469" min="-0.053149" max="0.045696" rms="0.004696"/>
+					<simpleblockfile filename="e0808803.au" len="28469" min="-0.148081" max="0.127316" rms="0.013084"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Work boot footsteps walking on sand_BLASTWAVEFX_10174" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="31846">
 				<waveblock start="0">
-					<simpleblockfile filename="e0808a9e.au" len="31846" min="-0.033977" max="0.043513" rms="0.00498"/>
+					<simpleblockfile filename="e08088cd.au" len="31846" min="-0.094663" max="0.121232" rms="0.013875"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>

@@ -62,7 +62,6 @@ namespace Forlorn
 				emissiveMaterialRenderer = GetComponent<MeshRenderer>();
 				foreach (Material mat in emissiveMaterialRenderer.materials)
 				{
-					Color we = mat.GetColor(emissiveColorParam);
 					if (mat.GetColor(emissiveColorParam) != Color.black)
 					{
 						emissionMaterial = mat;

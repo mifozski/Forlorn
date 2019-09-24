@@ -69,5 +69,7 @@ namespace Forlorn
 
 			return result;
 		}
+
+		// public static Color
 	}
 }

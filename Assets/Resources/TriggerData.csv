@@ -9,3 +9,4 @@ LEAVE_APPARTMENT;I didn't lock it, how is that ...;ELEVATOR_CHASE==1&&LOCKED_DOO
 LEAVE_APPARTMENT;The door won't open;ELEVATOR_CHASE==1&&LOCKED_DOOR_CHECKED==2;;
 LEAVE_APPARTMENT;It's too late to go out at this hour...;TV_CHECKED==0;;
 LEAVE_APPARTMENT;I don't need to go out now;;;
+TURN_ON_DOOR_MONITOR;;;"call(""TURN_ON_DOOR_MONITOR"")";

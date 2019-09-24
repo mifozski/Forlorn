@@ -6,7 +6,6 @@ using Forlorn.Events;
 
 namespace Forlorn
 {
-	[RequireComponent(typeof(Collider))]
 	public class Interactable : MonoBehaviour
 	{
 		[SerializeField] string triggerId;

@@ -70,6 +70,26 @@ namespace Forlorn
 			return result;
 		}
 
-		// public static Color
+		public static Material FindEmissiveMaterial(Transform gameObject)
+		{
+			string emissiveColorParam = "_EmissiveColor";
+
+			// Try to get the emissive material
+			var renderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+			Debug.Log($"renderer count: {renderers.Length}");
+			foreach (MeshRenderer renderer in renderers)
+			{
+				Debug.Log($"Material count: {renderer.materials.Length}");
+				foreach (Material mat in renderer.materials)
+				{
+					Debug.Log($"Color: {mat.GetColor(emissiveColorParam)}");
+					if (mat.GetColor(emissiveColorParam) != Color.black)
+					{
+						return mat;
+					}
+				}
+			}
+			return null;
+		}
 	}
 }

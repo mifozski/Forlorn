@@ -1,27 +1,47 @@
 ﻿using UnityEngine;
 
-public class DoorMonitor : MonoBehaviour
+namespace Forlorn.Game
 {
-	[SerializeField] Material screenMaterial;
-
-	bool isOn = false;
-
-	string albedoColorMapParam = "_MainTex";
-	string emissiveColorParam = "_EmissiveColor";
-	string emissiveColorMapParam = "_EmissiveColorMap";
-
-	Texture viewerTexture;
-
-	void Start()
+	public class DoorMonitor : MonoBehaviour
 	{
-		viewerTexture = screenMaterial.GetTexture(albedoColorMapParam);
-	}
+		[SerializeField] AudioSource audioSource;
+		[SerializeField] Transform screen;
 
-	public void ToggleMonitor()
-	{
-		isOn = !isOn;
-		screenMaterial.SetColor(emissiveColorParam, isOn ? Color.white : Color.black);
-		screenMaterial.SetTexture(emissiveColorMapParam, isOn ? viewerTexture : null);
-		screenMaterial.SetTexture(albedoColorMapParam, isOn ? viewerTexture : null);
+		bool isOn = false;
+
+		Material screenMaterial;
+		string albedoColorMapParam = "_MainTex";
+		string colorParam = "_Color";
+		string emissiveColorParam = "_EmissiveColor";
+		string emissiveColorMapParam = "_EmissiveColorMap";
+
+		Texture viewerTexture;
+
+		protected InteractiveMixin interactive;
+
+		void Start()
+		{
+			screenMaterial = Utils.FindEmissiveMaterial(screen);
+			viewerTexture = screenMaterial.GetTexture(albedoColorMapParam);
+			interactive = GetComponent<InteractiveMixin>();
+		}
+
+		public void ToggleMonitor()
+		{
+			audioSource.Play();
+			isOn = !isOn;
+
+			UpdateState();
+		}
+
+		void UpdateState()
+		{
+			screenMaterial.SetColor("_BaseColor", isOn ? Color.white : Color.black);
+			screenMaterial.SetTexture("_BaseColorMap", isOn ? viewerTexture : null);
+			screenMaterial.SetTexture("_EmissiveColorMap", isOn ? viewerTexture : null);
+			screenMaterial.SetColor("_EmissiveColor", isOn ? Color.white : Color.black);
+
+			interactive.onHoverSubtitles = isOn ? "Turn off" : "Turn on";
+		}
 	}
 }

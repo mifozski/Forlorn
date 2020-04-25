@@ -19,7 +19,7 @@ namespace Forlorn.Playables
 				return;
 			}
 
-			ScreenController.Instance.setScreenFade(playable.GetInputWeight(0));
+			ScreenController.Instance.SetScreenFade(playable.GetInputWeight(0));
 		}
 
 		public override void OnBehaviourPause(Playable playable, FrameData info)

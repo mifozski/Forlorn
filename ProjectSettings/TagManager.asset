@@ -8,6 +8,7 @@ TagManager:
   - Interactive
   - Sand
   - Parquet
+  - StartingPoint
   layers:
   - Default
   - TransparentFX

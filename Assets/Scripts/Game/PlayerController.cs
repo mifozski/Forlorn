@@ -69,7 +69,9 @@ namespace Forlorn
 			{
 				// GameController.ShowInteractableObjectIndicator(false);
 				if (prevHoveredObject)
+				{
 					prevHoveredObject.SendMessage("OnHover", false);
+				}
 				prevHoveredObject = null;
 			}
 

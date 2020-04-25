@@ -10,13 +10,8 @@ namespace Forlorn.Playables
 	{
 		public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
 		{
-			PlayableDirector playableDirector = go.GetComponent<PlayableDirector>();
-
 			ScriptPlayable<ScreenFaderBehaviour> playable =
 				ScriptPlayable<ScreenFaderBehaviour>.Create(graph, inputCount);
-
-			ScreenFaderBehaviour videoSchedulerPlayableBehaviour =
-				   playable.GetBehaviour();
 
 			return playable;
 		}

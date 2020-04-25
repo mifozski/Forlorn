@@ -18,8 +18,7 @@ namespace Forlorn
 		bool isFading = false;
 
 		void Start()
-		{
-		}
+		{ }
 
 		public void ShowHoverSubtitles(string text)
 		{
@@ -63,7 +62,7 @@ namespace Forlorn
 			}
 		}
 
-		public void setScreenFade(float value)
+		public void SetScreenFade(float value)
 		{
 			faderCanvasGroup.alpha = value;
 		}

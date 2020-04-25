@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Forlorn
 {
-	public class SceneController : MonoBehaviour
+	public class SceneController : SingletonMonoBehavior<SceneController>
 	{
 		public event Action BeforeSceneUnload;
 		public event Action AfterSceneLoad;
@@ -59,17 +59,24 @@ namespace Forlorn
 		{
 			yield return StartCoroutine(Fade(1f));
 
-			if (BeforeSceneUnload != null)
-				BeforeSceneUnload();
+			BeforeSceneUnload?.Invoke();
 
-			yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+			for (int i = 1; i < SceneManager.sceneCount; i++)
+			{
+				yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).buildIndex);
+			}
 
 			yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
 
-			if (AfterSceneLoad != null)
-				AfterSceneLoad();
+			AfterSceneLoad?.Invoke();
 
 			yield return StartCoroutine(Fade(0f));
+
+			var startingPoint = GameObject.FindGameObjectWithTag("StartingPoint");
+			if (startingPoint)
+			{
+				GameController.Instance.player.SetPositionAndRotation(startingPoint.transform.position, startingPoint.transform.rotation);
+			}
 		}
 
 		private IEnumerator LoadSceneAndSetActive(string sceneName)

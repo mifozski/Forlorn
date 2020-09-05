@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 using Serialization;
 using Forlorn.Core.ConditionSystem;
+using UnityEngine.SceneManagement;
 
 namespace Forlorn
 {
@@ -18,6 +19,8 @@ namespace Forlorn
 
 	public class GameController : SingletonMonoBehavior<GameController>
 	{
+		[SerializeField] bool _skipDeserializing;
+
 		[SerializeField] PersistenceController persistenceController;
 		[SerializeField] ConditionalReactionSystem conditionalReactionSystem;
 		[SerializeField] SceneController sceneController;
@@ -36,28 +39,44 @@ namespace Forlorn
 
 		void Awake()
 		{
-			bool haveDataSave = persistenceController.Deserialize();
-			if (haveDataSave)
+			if (!_skipDeserializing)
 			{
-				var qwe = persistenceController.GetDeserializedData();
-				GameState deserializedState = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
+				bool haveDataSave = persistenceController.Deserialize();
+				if (haveDataSave)
+				{
+					var qwe = persistenceController.GetDeserializedData();
+					GameState deserializedState = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
 
-				GameState.current = new GameState();
-				GameState.current.ReconcileStates(deserializedState);
-				conditionalReactionSystem.SetVariables(GameState.current.variables);
+					GameState.current = new GameState();
+					GameState.current.ReconcileStates(deserializedState);
+					conditionalReactionSystem.SetVariables(GameState.current.variables);
 
+					PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
+				}
+				else
+				{
+					Debug.Log("No saved data found.");
+					GameState.current = new GameState();
+				}
 				PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
 			}
 			else
 			{
-				Debug.Log("No saved data found.");
 				GameState.current = new GameState();
+				SceneManager.sceneLoaded += OnSceneLoaded;
 			}
-			PersistenceController.AddSerializedObject(gameStateKey, GameState.current);
 		}
 
-		void Start()
+		void Start() { }
+
+		private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
+			var startingPoint = GameObject.FindGameObjectWithTag("StartingPoint");
+			if (startingPoint != null)
+			{
+				player.transform.position = startingPoint.transform.position;
+				player.transform.rotation = startingPoint.transform.rotation;
+			}
 		}
 
 		public static void ShowInteractableObjectIndicator(bool draw)
@@ -77,11 +96,16 @@ namespace Forlorn
 		{
 			switch (scene)
 			{
-				case Scenes.Room: return "Room";
-				case Scenes.Entrance: return "Entrance";
-				case Scenes.Restroom: return "Restroom";
-				case Scenes.Hallway: return "Hallway";
-				default: return "";
+				case Scenes.Room:
+					return "Room";
+				case Scenes.Entrance:
+					return "Entrance";
+				case Scenes.Restroom:
+					return "Restroom";
+				case Scenes.Hallway:
+					return "Hallway";
+				default:
+					return "";
 			}
 		}
 

@@ -26,7 +26,7 @@ namespace Serialization
 		static private PersistentData m_PersistentData = new PersistentData
 		{
 			genericObjects = new Dictionary<string, object>(),
-			precreatedGameObjects = new Dictionary<string, GameObjectPersistenceToken>(),
+				precreatedGameObjects = new Dictionary<string, GameObjectPersistenceToken>(),
 		};
 
 		static private PersistenceController _instance;
@@ -79,8 +79,7 @@ namespace Serialization
 		static public PersistentObject GetPrecreatedPersistentObject(PersistentUid uid)
 		{
 			Debug.Break();
-			GameObjectPersistenceToken token;
-			m_PersistentData.precreatedGameObjects.TryGetValue(uid, out token);
+			m_PersistentData.precreatedGameObjects.TryGetValue(uid, out GameObjectPersistenceToken token);
 			return null;
 		}
 
@@ -198,7 +197,7 @@ namespace Serialization
 
 				var serializer = new Serializer();
 
-				m_PersistentData = serializer.Deserialize(file) as PersistentData;
+				m_PersistentData = serializer.Deserialize(file)as PersistentData;
 
 				Debug.Log("Deserialized");
 

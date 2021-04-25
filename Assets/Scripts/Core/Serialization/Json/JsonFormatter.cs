@@ -32,10 +32,10 @@ public class JsonFormatter : IFormatter
 
 	public void Serialize(Stream serializationStream, object graph)
 	{
-		if (serializationStream == null) throw new System.ArgumentNullException("serializationStream");
-		if (graph == null) throw new System.ArgumentNullException("graph");
+		if (serializationStream == null)throw new System.ArgumentNullException("serializationStream");
+		if (graph == null)throw new System.ArgumentNullException("graph");
 
-		if (_writer == null) _writer = new JsonWriter();
+		if (_writer == null)_writer = new JsonWriter();
 
 		var writer = new StreamWriter(serializationStream);
 
@@ -216,9 +216,9 @@ public class JsonFormatter : IFormatter
 
 	public object Deserialize(Stream serializationStream)
 	{
-		if (serializationStream == null) throw new System.ArgumentNullException("serializationStream");
+		if (serializationStream == null)throw new System.ArgumentNullException("serializationStream");
 
-		if (_reader == null) _reader = new JsonReader();
+		if (_reader == null)_reader = new JsonReader();
 
 		var reader = new StreamReader(serializationStream);
 
@@ -226,8 +226,8 @@ public class JsonFormatter : IFormatter
 		{
 			_reader.Init(reader);
 
-			if (!_reader.Read()) return null;
-			if (_reader.NodeType != JsonNodeType.Object) throw new SerializationException("Failed to deserialize due to malformed json: json must start with a json object.");
+			if (!_reader.Read())return null;
+			if (_reader.NodeType != JsonNodeType.Object)throw new SerializationException("Failed to deserialize due to malformed json: json must start with a json object.");
 
 			return this.ReadObject();
 		}
@@ -239,14 +239,14 @@ public class JsonFormatter : IFormatter
 
 	private object ReadObject()
 	{
-		if (_reader.NodeType != JsonNodeType.Object) throw new SerializationException("Failed to deserialize due to malformed json.");
+		if (_reader.NodeType != JsonNodeType.Object)throw new SerializationException("Failed to deserialize due to malformed json.");
 
 		_reader.Read();
-		if (_reader.NodeType != JsonNodeType.String || _reader.Name != ID_TYPE) throw new SerializationException("Failed to deserialize due to malformed json: objects must contain a @type property.");
+		if (_reader.NodeType != JsonNodeType.String || _reader.Name != ID_TYPE)throw new SerializationException("Failed to deserialize due to malformed json: objects must contain a @type property.");
 
 		var tp = Type.GetType(_reader.Value as string);
-		if (tp == null) tp = TypeUtil.FindType(_reader.Value as string, true);
-		if (tp == null) throw new SerializationException("Failed to deserialize due to malformed json: objects must contain a @type property.");
+		if (tp == null)tp = TypeUtil.FindType(_reader.Value as string, true);
+		if (tp == null)throw new SerializationException("Failed to deserialize due to malformed json: objects must contain a @type property.");
 
 		object result;
 		ISerializationSurrogate surrogate;
@@ -296,7 +296,7 @@ public class JsonFormatter : IFormatter
 		{
 			var si = this.ReadAsSerializationInfo(tp);
 			var constructor = GetSerializationConstructor(tp);
-			if (constructor == null) throw new SerializationException("Failed to deserialize due to ISerializable type '" + tp.FullName + "' not implementing the appropriate constructor.");
+			if (constructor == null)throw new SerializationException("Failed to deserialize due to ISerializable type '" + tp.FullName + "' not implementing the appropriate constructor.");
 			try
 			{
 				result = constructor.Invoke(new object[] { si, this.Context });
@@ -345,7 +345,7 @@ public class JsonFormatter : IFormatter
 							else
 							{
 								_reader.Read();
-								if (_reader.NodeType != JsonNodeType.String) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+								if (_reader.NodeType != JsonNodeType.String)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 								System.Type arrayType = null;
 								try
@@ -364,22 +364,22 @@ public class JsonFormatter : IFormatter
 									{
 										stp = stp.Substring(0, stp.Length - 2);
 										arrayType = Type.GetType(stp);
-										if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-										if (arrayType != null) arrayType = arrayType.MakeArrayType();
+										if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+										if (arrayType != null)arrayType = arrayType.MakeArrayType();
 									}
 									else if (stp.EndsWith("<>"))
 									{
 										stp = stp.Substring(0, stp.Length - 2);
 										arrayType = Type.GetType(stp);
-										if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-										if (arrayType != null) arrayType = typeof(List<>).MakeGenericType(arrayType);
+										if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+										if (arrayType != null)arrayType = typeof(List<>).MakeGenericType(arrayType);
 									}
 								}
 								catch (System.Exception)
 								{
 									throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 								}
-								if (arrayType == null) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+								if (arrayType == null)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 								var innerType = arrayType.IsArray ? arrayType.GetElementType() : arrayType.GetGenericArguments()[0];
 								data[i] = this.ReadArray(nm, innerType, !arrayType.IsArray);
@@ -407,8 +407,8 @@ public class JsonFormatter : IFormatter
 				}
 			}
 
-		Result:
-			result = FormatterServices.GetUninitializedObject(tp);
+			Result:
+				result = FormatterServices.GetUninitializedObject(tp);
 			FormatterServices.PopulateObjectMembers(result, members, data);
 		}
 
@@ -441,7 +441,7 @@ public class JsonFormatter : IFormatter
 						var nm = _reader.Name;
 
 						_reader.Read();
-						if (_reader.NodeType != JsonNodeType.String) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+						if (_reader.NodeType != JsonNodeType.String)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 						System.Type arrayType = null;
 						try
@@ -460,22 +460,22 @@ public class JsonFormatter : IFormatter
 							{
 								stp = stp.Substring(0, stp.Length - 2);
 								arrayType = Type.GetType(stp);
-								if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-								if (arrayType != null) arrayType = arrayType.MakeArrayType();
+								if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+								if (arrayType != null)arrayType = arrayType.MakeArrayType();
 							}
 							else if (stp.EndsWith("<>"))
 							{
 								stp = stp.Substring(0, stp.Length - 2);
 								arrayType = Type.GetType(stp);
-								if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-								if (arrayType != null) arrayType = typeof(List<>).MakeGenericType(arrayType);
+								if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+								if (arrayType != null)arrayType = typeof(List<>).MakeGenericType(arrayType);
 							}
 						}
 						catch (System.Exception)
 						{
 							throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 						}
-						if (arrayType == null) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+						if (arrayType == null)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 						var innerType = arrayType.IsArray ? arrayType.GetElementType() : arrayType.GetGenericArguments()[0];
 						si.AddValue(nm, this.ReadArray(nm, innerType, !arrayType.IsArray));
@@ -494,8 +494,8 @@ public class JsonFormatter : IFormatter
 			}
 		}
 
-	Result:
-		return si;
+		Result:
+			return si;
 	}
 
 	private void ReadPastObject()
@@ -540,8 +540,8 @@ public class JsonFormatter : IFormatter
 	{
 		var ltp = typeof(List<>);
 		ltp = ltp.MakeGenericType(innerType);
-		var lst = Activator.CreateInstance(ltp) as System.Collections.IList;
-		if (lst == null) throw new SerializationException("Failed to deserialize due to malformed json.");
+		var lst = Activator.CreateInstance(ltp)as System.Collections.IList;
+		if (lst == null)throw new SerializationException("Failed to deserialize due to malformed json.");
 
 		while (_reader.Read())
 		{
@@ -558,7 +558,7 @@ public class JsonFormatter : IFormatter
 				case JsonNodeType.Array:
 					{
 						_reader.Read();
-						if (_reader.NodeType != JsonNodeType.String) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+						if (_reader.NodeType != JsonNodeType.String)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 						System.Type arrayType = null;
 						try
@@ -577,22 +577,22 @@ public class JsonFormatter : IFormatter
 							{
 								stp = stp.Substring(0, stp.Length - 2);
 								arrayType = Type.GetType(stp);
-								if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-								if (arrayType != null) arrayType = arrayType.MakeArrayType();
+								if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+								if (arrayType != null)arrayType = arrayType.MakeArrayType();
 							}
 							else if (stp.EndsWith("<>"))
 							{
 								stp = stp.Substring(0, stp.Length - 2);
 								arrayType = Type.GetType(stp);
-								if (arrayType == null) arrayType = TypeUtil.FindType(stp, true);
-								if (arrayType != null) arrayType = typeof(List<>).MakeGenericType(arrayType);
+								if (arrayType == null)arrayType = TypeUtil.FindType(stp, true);
+								if (arrayType != null)arrayType = typeof(List<>).MakeGenericType(arrayType);
 							}
 						}
 						catch (System.Exception)
 						{
 							throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 						}
-						if (arrayType == null) throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
+						if (arrayType == null)throw new SerializationException("Failed to deserialize due to malformed json: array must begin with a @type string. (" + nm + ")");
 
 						var nextInnerType = arrayType.IsArray ? arrayType.GetElementType() : arrayType.GetGenericArguments()[0];
 						lst.Add(this.ReadArray("", nextInnerType, !arrayType.IsArray));
@@ -612,29 +612,29 @@ public class JsonFormatter : IFormatter
 			}
 		}
 
-	Result:
-		if (keepAsList)
-			return lst;
-		else
-		{
-			var arr = Array.CreateInstance(innerType, lst.Count);
-			lst.CopyTo(arr, 0);
-			return arr;
-		}
+		Result:
+			if (keepAsList)
+				return lst;
+			else
+			{
+				var arr = Array.CreateInstance(innerType, lst.Count);
+				lst.CopyTo(arr, 0);
+				return arr;
+			}
 	}
 
 	private static int GetIndexOfMemberName(System.Reflection.MemberInfo[] members, string name)
 	{
 		for (int i = 0; i < members.Length; i++)
 		{
-			if (members[i] != null && members[i].Name == name) return i;
+			if (members[i] != null && members[i].Name == name)return i;
 		}
 		return -1;
 	}
 
 	private static object ConvertJsonValueToType(object value, System.Type tp)
 	{
-		if (value == null) return null;
+		if (value == null)return null;
 
 		switch (Type.GetTypeCode(tp))
 		{
@@ -686,7 +686,7 @@ public class JsonFormatter : IFormatter
 	private static System.Type[] _serConstParamTypes;
 	private static ConstructorInfo GetSerializationConstructor(System.Type tp)
 	{
-		if (_serConstParamTypes == null) _serConstParamTypes = new System.Type[] { typeof(SerializationInfo), typeof(StreamingContext) };
+		if (_serConstParamTypes == null)_serConstParamTypes = new System.Type[] { typeof(SerializationInfo), typeof(StreamingContext) };
 		return tp.GetConstructor(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, _serConstParamTypes, null);
 	}
 

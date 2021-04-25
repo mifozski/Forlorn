@@ -50,5 +50,9 @@
 		"NewLineForMembersInObjectInit": true,
 		"NewLineForMembersInAnonymousTypes": true,
 		"NewLineForClausesInQuery": true
-	}
+	},
+	"RoslynExtensionsOptions": {
+		"EnableAnalyzersSupport": true,
+		"LocationPaths": ["./NuGet"]
+	  }
 }

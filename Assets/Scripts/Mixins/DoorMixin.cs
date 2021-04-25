@@ -1,6 +1,8 @@
 #pragma warning disable 649
 
 using UnityEngine;
+using UnityEngine.Experimental.Animations;
+using UnityEngine.Playables;
 
 using Serialization;
 
@@ -8,7 +10,7 @@ namespace Forlorn
 {
 	public class DoorMixin : MonoBehaviour, OnDeserializedCallback
 	{
-		Animator doorAnimator;
+		Animator _doorAnimator;
 		AudioSource soundSource;
 		InteractiveMixin interactive;
 
@@ -16,14 +18,19 @@ namespace Forlorn
 		[SerializeField] string closedUpSubtitles;
 		[SerializeField] AudioClip openingSound;
 		[SerializeField] AudioClip closingSound;
+		[SerializeField] PlayableAsset _openPlayable;
+		[SerializeField] PlayableAsset _closePlayable;
+		[SerializeField] PlayableDirector _director;
 
-		private string isOpenParamKey = "IsOpen";
+		private readonly string isOpenParamKey = "IsOpen";
 
 		void Awake()
 		{
-			doorAnimator = GetComponentInParent<Animator>();
-			if (doorAnimator == null)
+			_doorAnimator = GetComponentInParent<Animator>();
+			if (_doorAnimator == null)
+			{
 				Debug.LogError("No animator on a door");
+			}
 			interactive = GetComponentInChildren<InteractiveMixin>();
 			soundSource = GetComponentInChildren<AudioSource>();
 		}
@@ -35,39 +42,40 @@ namespace Forlorn
 
 		public void OnInteracted()
 		{
-			doorAnimator.SetBool(isOpenParamKey, !IsOpen());
+			if (_closed)
+			{
+				_director.playableAsset = _openPlayable;
+			}
+			else
+			{
+				_director.playableAsset = _closePlayable;
+			}
+
+			_closed = !_closed;
+
+			_director.RebuildGraph();
+			_director.time = 0.0f;
+			_director.Play();
+
+			// doorAnimator.SetBool(isOpenParamKey, !IsOpen());
 			UpdateSubtitles();
-		}
-
-		public void PlayOpeningSound()
-		{
-			if (IsOpen())
-			{
-				soundSource.PlayOneShot(openingSound);
-			}
-		}
-
-		public void PlayClosingSound()
-		{
-			if (!IsOpen())
-			{
-				soundSource.PlayOneShot(closingSound);
-			}
 		}
 
 		private void UpdateSubtitles()
 		{
-			interactive.onHoverSubtitles = doorAnimator.GetBool(isOpenParamKey) ? openedUpSubtitles : closedUpSubtitles;
+			interactive.onHoverSubtitles = _doorAnimator.GetBool(isOpenParamKey) ? openedUpSubtitles : closedUpSubtitles;
 		}
 
 		private bool IsOpen()
 		{
-			return doorAnimator.GetBool(isOpenParamKey);
+			return _doorAnimator.GetBool(isOpenParamKey);
 		}
 
 		public void OnDeserialized()
 		{
 			UpdateSubtitles();
 		}
+
+		bool _closed = true;
 	}
 }

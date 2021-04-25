@@ -44,7 +44,6 @@ namespace Forlorn
 				bool haveDataSave = persistenceController.Deserialize();
 				if (haveDataSave)
 				{
-					var qwe = persistenceController.GetDeserializedData();
 					GameState deserializedState = persistenceController.GetDeserializedData().genericObjects[gameStateKey] as GameState;
 
 					GameState.current = new GameState();

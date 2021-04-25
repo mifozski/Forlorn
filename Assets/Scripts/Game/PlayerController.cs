@@ -13,6 +13,8 @@ namespace Forlorn
 {
 	public class PlayerController : MonoBehaviour, OnSerializeCallback
 	{
+		public static Transform Player;
+
 		new Transform camera;
 
 		[SerializeField] float ineractiveDistance = 0.3f;
@@ -29,6 +31,8 @@ namespace Forlorn
 
 		void Awake()
 		{
+			Player = transform;
+
 			firstPersonController = gameObject.GetComponent<FirstPersonController>();
 		}
 
@@ -41,17 +45,19 @@ namespace Forlorn
 
 		void Update()
 		{
-			firstPersonController.enabled = !IsPaused();
+			if (firstPersonController.enabled != !IsPaused())
+			{
+				firstPersonController.enabled = !IsPaused();
+			}
 
 			if (IsPaused())
 			{
 				return;
 			}
 
-			RaycastHit hit;
-			if (Physics.Raycast(camera.position, camera.forward, out hit, ineractiveDistance, interactableMask))
+			if (Physics.Raycast(camera.position, camera.forward, out RaycastHit hit, ineractiveDistance, interactableMask))
 			{
-				InteractiveMixin interactive = hit.transform.gameObject.GetComponent<InteractiveMixin>();
+				InteractiveMixin interactive = hit.transform.gameObject.GetComponentInParent<InteractiveMixin>();
 				if (prevHoveredObject && prevHoveredObject != interactive)
 				{
 					prevHoveredObject.SendMessage("OnHover", false);

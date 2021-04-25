@@ -14,10 +14,7 @@ namespace Forlorn.Core.ConditionSystem
 		public SetVar HandleSetVariable;
 		public CallReaction HandleCallReaction
 		{
-			set
-			{
-				interpreter.SetFunction("call", value);
-			}
+			set => interpreter.SetFunction("call", value);
 		}
 
 		private Interpreter interpreter = new Interpreter();

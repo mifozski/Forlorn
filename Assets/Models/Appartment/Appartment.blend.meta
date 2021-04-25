@@ -560,7 +560,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["Windows","Walls_Outer","Baseboard","Ceiling","Walls","Floor"],"padding":[31,12,55,10,6,7],"unwrapper":[0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

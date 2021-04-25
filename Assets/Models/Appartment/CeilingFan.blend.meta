@@ -1,70 +1,188 @@
 fileFormatVersion: 2
 guid: 03ec30b00a5823e46ada4c95a9caf9b0
 ModelImporter:
-  serializedVersion: 24
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: CeilingFan_001
-    100004: CeilingFanBlade
-    100006: Cylinder
-    100008: HallWalls
-    100010: HallWindow
-    100012: WindowFrame_001
-    100014: CeilingFanHandler
-    100016: CeilingFan_Blade
-    100018: CeilingFan_Dome
-    100020: CeilingFan_Handler
-    400000: //RootNode
-    400002: CeilingFan_001
-    400004: CeilingFanBlade
-    400006: Cylinder
-    400008: HallWalls
-    400010: HallWindow
-    400012: WindowFrame_001
-    400014: CeilingFanHandler
-    400016: CeilingFan_Blade
-    400018: CeilingFan_Dome
-    400020: CeilingFan_Handler
-    2100000: Room_CeilingFanHull
-    2100002: Room_CeilingFanLight
-    2100004: Window
-    2100006: unnamed
-    2100008: RoomWall
-    2300000: CeilingFan_001
-    2300002: CeilingFanBlade
-    2300004: Cylinder
-    2300006: HallWalls
-    2300008: HallWindow
-    2300010: WindowFrame_001
-    2300012: CeilingFanHandler
-    2300014: CeilingFan_Blade
-    2300016: CeilingFan_Dome
-    2300018: CeilingFan_Handler
-    3300000: CeilingFan_001
-    3300002: CeilingFanBlade
-    3300004: Cylinder
-    3300006: HallWalls
-    3300008: HallWindow
-    3300010: WindowFrame_001
-    3300012: CeilingFanHandler
-    3300014: CeilingFan_Blade
-    3300016: CeilingFan_Dome
-    3300018: CeilingFan_Handler
-    4300000: Cylinder
-    4300002: CeilingFanBlade
-    4300004: CeilingFan_001
-    4300006: HallWindow
-    4300008: WindowFrame_001
-    4300010: HallWalls
-    4300012: CeilingFanHandler
-    4300014: CeilingFan_Handler
-    4300016: CeilingFan_Blade
-    4300018: CeilingFan_Dome
-    7400000: Default Take
-    9500000: //RootNode
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: CeilingFan_001
+  - first:
+      1: 100004
+    second: CeilingFanBlade
+  - first:
+      1: 100006
+    second: Cylinder
+  - first:
+      1: 100008
+    second: HallWalls
+  - first:
+      1: 100010
+    second: HallWindow
+  - first:
+      1: 100012
+    second: WindowFrame_001
+  - first:
+      1: 100014
+    second: CeilingFanHandler
+  - first:
+      1: 100016
+    second: CeilingFan_Blade
+  - first:
+      1: 100018
+    second: CeilingFan_Dome
+  - first:
+      1: 100020
+    second: CeilingFan_Handler
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: CeilingFan_001
+  - first:
+      4: 400004
+    second: CeilingFanBlade
+  - first:
+      4: 400006
+    second: Cylinder
+  - first:
+      4: 400008
+    second: HallWalls
+  - first:
+      4: 400010
+    second: HallWindow
+  - first:
+      4: 400012
+    second: WindowFrame_001
+  - first:
+      4: 400014
+    second: CeilingFanHandler
+  - first:
+      4: 400016
+    second: CeilingFan_Blade
+  - first:
+      4: 400018
+    second: CeilingFan_Dome
+  - first:
+      4: 400020
+    second: CeilingFan_Handler
+  - first:
+      21: 2100000
+    second: Room_CeilingFanHull
+  - first:
+      21: 2100002
+    second: Room_CeilingFanLight
+  - first:
+      21: 2100004
+    second: Window
+  - first:
+      21: 2100006
+    second: unnamed
+  - first:
+      21: 2100008
+    second: RoomWall
+  - first:
+      23: 2300000
+    second: CeilingFan_001
+  - first:
+      23: 2300002
+    second: CeilingFanBlade
+  - first:
+      23: 2300004
+    second: Cylinder
+  - first:
+      23: 2300006
+    second: HallWalls
+  - first:
+      23: 2300008
+    second: HallWindow
+  - first:
+      23: 2300010
+    second: WindowFrame_001
+  - first:
+      23: 2300012
+    second: CeilingFanHandler
+  - first:
+      23: 2300014
+    second: CeilingFan_Blade
+  - first:
+      23: 2300016
+    second: CeilingFan_Dome
+  - first:
+      23: 2300018
+    second: CeilingFan_Handler
+  - first:
+      33: 3300000
+    second: CeilingFan_001
+  - first:
+      33: 3300002
+    second: CeilingFanBlade
+  - first:
+      33: 3300004
+    second: Cylinder
+  - first:
+      33: 3300006
+    second: HallWalls
+  - first:
+      33: 3300008
+    second: HallWindow
+  - first:
+      33: 3300010
+    second: WindowFrame_001
+  - first:
+      33: 3300012
+    second: CeilingFanHandler
+  - first:
+      33: 3300014
+    second: CeilingFan_Blade
+  - first:
+      33: 3300016
+    second: CeilingFan_Dome
+  - first:
+      33: 3300018
+    second: CeilingFan_Handler
+  - first:
+      43: 4300000
+    second: Cylinder
+  - first:
+      43: 4300002
+    second: CeilingFanBlade
+  - first:
+      43: 4300004
+    second: CeilingFan_001
+  - first:
+      43: 4300006
+    second: HallWindow
+  - first:
+      43: 4300008
+    second: WindowFrame_001
+  - first:
+      43: 4300010
+    second: HallWalls
+  - first:
+      43: 4300012
+    second: CeilingFanHandler
+  - first:
+      43: 4300014
+    second: CeilingFan_Handler
+  - first:
+      43: 4300016
+    second: CeilingFan_Blade
+  - first:
+      43: 4300018
+    second: CeilingFan_Dome
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -97,25 +215,32 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -124,10 +249,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -137,13 +262,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

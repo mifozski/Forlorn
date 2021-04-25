@@ -38,8 +38,7 @@ namespace Forlorn
 		}
 
 		void Start()
-		{
-		}
+		{ }
 
 		public void SetStage(GameStage stage)
 		{
@@ -47,7 +46,6 @@ namespace Forlorn
 			stateMachine.ChangeState(stage);
 
 			// currentStateDebugText.text = $"Current state: {state.ToString()}";
-
 
 			// if (stage != Stage.Init)
 			// {
@@ -67,21 +65,6 @@ namespace Forlorn
 			// Debug.Log("GameStageController:Init_Enter()");
 
 			// stateMachine.ChangeState(initialState);
-		}
-
-		public void OnInteracted(InteractiveObjectType objectType)
-		{
-			Debug.Log($"Interacted with {objectType.ToString()}");
-
-			switch (objectType)
-			{
-				case InteractiveObjectType.DoorMonitor: OnUse_DoorMonitor(); break;
-				case InteractiveObjectType.RoomDoor: OnUse_EntranceDoor(); break;
-				case InteractiveObjectType.NoteUnderTheDoor: OnUse_PaperPiece(); break;
-				case InteractiveObjectType.Notebook: OnUse_Notebook(); break;
-
-				default: break;
-			}
 		}
 
 		void AfterFirstWakeUp_Enter()

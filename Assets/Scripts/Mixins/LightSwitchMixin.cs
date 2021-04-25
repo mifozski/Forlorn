@@ -61,7 +61,7 @@ namespace Forlorn
 
 		public void OnInteracted()
 		{
-			toggleAnimator.SetBool(turnedOnParamKey, !isOn);
+			toggleAnimator.SetBool(turnedOnParamKey, !IsOn);
 
 			clicking.Play();
 
@@ -71,10 +71,12 @@ namespace Forlorn
 		void UpdateState()
 		{
 			foreach (SwitchableLightMixin light in lights)
-				light.lightIsOn = isOn;
+			{
+				light.lightIsOn = IsOn;
+			}
 
-			interactive.onHoverSubtitles = isOn ? switchedOnSubtitles : switchedOffSubtitles;
-			indicatorMat.SetColor(emissiveColorParam, !isOn ? indicatorColor : Color.black);
+			interactive.onHoverSubtitles = IsOn ? switchedOnSubtitles : switchedOffSubtitles;
+			indicatorMat.SetColor(emissiveColorParam, !IsOn ? indicatorColor : Color.black);
 		}
 
 		public void OnDeserialized()
@@ -84,7 +86,7 @@ namespace Forlorn
 
 		public void OnSerialize(ref SerializationInfo info)
 		{
-			info.AddValue(turnedOnParamKey, isOn);
+			info.AddValue(turnedOnParamKey, IsOn);
 		}
 
 		public void OnDeserialize(SerializationInfo info)
@@ -93,12 +95,6 @@ namespace Forlorn
 			UpdateState();
 		}
 
-		bool isOn
-		{
-			get
-			{
-				return toggleAnimator.GetBool(turnedOnParamKey);
-			}
-		}
+		bool IsOn => toggleAnimator.GetBool(turnedOnParamKey);
 	}
 }

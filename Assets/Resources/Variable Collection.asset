@@ -19,3 +19,5 @@ MonoBehaviour:
     value: 1
   - name: LOCKED_DOOR_CHECKED
     value: 0
+  - name: GUITAR_PICKED_UP
+    value: 1

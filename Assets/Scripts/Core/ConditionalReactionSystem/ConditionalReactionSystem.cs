@@ -42,8 +42,7 @@ namespace Forlorn.Core.ConditionSystem
 
 			StringEventManager.Instance.StartListening("invokeTrigger", OnTrigger);
 
-			List<TriggerData> triggerData;
-			TriggerDataReader.Read(out triggerData);
+			TriggerDataReader.Read(out List<TriggerData> triggerData);
 
 			foreach (TriggerData data in triggerData)
 			{
@@ -57,9 +56,9 @@ namespace Forlorn.Core.ConditionSystem
 				reactionMapByReactionId[data.id].Add(new Trigger
 				{
 					condition = data.condition,
-					text = data.text,
-					reactions = reactions,
-					cues = data.cues,
+						text = data.text,
+						reactions = reactions,
+						cues = data.cues,
 				});
 			}
 		}

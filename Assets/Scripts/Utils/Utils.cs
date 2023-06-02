@@ -72,7 +72,7 @@ namespace Forlorn
 
 		public static Material FindEmissiveMaterial(Transform gameObject)
 		{
-			string emissiveColorParam = "_EmissiveColor";
+			string emissiveColorParam = "_EmissionColor";
 
 			// Try to get the emissive material
 			var renderers = gameObject.GetComponentsInChildren<MeshRenderer>();

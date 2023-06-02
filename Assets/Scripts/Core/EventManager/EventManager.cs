@@ -1,5 +1,6 @@
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Forlorn.Events
 {
@@ -31,7 +32,7 @@ namespace Forlorn.Events
 
 		public void StartListening(string eventName, UnityAction<T> listener)
 		{
-			UnityEvent<T> thisEvent = null;
+			UnityEvent<T> thisEvent;
 			if (eventDictionary.TryGetValue(eventName, out thisEvent))
 			{
 				thisEvent.AddListener(listener);
@@ -47,7 +48,7 @@ namespace Forlorn.Events
 
 		public void StopListening(string eventName, UnityAction<T> listener)
 		{
-			UnityEvent<T> thisEvent = null;
+			UnityEvent<T> thisEvent;
 			if (eventDictionary.TryGetValue(eventName, out thisEvent))
 			{
 				thisEvent.RemoveListener(listener);
@@ -56,7 +57,7 @@ namespace Forlorn.Events
 
 		public void TriggerEvent(string eventName, T param)
 		{
-			UnityEvent<T> thisEvent = null;
+			UnityEvent<T> thisEvent;
 			if (eventDictionary.TryGetValue(eventName, out thisEvent))
 			{
 				thisEvent.Invoke(param);

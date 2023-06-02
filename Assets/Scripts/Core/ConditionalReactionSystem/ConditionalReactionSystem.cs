@@ -56,17 +56,18 @@ namespace Forlorn.Core.ConditionSystem
 				reactionMapByReactionId[data.id].Add(new Trigger
 				{
 					condition = data.condition,
-						text = data.text,
-						reactions = reactions,
-						cues = data.cues,
+					text = data.text,
+					reactions = reactions,
+					cues = data.cues,
 				});
 			}
 		}
 
 		void OnTrigger(string triggerId)
 		{
-			List<Trigger> triggers;
-			reactionMapByReactionId.TryGetValue(triggerId, out triggers);
+			StringEventManager.Instance.TriggerEvent("invokeReaction", triggerId);
+
+			reactionMapByReactionId.TryGetValue(triggerId, out List<Trigger> triggers);
 			if (triggers != null)
 			{
 				Debug.Log($"Found {triggers.ToArray().Length} trigger(s) with ID {triggerId}");

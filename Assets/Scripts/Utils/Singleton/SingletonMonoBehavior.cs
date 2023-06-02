@@ -13,6 +13,12 @@ public class SingletonMonoBehavior<T> : MonoBehaviour where T : MonoBehaviour
 
 	private static object _lock = new object();
 
+	static protected void Initialize()
+	{
+		_instance = null;
+		applicationIsQuitting = false;
+	}
+
 	public static T Instance
 	{
 		get
@@ -74,6 +80,7 @@ public class SingletonMonoBehavior<T> : MonoBehaviour where T : MonoBehaviour
 	/// </summary>
 	public void OnDestroy()
 	{
+		_instance = null;
 		applicationIsQuitting = true;
 	}
 }

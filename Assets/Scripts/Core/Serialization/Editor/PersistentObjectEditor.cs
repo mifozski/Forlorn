@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
+
 
 namespace Serialization
 {
@@ -118,7 +118,7 @@ namespace Serialization
 			{
 				EditorGUILayout.PropertyField(prefabUidProp);
 
-				if (prevPrefab && PrefabStageUtility.GetCurrentPrefabStage() == null)
+				if (prevPrefab && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null)
 				{
 					EditorGUILayout.HelpBox(
 						"IsPrefab is set to true outside of Prefab stage. Make sure to remove this component from the scene or uncheck IsPrefab checkbox.",
@@ -152,10 +152,10 @@ namespace Serialization
 
 		PersistentObject GetPrefab()
 		{
-			bool isInPrefabMode = PrefabStageUtility.GetCurrentPrefabStage() != null;
+			bool isInPrefabMode = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
 			if (isInPrefabMode)
 			{
-				string prefabPath = PrefabStageUtility.GetPrefabStage(persistentObject.gameObject).prefabAssetPath;
+				string prefabPath = UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(persistentObject.gameObject).prefabAssetPath;
 				return AssetDatabase.LoadAssetAtPath(prefabPath, persistentObject.GetType()) as PersistentObject;
 			}
 			// We're probably trying to set up the prefab object directly in the scene
@@ -167,7 +167,7 @@ namespace Serialization
 
 		public void OnDestroy()
 		{
-			if (Application.isEditor && PrefabStageUtility.GetCurrentPrefabStage() != null)
+			if (Application.isEditor && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null)
 			{
 				if (persistentObject == null)
 				{

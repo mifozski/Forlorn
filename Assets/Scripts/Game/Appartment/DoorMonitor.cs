@@ -12,7 +12,7 @@ namespace Forlorn.Game
 		Material screenMaterial;
 		string albedoColorMapParam = "_MainTex";
 		string colorParam = "_Color";
-		string emissiveColorParam = "_EmissiveColor";
+		string emissiveColorParam = "_EmissionColor";
 		string emissiveColorMapParam = "_EmissiveColorMap";
 
 		Texture viewerTexture;

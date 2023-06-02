@@ -19,9 +19,10 @@ namespace Forlorn
 
 		void OnReactionInvoked(string reactionId)
 		{
-			// Debug.Log($"Checking {reactionId} against ")
+			Debug.Log($"Checking {reactionId} against {listenedReaction}");
 			if (reactionId == listenedReaction)
 			{
+				Debug.Log($"Handling {reactionId}");
 				action.Invoke();
 			}
 		}

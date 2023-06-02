@@ -37,6 +37,12 @@ namespace Forlorn
 
 		private string gameStateKey = "game_state";
 
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		static void StaticInitialize()
+		{
+			Initialize();
+		}
+
 		void Awake()
 		{
 			if (!_skipDeserializing)
@@ -73,21 +79,33 @@ namespace Forlorn
 			var startingPoint = GameObject.FindGameObjectWithTag("StartingPoint");
 			if (startingPoint != null)
 			{
-				player.transform.position = startingPoint.transform.position;
-				player.transform.rotation = startingPoint.transform.rotation;
+				player.transform.SetPositionAndRotation(startingPoint.transform.position, startingPoint.transform.rotation);
 			}
 		}
 
-		public static void ShowInteractableObjectIndicator(bool draw)
+		public static void ShowInteractableObjectIndicator(bool show)
 		{
-			if (draw != interactableObjectIndicatorIsShown)
+			if (show != interactableObjectIndicatorIsShown)
 			{
 				if (interactableObjectIndicatorCoroutine != null)
 					Instance.StopCoroutine(interactableObjectIndicatorCoroutine);
 
-				interactableObjectIndicatorCoroutine = Instance.StartCoroutine(Utils.AlphaFade(draw, 1f, Instance.interactableObjectIndicator.material));
+				interactableObjectIndicatorCoroutine = Instance.StartCoroutine(Utils.AlphaFade(show, 1f, Instance.interactableObjectIndicator.material));
 
-				interactableObjectIndicatorIsShown = draw;
+				interactableObjectIndicatorIsShown = show;
+			}
+		}
+
+		public static void ShowPressToActivateProgressBar(bool show, float progress)
+		{
+			if (show != interactableObjectIndicatorIsShown)
+			{
+				if (interactableObjectIndicatorCoroutine != null)
+					Instance.StopCoroutine(interactableObjectIndicatorCoroutine);
+
+				interactableObjectIndicatorCoroutine = Instance.StartCoroutine(Utils.AlphaFade(show, 1f, Instance.interactableObjectIndicator.material));
+
+				interactableObjectIndicatorIsShown = show;
 			}
 		}
 

@@ -15,7 +15,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		[SerializeField] private bool m_IsWalking;
 		[SerializeField] private float m_WalkSpeed;
 		[SerializeField] private float m_RunSpeed;
-		[SerializeField][Range(0f, 1f)] private float m_RunstepLenghten;
+		[SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
 		[SerializeField] private float m_JumpSpeed;
 		[SerializeField] private float m_StickToGroundForce;
 		[SerializeField] private float m_GravityMultiplier;
@@ -66,6 +66,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		// Update is called once per frame
 		private void Update()
 		{
+			if (Input.GetMouseButtonDown(0))
+			{
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			else if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				Cursor.visible = true;
+			}
+
 			RotateView();
 			// the jump state needs to read here to make sure it is not missed
 			if (!m_Jump)
@@ -174,7 +184,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				return;
 			}
-			Debug.LogError($"playadio");
+
 			// pick & play a random footstep sound from the array,
 			// excluding sound at index 0
 			int n = Random.Range(1, m_FootstepSounds.Length);

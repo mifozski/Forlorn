@@ -6,11 +6,11 @@ using Forlorn.Events;
 
 namespace Forlorn
 {
-	public class Interactable : MonoBehaviour
+	public class Interactable : MonoBehaviour, IInteractable
 	{
 		[SerializeField] string triggerId;
 
-		public void Interact()
+		public void OnInteracted()
 		{
 			StringEventManager.Instance.TriggerEvent("invokeTrigger", triggerId);
 		}

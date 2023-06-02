@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Forlorn
 {
@@ -19,7 +20,22 @@ namespace Forlorn
 
 		public void TransferPlayerTo(Transform target)
 		{
-			PlayerController.Player.transform.SetPositionAndRotation(target.position, target.rotation);
+			Debug.LogError("Transfering");
+			PlayerController.player.TransferTo(target);
+		}
+
+		public void SetSceneActive(string sceneName)
+		{
+			SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+		}
+
+		public void SetRSEnvironmentLightingIntensityMultiplier(float intensity)
+		{
+			RenderSettings.ambientIntensity = intensity;
+		}
+		public void SetRSFogEndDistance(float distance)
+		{
+			RenderSettings.fogEndDistance = distance;
 		}
 	}
 }

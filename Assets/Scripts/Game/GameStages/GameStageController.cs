@@ -25,6 +25,12 @@ namespace Forlorn
 
 		[SerializeField] GameStage initialState;
 
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		static void StaticInitialize()
+		{
+			Initialize();
+		}
+
 		void Awake()
 		{
 			Init();

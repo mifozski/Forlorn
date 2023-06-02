@@ -17,8 +17,11 @@ namespace Forlorn
 
 		bool isFading = false;
 
-		void Start()
-		{ }
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		static void StaticInitialize()
+		{
+			Initialize();
+		}
 
 		public void ShowHoverSubtitles(string text)
 		{

@@ -16,6 +16,12 @@ namespace Forlorn
 
 		private bool isFading;
 
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		static void StaticInitialize()
+		{
+			Initialize();
+		}
+
 		public void Awake()
 		{
 			UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;

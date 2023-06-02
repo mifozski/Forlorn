@@ -19,7 +19,7 @@ namespace Forlorn
 
 		Animator toggleAnimator;
 
-		string emissiveColorParam = "_EmissiveColor";
+		string emissiveColorParam = "_EmissionColor";
 		Material indicatorMat;
 		Color indicatorColor;
 
@@ -32,6 +32,9 @@ namespace Forlorn
 			clicking = GetComponent<AudioSource>();
 			toggleAnimator = GetComponent<Animator>();
 			interactive = GetComponentInChildren<InteractiveMixin>();
+
+			interactive.onInteractedThisFrame += OnInteractedThisFrame;
+
 			indicatorMat = GetComponentsInChildren<MeshRenderer>()[1].material;
 			indicatorColor = indicatorMat.GetColor(emissiveColorParam);
 		}
@@ -59,8 +62,9 @@ namespace Forlorn
 			UpdateState();
 		}
 
-		public void OnInteracted()
+		public void OnInteractedThisFrame()
 		{
+			Debug.LogError("interacted");
 			toggleAnimator.SetBool(turnedOnParamKey, !IsOn);
 
 			clicking.Play();

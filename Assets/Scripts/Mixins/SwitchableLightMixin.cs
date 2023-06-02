@@ -8,13 +8,11 @@ namespace Forlorn
 		private new Light light;
 		private AudioSource humming;
 
-		Animator doorAnimator;
-
 		Material emissionMaterial;
 		MeshRenderer emissiveMaterialRenderer;
 		Color m_OriginalEmissiveMatColor;
 
-		string emissiveColorParam = "_EmissiveColor";
+		string emissiveColorParam = "_EmissionColor";
 
 		public bool lightIsOn
 		{
@@ -23,6 +21,7 @@ namespace Forlorn
 				if (light != null)
 				{
 					light.enabled = value;
+					light.intensity = light.enabled ? _originalIntensity : 0.0f;
 				}
 				else if (emissionMaterial)
 				{
@@ -42,7 +41,9 @@ namespace Forlorn
 			get
 			{
 				if (light != null)
+				{
 					return light.enabled;
+				}
 				else if (emissionMaterial)
 					return emissionMaterial.GetColor(emissiveColorParam) != Color.black;
 				else
@@ -58,6 +59,8 @@ namespace Forlorn
 			light = GetComponentInChildren<Light>();
 			if (light == null)
 			{
+				_originalIntensity = light.intensity;
+
 				// Try to get the emissive material
 				emissiveMaterialRenderer = GetComponent<MeshRenderer>();
 				foreach (Material mat in emissiveMaterialRenderer.materials)
@@ -82,9 +85,15 @@ namespace Forlorn
 		private void PlayHumming(bool play)
 		{
 			if (play)
+			{
 				humming.Play();
+			}
 			else
+			{
 				humming.Stop();
+			}
 		}
+
+		private float _originalIntensity;
 	}
 }
